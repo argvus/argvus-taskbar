@@ -16,7 +16,8 @@ depends=(
   'argvus-power'
   'argvus-pwvucontrol'
   'argvus-session'
-  'argvus-shell'
+  'argvus-hyprland'
+  'argvus-launcher'
   'argvus-storage'
   'argvus-waybar'
   'foot'
@@ -28,7 +29,6 @@ depends=(
   'playerctl'
   'power-profiles-daemon'
   'procps-ng'
-  'rofi'
   'wireplumber'
 )
 optdepends=(
