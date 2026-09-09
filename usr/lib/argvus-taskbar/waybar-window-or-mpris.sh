@@ -23,4 +23,4 @@ if [ "$TITLE_LEN" -gt "$MAX" ]; then
   TITLE=$(printf '%s' "$TITLE" | cut -c1-"$MAX")…
 fi
 
-echo " $TITLE"
+echo "󰖯 $TITLE"

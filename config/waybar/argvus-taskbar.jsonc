@@ -91,20 +91,20 @@
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
   "hyprland/language": {
-    "format": "\uf11c {short}",
+    "format": "󰌌 {short}",
     "on-click": "argvus-taskbar-actions --layout-keyboard",
     "on-click-right": "argvus-taskbar-actions --layout-keyboard-settings"
   },
   "cpu": {
     "interval": 5,
-    "format": "\uf2db {usage}%",
+    "format": " {usage}%",
     "on-click": "argvus-taskbar-actions --cpu"
   },
   "custom/cpu-temp": {
     "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh --available",
     "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh",
     "interval": 10,
-    "format": " {}°C",
+    "format": "󰔏 {}°C",
     "on-click": "argvus-taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
@@ -117,13 +117,13 @@
   },
   "memory": {
     "interval": 5,
-    "format": "\uf538 {percentage}%",
+    "format": " {percentage}%",
     "on-click": "argvus-taskbar-actions --mem"
   },
   "custom/date": {
     "exec": "/usr/lib/argvus-taskbar/waybar-date.sh",
     "interval": 30,
-    "format": "\uf073 {}",
+    "format": "󰸗 {}",
     "tooltip": false,
     // The built-in waybar calendar tooltip is disabled on purpose: the
     // Argvus calendar popup (argvus-calendar) is used instead.
@@ -142,21 +142,21 @@
     "on-click": "/usr/lib/argvus-calendar/waybar-launcher --surface {x_root} {y_root}"
   },
   "clock#time": {
-    "format": "\uf017 {:L%H:%M}",
+    "format": "󰅐 {:L%H:%M}",
     "tooltip": false
   },
   "network": {
     "format-icons": [
-      "󰌙",
+      "󰤯",
       "󰤟",
       "󰤢",
       "󰤥",
-      "󰤨"
+			"󰤨"
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
-    "format-ethernet": "\uf0ac",
-    "format-disconnected": "\uf127",
+    "format-ethernet": "",
+    "format-disconnected": "󰌙",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
@@ -181,10 +181,10 @@
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-    "default": "\uf0e7",
-    "performance": "\uf0e7",
-    "balanced": "\uf24e",
-    "power-saver": "\uf06c"
+      "default": "󰊚",
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
     }
   },
   "battery": {
@@ -201,8 +201,8 @@
     "tooltip-format": "{timeTo} • {power} W"
   },
   "pulseaudio#input": {
-    "format-source": "\uf130",
-    "format-source-muted": "\uf131",
+    "format-source": "󰍬",
+    "format-source-muted": "󰍭",
     "format": "{format_source}",
     "tooltip-format": "{format_source} {source_volume}%",
     "scroll-step": 1,
@@ -216,12 +216,12 @@
   "pulseaudio#output": {
     "format": "{icon}",
     "tooltip-format": "{icon}  {volume}%",
-    "format-muted": "\uf6a9",
+    "format-muted": "󰖁",
     "format-icons": {
       "default": [
-        "\uf027",
-        "\uf6a8",
-        "\uf028"
+        "󰕿",
+        "󰖀",
+        "󰕾"
       ]
     },
     "max-volume": 100,
@@ -233,7 +233,7 @@
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
   },
   "custom/settings": {
-      "exec": "[ \"$(cat ${XDG_CACHE_HOME:-$HOME/.cache}/argvus/waybar/sidebar-state 2>/dev/null)\" = 'open' ] && echo '\uf0c9' || echo '\uf00d'",
+      "exec": "[ \"$(cat ${XDG_CACHE_HOME:-$HOME/.cache}/argvus/waybar/sidebar-state 2>/dev/null)\" = 'open' ] && echo '' || echo '󰍜'",
       "interval": 2,
       "format": "{}",
       "tooltip": false,
@@ -248,11 +248,11 @@
     "on-click-right": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full-stop"
   },
   "custom/search": {
-    "format": "\uf002",
+    "format": "",
     "tooltip": false,
     "on-click": "rofi -config /usr/share/argvus/rofi/config.rasi -show drun -display-drun \"drun\""
   },
-  // Removable storage (UDisks2). Compact Font Awesome icon near recording/sound;
+  // Removable storage (UDisks2). Compact Nerd Font icon near recording/sound;
   // left = choose device and open, right = full context menu.
   "custom/storage": {
     "exec": "argvus --storage watch",
@@ -264,11 +264,10 @@
     // "on-click-right": "argvus-storage devices"
   },
   "tray": {
-    "icon-size": 12,
+    "icon-size": 14,
     "spacing": 12,
     "show-passive-items": false
   },
-  // paused: f144 play:
   "custom/spotify-mpris": {
     "exec": "/usr/lib/argvus-taskbar/waybar-spotify-mpris.sh",
     "on-click": "/usr/lib/argvus-taskbar/waybar-spotify-playpause.sh",
@@ -286,16 +285,16 @@
     "max-length": 80,
     "interval": 5,
     "player-icons": {
-      "default": "\uf28b",
-      "mpv": "\uf001"
+      "default": "󰎇",
+      "mpv": "󰎇"
     },
     "status-icons": {
-      "paused": "\uf144"
+      "paused": "󰏥"
     },
     "ignored-players": ["spotify", "audacious", "rhythmbox", "strawberry", "lollypop", "firefox", "chromium", "brave", "edge", "vivaldi", "opera", "google-chrome"]
   },
   "custom/power": {
-    "format": "\uf011",
+    "format": "󰐥",
     "tooltip": false,
     "on-click": "argvus-taskbar-actions --power-menu"
   }

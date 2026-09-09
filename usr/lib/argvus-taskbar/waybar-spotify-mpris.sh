@@ -4,12 +4,12 @@
 # Supported: Spotify, Audacious, Rhythmbox, Strawberry, Lollypop,
 #            and Spotify via browser (Firefox, Chrome, Brave, etc.).
 
-# Font Awesome 7: play=\uf04b  pause=\uf04c
-PLAY=$(printf '\xef\x81\x8b')
-PAUSE=$(printf '\xef\x81\x8c')
+# Symbols Nerd Font: md-play=U+F040A, md-pause=U+F03E4
+PLAY=$(printf '\xf3\xb0\x90\x8a')
+PAUSE=$(printf '\xf3\xb0\x8f\xa4')
 
 icon() {
-    printf "<span font_family='Font Awesome 7 Free'>%s</span>" "$1"
+    printf "<span font_family='Symbols Nerd Font Mono'>%s</span>" "$1"
 }
 
 emit() {
