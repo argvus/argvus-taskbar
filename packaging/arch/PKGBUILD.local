@@ -10,6 +10,7 @@ depends=(
   'argvus-app-profiles'
   'argvus-appearance'
   'argvus-calendar'
+  'argvus-control-panel'
   'argvus-widget-telemetry'
   'argvus-network'
   'argvus-power'
