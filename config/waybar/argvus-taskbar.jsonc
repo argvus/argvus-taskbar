@@ -54,7 +54,7 @@
     "custom/settings"
   ],
   "custom/icon-window": {
-    "format": " "
+    "format": "<span font_family='Symbols Nerd Font Mono'></span> "
   },
   "hyprland/window": {
     "format": "{}",
@@ -83,39 +83,39 @@
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
   "hyprland/language": {
-    "format": "󰌌 {short}",
+    "format": "<span font_family='Symbols Nerd Font Mono'>󰌌</span> {short}",
     "on-click": "argvus-taskbar-actions --layout-keyboard",
     "on-click-right": "argvus-taskbar-actions --layout-keyboard-settings"
   },
   "cpu": {
     "interval": 5,
-    "format": " {usage}%",
+    "format": "<span font_family='Symbols Nerd Font Mono'></span> {usage}%",
     "on-click": "argvus-taskbar-actions --cpu"
   },
   "custom/cpu-temp": {
     "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh --available",
     "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh",
     "interval": 10,
-    "format": "{}°C",
+    "format": "<span font_family='Symbols Nerd Font Mono'></span>{}°C",
     "on-click": "argvus-taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
     "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/gpu.sh --available-temp",
     "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/gpu.sh --temp",
     "interval": 15,
-    "format": "󰢮 {}",
+    "format": "<span font_family='Symbols Nerd Font Mono'>󰢮</span> {}",
     "tooltip": false,
     "on-click": "argvus-taskbar-actions --gpu-temp"
   },
   "memory": {
     "interval": 5,
-    "format": " {percentage}%",
+    "format": "<span font_family='Symbols Nerd Font Mono'></span> {percentage}%",
     "on-click": "argvus-taskbar-actions --mem"
   },
   "custom/date": {
     "exec": "/usr/lib/argvus-taskbar/waybar-date.sh",
     "interval": 30,
-    "format": "󰸗 {}",
+    "format": "<span font_family='Symbols Nerd Font Mono'>󰸗</span> {}",
     "tooltip": false,
     // The built-in waybar calendar tooltip is disabled on purpose: the
     // Argvus calendar popup (argvus-calendar) is used instead.
@@ -134,7 +134,7 @@
     "on-click": "/usr/lib/argvus-calendar/waybar-launcher --surface {x_root} {y_root}"
   },
   "clock#time": {
-    "format": "󰅐 {:L%H:%M}",
+    "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",
     "tooltip": false
   },
   "network": {
@@ -186,10 +186,10 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰚥 {capacity}%",
-    "format-full": "󰁹 {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "<span font_family='Symbols Nerd Font Mono'>󰂄</span> {capacity}%",
+    "format-plugged": "<span font_family='Symbols Nerd Font Mono'>󰚥</span> {capacity}%",
+    "format-full": "<span font_family='Symbols Nerd Font Mono'>󰁹</span> {capacity}%",
+    "format-icons": ["<span font_family='Symbols Nerd Font Mono'>󰂎</span>", "<span font_family='Symbols Nerd Font Mono'>󰁺</span>", "<span font_family='Symbols Nerd Font Mono'>󰁻</span>", "<span font_family='Symbols Nerd Font Mono'>󰁼</span>", "<span font_family='Symbols Nerd Font Mono'>󰁽</span>", "<span font_family='Symbols Nerd Font Mono'>󰁾</span>", "<span font_family='Symbols Nerd Font Mono'>󰁿</span>", "<span font_family='Symbols Nerd Font Mono'>󰂀</span>", "<span font_family='Symbols Nerd Font Mono'>󰂁</span>", "<span font_family='Symbols Nerd Font Mono'>󰂂</span>", "<span font_family='Symbols Nerd Font Mono'>󰁹</span>"],
     "tooltip-format": "{timeTo} • {power} W"
   },
   "pulseaudio#input": {
@@ -277,11 +277,11 @@
     "max-length": 80,
     "interval": 5,
     "player-icons": {
-      "default": "󰎇",
-      "mpv": "󰎇"
+      "default": "<span font_family='Symbols Nerd Font Mono'>󰎇</span>",
+      "mpv": "<span font_family='Symbols Nerd Font Mono'>󰎇</span>"
     },
     "status-icons": {
-      "paused": "󰏥"
+      "paused": "<span font_family='Symbols Nerd Font Mono'>󰏥</span>"
     },
     "ignored-players": ["spotify", "audacious", "rhythmbox", "strawberry", "lollypop", "firefox", "chromium", "brave", "edge", "vivaldi", "opera", "google-chrome"]
   },

@@ -116,9 +116,23 @@ window#waybar.empty #window {
 #custom-cpu-temp,
 #custom-gpu-temp {
   /* Minimal: 12px, Medium (Recommended): 14px */
-  font-family: "Symbols Nerd Font Mono", "IBM Plex Mono", monospace;
   font-size: 14px;
   font-weight: normal;
+}
+
+#custom-icon-window,
+#network,
+#bluetooth,
+#custom-bluetooth,
+#custom-expand-icon,
+#custom-storage,
+#custom-recording,
+#custom-search,
+#pulseaudio,
+#power-profiles-daemon,
+#custom-settings,
+#custom-power {
+  font-family: "Symbols Nerd Font Mono";
 }
 
 tooltip {
