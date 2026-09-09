@@ -71,15 +71,7 @@ term_exec() {
 }
 
 sidebar_toggle() {
-  STATE_FILE="$WAYBAR_CACHE_DIR/sidebar-state"
-
-  if [ "$(cat "$STATE_FILE" 2>/dev/null)" = "open" ]; then
-    echo "close" > "$STATE_FILE"
-  else
-    echo "open" > "$STATE_FILE"
-  fi
-
-  sh "$(paths_config "scripts/argvus/toggle-sidebar.sh")"
+  exec sh "$(paths_config "scripts/argvus/toggle-sidebar.sh")"
 }
 
 case $1 in

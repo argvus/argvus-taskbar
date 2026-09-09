@@ -226,7 +226,7 @@
   },
   "custom/settings": {
       "exec": "[ \"$(cat ${XDG_CACHE_HOME:-$HOME/.cache}/argvus/waybar/sidebar-state 2>/dev/null)\" = 'open' ] && echo '' || echo '󰍜'",
-      "interval": 2,
+      "interval": 1,
       "format": "{}",
       "tooltip": false,
       "on-click": "argvus-taskbar-actions --sidebar-toggle"
@@ -234,7 +234,7 @@
   "custom/recording": {
     "exec": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full-status",
     "return-type": "json",
-    "interval": 5,
+    "interval": 1,
     "format": "{}",
     "on-click": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full",
     "on-click-right": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full-stop"
@@ -242,7 +242,7 @@
   "custom/search": {
     "format": "",
     "tooltip": false,
-    "on-click": "rofi -config /usr/share/argvus/rofi/config.rasi -show drun -display-drun \"drun\""
+    "on-click": "argvus-launcher"
   },
   // Removable storage (UDisks2). Compact Nerd Font icon near recording/sound;
   // left = choose device and open, right = full context menu.
