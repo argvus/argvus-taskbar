@@ -181,15 +181,11 @@ tooltip label {
 #network,
 #bluetooth,
 #custom-bluetooth,
-#memory,
 #battery,
-#cpu,
 #clock,
 #custom-date,
 #custom-settings,
-#custom-power,
-#custom-cpu-temp,
-#custom-gpu-temp
+#custom-power
 {
   /* top right bottom left */
   margin: 0px 4px 0px 4px;
@@ -198,14 +194,32 @@ tooltip label {
 
 #language {
   /* top right bottom left */
-  margin: 0px 1px 0px 4px;
-  padding: 0px 4px 0px 4px;
+  margin: 0px 0px 0px 0px;
 }
 
 #power-profiles-daemon {
   /* top right bottom left */
-  margin: 0px 3px 0px 3px;
-  padding: 0px 3px 0px 3px;
+  margin: 0px 6px 0px 6px;
+}
+
+#memory {
+  /* top right bottom left */
+  margin: 0px 0px 0px 10px;
+}
+
+#cpu {
+  /* top right bottom left */
+  margin: 0px 0px 0px 14px;
+}
+
+#custom-cpu-temp {
+  /* top right bottom left */
+  margin: 0px 0px 0px 12px;
+}
+
+#custom-gpu-temp {
+  /* top right bottom left */
+  margin: 0px 0px 0px 14px;
 }
 
 #custom-window-or-mpris {

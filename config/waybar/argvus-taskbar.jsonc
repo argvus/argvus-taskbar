@@ -24,15 +24,7 @@
   "group/right-1": {
     "orientation": "inherit",
     "spacing": 2,
-    "modules": ["network",
-      "hyprland/language",
-      "power-profiles-daemon",
-      "battery",
-      "memory",
-      "cpu",
-      "custom/cpu-temp",
-      "custom/gpu-temp"
-    ]
+    "modules": ["network", "power-profiles-daemon", "hyprland/language", "battery", "memory", "cpu", "custom/cpu-temp", "custom/gpu-temp"]
   },
   "group/right-search": {
     "orientation": "inherit",
@@ -104,14 +96,14 @@
     "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh --available",
     "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh",
     "interval": 10,
-    "format": "󰔏 {}°C",
+    "format": "{}°C",
     "on-click": "argvus-taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
     "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/gpu.sh --available-temp",
     "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/gpu.sh --temp",
     "interval": 15,
-    "format": "󰾲 {}",
+    "format": "󰢮 {}",
     "tooltip": false,
     "on-click": "argvus-taskbar-actions --gpu-temp"
   },
@@ -216,12 +208,12 @@
   "pulseaudio#output": {
     "format": "{icon}",
     "tooltip-format": "{icon}  {volume}%",
-    "format-muted": "󰖁",
+    "format-muted": "",
     "format-icons": {
       "default": [
-        "󰕿",
-        "󰖀",
-        "󰕾"
+        "",
+        "",
+        ""
       ]
     },
     "max-volume": 100,
