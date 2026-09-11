@@ -118,7 +118,7 @@
     "format": "<span font_family='Symbols Nerd Font Mono'>󰸗</span> {}",
     "tooltip": false,
     // The built-in waybar calendar tooltip is disabled on purpose: the
-    // Argvus calendar popup (argvus-calendar) is used instead.
+    // Argvus calendar popup (argvus-taskbar-calendar) is used instead.
     // "tooltip-format": "<span>{calendar}</span>",
     // "calendar": {
     //   "mode": "month",
@@ -131,7 +131,7 @@
     //     "today": "<span color='#ff6699'><b>{}</b></span>"
     //   }
     // },
-    "on-click": "/usr/lib/argvus-calendar/waybar-launcher --surface {x_root} {y_root}"
+    "on-click": "/usr/lib/argvus-taskbar-calendar/waybar-launcher --surface {x_root} {y_root}"
   },
   "clock#time": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",

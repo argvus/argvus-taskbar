@@ -3,9 +3,9 @@
 # Existing Waybar profiles call this script for the calendar. Hand that click
 # to the dedicated launcher before bootstrap and workspace discovery can delay
 # pointer capture.
-if [ "${1:-}" = "--cal" ] && [ -x /usr/lib/argvus-calendar/waybar-launcher ]; then
+if [ "${1:-}" = "--cal" ] && [ -x /usr/lib/argvus-taskbar-calendar/waybar-launcher ]; then
   shift
-  exec /usr/lib/argvus-calendar/waybar-launcher "$@"
+  exec /usr/lib/argvus-taskbar-calendar/waybar-launcher "$@"
 fi
 
 ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"

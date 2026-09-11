@@ -9,7 +9,7 @@ license=('GPL-3.0-only')
 depends=(
   'argvus-app-profiles'
   'argvus-appearance'
-  'argvus-calendar'
+  'argvus-taskbar-calendar'
   'argvus-control-panel'
   'argvus-fonts'
   'argvus-widget-telemetry'
