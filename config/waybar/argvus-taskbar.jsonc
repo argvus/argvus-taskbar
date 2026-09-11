@@ -253,7 +253,7 @@
     "tooltip": true,
     "hide-empty-text": true,
     "on-click": "/usr/share/argvus/scripts/apps/hypr-storage-menu.sh"
-    // "on-click-right": "argvus-storage devices"
+    // "on-click-right": "argvus-taskbar-storage devices"
   },
   "tray": {
     "icon-size": 14,

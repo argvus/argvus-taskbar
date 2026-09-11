@@ -19,7 +19,7 @@ depends=(
   'argvus-session'
   'argvus-hyprland'
   'argvus-launcher'
-  'argvus-storage'
+  'argvus-taskbar-storage'
   'argvus-waybar'
   'foot'
   'hyprland'
