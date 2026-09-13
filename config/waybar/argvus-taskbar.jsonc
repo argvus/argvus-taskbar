@@ -247,7 +247,7 @@
   // Removable storage (UDisks2). Compact Nerd Font icon near recording/sound;
   // left = choose device and open, right = full context menu.
   "custom/storage": {
-    "exec": "argvus --storage watch",
+    "exec": "argvus --removable-devices watch",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
