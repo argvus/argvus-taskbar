@@ -8,7 +8,7 @@ if [ "${1:-}" = "--cal" ] && [ -x /usr/lib/argvus-taskbar-calendar/waybar-launch
   exec /usr/lib/argvus-taskbar-calendar/waybar-launcher "$@"
 fi
 
-ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/scripts/argvus/bootstrap.sh}"
+ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 # shellcheck disable=SC1090,SC1091
 . "$ARGVUS_BOOTSTRAP"
 
@@ -51,7 +51,7 @@ switch_keyboard_layout() {
   require_session
   case "$XDG_SESSION_DESKTOP" in
     Hyprland)
-      exec sh "$(paths_config scripts/argvus/keyboard-layout-cycle.sh)" cycle
+      exec sh "$(paths_config session/sh/keyboard-layout-cycle.sh)" cycle
       ;;
     sway)
       swaymsg input type:keyboard xkb_switch_layout next
@@ -61,7 +61,7 @@ switch_keyboard_layout() {
 
 power_menu() {
   [ -n "$DIR" ] || require_session
-  exec sh "$(paths_config "scripts/apps/hypr-power-menu.sh")"
+  exec sh "$(paths_config "power/sh/hypr-power-menu.sh")"
 }
 
 term_exec() {
@@ -71,7 +71,7 @@ term_exec() {
 }
 
 sidebar_toggle() {
-  exec sh "$(paths_config "scripts/argvus/toggle-sidebar.sh")"
+  exec sh "$(paths_config control-panel/sh/toggle-sidebar.sh)"
 }
 
 case $1 in
@@ -86,7 +86,7 @@ case $1 in
     term_exec argvus-taskbar-cpu sh -c 'argvus --system-monitor --cpu; echo; read -p "Pressione Enter para fechar..."'
     ;;
   --cpu-temp)
-    if sh "$(paths_config scripts/argvus/widget-telemetry/cpu-temp.sh)" --available; then
+    if sh "$(paths_config widget-telemetry/sh/cpu-temp.sh)" --available; then
       term_exec cpu-temp-popup sh -c 'sensors; echo; read -p "Pressione Enter para fechar..."'
     fi
     go_workspace "$CURRENT_WS"
@@ -94,7 +94,7 @@ case $1 in
   --gpu-temp)
     if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
       term_exec gpu-temp-popup watch -n 1 nvidia-smi
-    elif sh "$(paths_config scripts/argvus/widget-telemetry/gpu.sh)" --available-temp; then
+    elif sh "$(paths_config widget-telemetry/sh/gpu.sh)" --available-temp; then
       term_exec gpu-temp-popup sh -c 'sensors; echo; read -p "Pressione Enter para fechar..."'
     fi
     go_workspace "$CURRENT_WS"

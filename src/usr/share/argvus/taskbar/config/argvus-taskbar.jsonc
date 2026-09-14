@@ -67,7 +67,7 @@
     "tooltip": false
   },
   "custom/window-or-mpris": {
-    "exec": "/usr/lib/argvus-taskbar/waybar-window-or-mpris.sh",
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-window-or-mpris.sh",
     "interval": 5,
     "format": "{}",
     "tooltip": false
@@ -93,15 +93,15 @@
     "on-click": "argvus-taskbar-actions --cpu"
   },
   "custom/cpu-temp": {
-    "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh --available",
-    "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/cpu-temp.sh",
+    "exec-if": "/usr/share/argvus/widget-telemetry/sh/cpu-temp.sh --available",
+    "exec": "/usr/share/argvus/widget-telemetry/sh/cpu-temp.sh",
     "interval": 10,
     "format": "<span font_family='Symbols Nerd Font Mono'></span>{}°C",
     "on-click": "argvus-taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
-    "exec-if": "/usr/share/argvus/scripts/argvus/widget-telemetry/gpu.sh --available-temp",
-    "exec": "/usr/share/argvus/scripts/argvus/widget-telemetry/gpu.sh --temp",
+    "exec-if": "/usr/share/argvus/widget-telemetry/sh/gpu.sh --available-temp",
+    "exec": "/usr/share/argvus/widget-telemetry/sh/gpu.sh --temp",
     "interval": 15,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰢮</span> {}",
     "tooltip": false,
@@ -113,7 +113,7 @@
     "on-click": "argvus-taskbar-actions --mem"
   },
   "custom/date": {
-    "exec": "/usr/lib/argvus-taskbar/waybar-date.sh",
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-date.sh",
     "interval": 30,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰸗</span> {}",
     "tooltip": false,
@@ -158,14 +158,14 @@
     "on-click-right": "argvus-networkctl toggle"
   },
   "custom/bluetooth": {
-    "exec-if": "/usr/share/argvus/scripts/argvus/bluetooth-control.sh available",
-    "exec": "/usr/share/argvus/scripts/argvus/bluetooth-control.sh waybar",
+    "exec-if": "/usr/share/argvus/network/sh/bluetooth-control.sh available",
+    "exec": "/usr/share/argvus/network/sh/bluetooth-control.sh waybar",
     "return-type": "json",
     "format": "{}",
     "hide-empty-text": true,
     "tooltip": true,
-    "on-click": "/usr/share/argvus/scripts/argvus/bluetooth-control.sh toggle",
-    "on-click-right": "/usr/share/argvus/scripts/argvus/bluetooth-control.sh manager",
+    "on-click": "/usr/share/argvus/network/sh/bluetooth-control.sh toggle",
+    "on-click-right": "/usr/share/argvus/network/sh/bluetooth-control.sh manager",
     "interval": 30
   },
   "power-profiles-daemon": {
@@ -232,12 +232,12 @@
       "on-click": "argvus-taskbar-actions --sidebar-toggle"
   },
   "custom/recording": {
-    "exec": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full-status",
+    "exec": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full-status",
     "return-type": "json",
     "interval": 1,
     "format": "{}",
-    "on-click": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full",
-    "on-click-right": "/usr/share/argvus/scripts/apps/hypr-screenshot.sh --video-full-stop"
+    "on-click": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full",
+    "on-click-right": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full-stop"
   },
   "custom/search": {
     "format": "",
@@ -252,7 +252,7 @@
     "format": "{}",
     "tooltip": true,
     "hide-empty-text": true,
-    "on-click": "/usr/share/argvus/scripts/apps/hypr-storage-menu.sh"
+    "on-click": "/usr/share/argvus/taskbar-storage/sh/hypr-storage-menu.sh"
     // "on-click-right": "argvus-taskbar-storage devices"
   },
   "tray": {
@@ -261,9 +261,9 @@
     "show-passive-items": false
   },
   "custom/spotify-mpris": {
-    "exec": "/usr/lib/argvus-taskbar/waybar-spotify-mpris.sh",
-    "on-click": "/usr/lib/argvus-taskbar/waybar-spotify-playpause.sh",
-    "on-click-right": "/usr/lib/argvus-taskbar/waybar-spotify-focus.sh",
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-spotify-mpris.sh",
+    "on-click": "/usr/share/argvus/taskbar/sh/waybar-spotify-playpause.sh",
+    "on-click-right": "/usr/share/argvus/taskbar/sh/waybar-spotify-focus.sh",
     "format": "{}",
     "format-paused": "{}",
     "return-type": "text",
