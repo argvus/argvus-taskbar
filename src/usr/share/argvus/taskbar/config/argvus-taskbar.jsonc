@@ -252,8 +252,8 @@
     "format": "{}",
     "tooltip": true,
     "hide-empty-text": true,
-    "on-click": "/usr/share/argvus/taskbar-storage/sh/hypr-storage-menu.sh"
-    // "on-click-right": "argvus-taskbar-storage devices"
+    "on-click": "/usr/share/argvus/removable-devices/sh/removable-devices-menu.sh"
+    // "on-click-right": "argvus-removable-devices devices"
   },
   "tray": {
     "icon-size": 14,
