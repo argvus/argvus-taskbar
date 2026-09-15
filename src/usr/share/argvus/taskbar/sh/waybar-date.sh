@@ -1,17 +1,13 @@
 #!/usr/bin/env sh
 
-capitalize() {
-  _value="$1"
-  _first="${_value%"${_value#?}"}"
-  _rest="${_value#?}"
-  _upper="$(printf '%s' "$_first" | tr '[:lower:]' '[:upper:]')"
-  printf '%s%s' "$_upper" "$_rest"
-}
+# shellcheck disable=SC1091
+. /usr/share/argvus/lib/i18n.sh
 
-_date="$(date '+%a|%d|%B')"
-_weekday="${_date%%|*}"
-_remaining="${_date#*|}"
-_day="${_remaining%%|*}"
-_month="${_remaining#*|}"
+_weekday="$(date '+%u')"
+_month="$(date '+%-m')"
+_day="$(date '+%d')"
 
-printf '%s, %s %s\n' "$(capitalize "$_weekday")" "$_day" "$(capitalize "$_month")"
+argvus_tr taskbar date.format \
+  "weekday=$(argvus_tr taskbar "date.weekday.${_weekday}")" \
+  "day=${_day#0}" \
+  "month=$(argvus_tr taskbar "date.month.${_month}")"

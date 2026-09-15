@@ -12,6 +12,7 @@ depends=(
   'argvus-taskbar-calendar'
   'argvus-control-panel'
   'argvus-fonts'
+  'argvus-i18n'
   'argvus-widget-telemetry'
   'argvus-network'
   'argvus-power'

@@ -11,6 +11,8 @@ fi
 ARGVUS_BOOTSTRAP="${ARGVUS_BOOTSTRAP:-${ARGVUS_SYSTEM_CONFIG:-/usr/share/argvus}/session/sh/bootstrap.sh}"
 # shellcheck disable=SC1090,SC1091
 . "$ARGVUS_BOOTSTRAP"
+# shellcheck disable=SC1091
+. /usr/share/argvus/lib/i18n.sh
 
 mkdir -p "$WAYBAR_CACHE_DIR"
 
@@ -33,7 +35,7 @@ require_session() {
   case "$XDG_SESSION_DESKTOP" in
     Hyprland | sway) return 0 ;;
     *)
-      notify-send "argvus-taskbar" "Unsupported session: ${XDG_SESSION_DESKTOP:-unknown}"
+      notify-send "argvus-taskbar" "$(argvus_tr taskbar session.unsupported "session=${XDG_SESSION_DESKTOP:-unknown}")"
       exit 1
       ;;
   esac
@@ -80,14 +82,17 @@ case $1 in
     argvus --calendar
     ;;
   --mem)
-    term_exec argvus-taskbar-mem sh -c 'argvus --system-monitor --mem; echo; read -p "Pressione Enter para fechar..."'
+    # shellcheck disable=SC2016
+    term_exec argvus-taskbar-mem env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'argvus --system-monitor --mem; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     ;;
   --cpu)
-    term_exec argvus-taskbar-cpu sh -c 'argvus --system-monitor --cpu; echo; read -p "Pressione Enter para fechar..."'
+    # shellcheck disable=SC2016
+    term_exec argvus-taskbar-cpu env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'argvus --system-monitor --cpu; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     ;;
   --cpu-temp)
     if sh "$(paths_config widget-telemetry/sh/cpu-temp.sh)" --available; then
-      term_exec cpu-temp-popup sh -c 'sensors; echo; read -p "Pressione Enter para fechar..."'
+      # shellcheck disable=SC2016
+      term_exec cpu-temp-popup env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'sensors; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     fi
     go_workspace "$CURRENT_WS"
     ;;
@@ -95,7 +100,8 @@ case $1 in
     if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
       term_exec gpu-temp-popup watch -n 1 nvidia-smi
     elif sh "$(paths_config widget-telemetry/sh/gpu.sh)" --available-temp; then
-      term_exec gpu-temp-popup sh -c 'sensors; echo; read -p "Pressione Enter para fechar..."'
+      # shellcheck disable=SC2016
+      term_exec gpu-temp-popup env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'sensors; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     fi
     go_workspace "$CURRENT_WS"
     ;;
@@ -112,7 +118,7 @@ case $1 in
     sidebar_toggle
     ;;
   *)
-    notify-send "argvus-taskbar" "Invalid parameter: ${1:-empty}"
+    notify-send "argvus-taskbar" "$(argvus_tr taskbar parameter.invalid "parameter=${1:-empty}")"
     exit 1
     ;;
 esac
