@@ -31,6 +31,7 @@ arch_check_taskbar_payload() {
 	test -x "${source_root}/src/usr/bin/argvus-taskbar-actions"
 	test -f "${source_root}/src/usr/share/argvus/taskbar/config/argvus-taskbar.jsonc"
 	test -f "${source_root}/src/usr/share/argvus/taskbar/config/argvus-taskbar.css"
+	test -x "${source_root}/src/usr/share/argvus/taskbar/sh/waybar-notifications.sh"
 }
 
 arch_package_taskbar_payload() {

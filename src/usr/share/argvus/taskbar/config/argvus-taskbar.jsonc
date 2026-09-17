@@ -39,7 +39,8 @@
       "custom/recording",
       "custom/bluetooth",
       "pulseaudio#input",
-      "pulseaudio#output"
+      "pulseaudio#output",
+      "custom/notifications"
     ]
   },
   "modules-left": ["group/left1", "group/left2"],
@@ -223,6 +224,13 @@
     "on-click-right": "pamixer -t",
     "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+  },
+  "custom/notifications": {
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-notifications.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "argvus-notifications dnd toggle",
+    "tooltip": true
   },
   "custom/settings": {
       "exec": "[ \"$(cat ${XDG_CACHE_HOME:-$HOME/.cache}/argvus/waybar/sidebar-state 2>/dev/null)\" = 'open' ] && echo '' || echo '󰍜'",

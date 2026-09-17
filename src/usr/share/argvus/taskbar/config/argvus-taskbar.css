@@ -127,6 +127,7 @@ window#waybar.empty #window {
 #custom-expand-icon,
 #custom-storage,
 #custom-recording,
+#custom-notifications,
 #custom-search,
 #pulseaudio,
 #power-profiles-daemon,
@@ -176,11 +177,13 @@ tooltip label {
 #power-profiles-daemon,
 #custom-power,
 #custom-cpu-temp,
+#custom-notifications,
 #custom-gpu-temp
 {
   border-bottom: 1px solid @transparent;
 }
 
+/* SPACES ICONS */
 #tray,
 #group-tray-expander,
 #custom-storage,
@@ -198,6 +201,7 @@ tooltip label {
 #battery,
 #clock,
 #custom-date,
+#custom-notifications,
 #custom-settings,
 #custom-power
 {
@@ -205,6 +209,13 @@ tooltip label {
   margin: 0px 4px 0px 4px;
   padding: 0px 4px 0px 4px;
 }
+
+#custom-notifications {
+  /* top right bottom left */
+  margin: 2px 4px 0px 4px;
+  padding: 0px 4px 0px 4px;
+}
+
 
 #language {
   /* top right bottom left */
@@ -228,12 +239,12 @@ tooltip label {
 
 #custom-cpu-temp {
   /* top right bottom left */
-  margin: 0px 0px 0px 12px;
+  margin: 1px 0px 0px 12px;
 }
 
 #custom-gpu-temp {
   /* top right bottom left */
-  margin: 0px 0px 0px 14px;
+  margin: 0.7px 0px 0px 14px;
 }
 
 #custom-window-or-mpris {
@@ -287,6 +298,7 @@ tooltip label {
 #custom-settings:hover,
 #custom-power:hover,
 #custom-cpu-temp:hover,
+#custom-notifications:hover,
 #custom-gpu-temp:hover {
   color: @th-foreground2;
   border-bottom: 1px solid @th-foreground2;
