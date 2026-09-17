@@ -24,7 +24,7 @@
   "group/right-1": {
     "orientation": "inherit",
     "spacing": 2,
-    "modules": ["network", "power-profiles-daemon", "hyprland/language", "battery", "memory", "cpu", "custom/cpu-temp", "custom/gpu-temp"]
+    "modules": ["custom/network", "power-profiles-daemon", "hyprland/language", "battery", "memory", "cpu", "custom/cpu-temp", "custom/gpu-temp"]
   },
   "group/right-search": {
     "orientation": "inherit",
@@ -138,22 +138,12 @@
     "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",
     "tooltip": false
   },
-  "network": {
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-			"󰤨"
-    ],
-    "format": "{icon}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "",
-    "format-disconnected": "󰌙",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
+  "custom/network": {
+    "exec": "/usr/share/argvus/network/sh/waybar-network.sh",
+    "return-type": "json",
+    "format": "{}",
     "interval": 10,
+    "tooltip": true,
     "nospacing": 1,
     "on-click": "argvus-networkctl manager",
     "on-click-right": "argvus-networkctl toggle"

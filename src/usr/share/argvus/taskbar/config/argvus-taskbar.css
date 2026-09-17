@@ -97,6 +97,7 @@ window#waybar.empty #window {
 #memory,
 #battery,
 #network,
+#custom-network,
 #bluetooth,
 #custom-bluetooth,
 #clock,
@@ -122,6 +123,7 @@ window#waybar.empty #window {
 
 #custom-icon-window,
 #network,
+#custom-network,
 #bluetooth,
 #custom-bluetooth,
 #custom-expand-icon,
@@ -134,6 +136,10 @@ window#waybar.empty #window {
 #custom-settings,
 #custom-power {
   font-family: "Symbols Nerd Font Mono";
+}
+
+#custom-network.limited {
+  color: @th-warn;
 }
 
 tooltip {
