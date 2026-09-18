@@ -40,6 +40,7 @@
       "custom/bluetooth",
       "pulseaudio#input",
       "pulseaudio#output",
+      "custom/keep-awake",
       "custom/notifications"
     ]
   },
@@ -220,6 +221,13 @@
     "return-type": "json",
     "interval": 2,
     "on-click": "argvus-notifications dnd toggle",
+    "tooltip": true
+  },
+  "custom/keep-awake": {
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-keep-awake.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "/usr/share/argvus/power/sh/keep-awake.sh toggle",
     "tooltip": true
   },
   "custom/settings": {

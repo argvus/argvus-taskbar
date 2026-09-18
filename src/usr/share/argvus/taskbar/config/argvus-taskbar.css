@@ -129,6 +129,7 @@ window#waybar.empty #window {
 #custom-expand-icon,
 #custom-storage,
 #custom-recording,
+#custom-keep-awake,
 #custom-notifications,
 #custom-search,
 #pulseaudio,
@@ -183,6 +184,7 @@ tooltip label {
 #power-profiles-daemon,
 #custom-power,
 #custom-cpu-temp,
+#custom-keep-awake,
 #custom-notifications,
 #custom-gpu-temp
 {
@@ -207,6 +209,7 @@ tooltip label {
 #battery,
 #clock,
 #custom-date,
+#custom-keep-awake,
 #custom-notifications,
 #custom-settings,
 #custom-power
@@ -222,6 +225,10 @@ tooltip label {
   padding: 0px 4px 0px 4px;
 }
 
+#custom-keep-awake {
+ margin: 2px 4px 0px 4px;
+ padding: 0px 4px 0px 4px;
+}
 
 #language {
   /* top right bottom left */
