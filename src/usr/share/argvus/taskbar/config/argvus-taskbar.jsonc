@@ -231,7 +231,7 @@
     "tooltip": true
   },
   "custom/settings": {
-      "exec": "[ \"$(cat ${XDG_CACHE_HOME:-$HOME/.cache}/argvus/waybar/sidebar-state 2>/dev/null)\" = 'open' ] && echo '' || echo '󰍜'",
+      "exec": "[ \"$(cat ${XDG_CACHE_HOME:-$HOME/.cache}/argvus/waybar/control-panel-state 2>/dev/null)\" = 'open' ] && echo '' || echo '󰍜'",
       "interval": 1,
       "format": "{}",
       "tooltip": false,
