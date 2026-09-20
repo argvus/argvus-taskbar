@@ -311,6 +311,7 @@ tooltip label {
 #custom-settings:hover,
 #custom-power:hover,
 #custom-cpu-temp:hover,
+#custom-keep-awake:hover,
 #custom-notifications:hover,
 #custom-gpu-temp:hover {
   color: @th-foreground2;
