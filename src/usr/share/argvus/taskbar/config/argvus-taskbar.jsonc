@@ -34,14 +34,24 @@
   },
   "group/right-2": {
     "orientation": "inherit",
+    // ARGVUS_RIGHT_2_AUTO_BEGIN
+    "drawer": {
+      "transition-duration": 240,
+      "children-class": "right-2-drawer-item",
+      "reveal-delay": 80,
+      "transition-left-to-right": true
+    },
+    // ARGVUS_RIGHT_2_AUTO_END
     "modules": [
+      // ARGVUS_RIGHT_2_EXPANDER
+      "custom/right-2-expander",
+      "custom/notifications",
       "custom/storage",
       "custom/recording",
       "custom/bluetooth",
       "pulseaudio#input",
       "pulseaudio#output",
-      "custom/keep-awake",
-      "custom/notifications"
+      "custom/keep-awake"
     ]
   },
   "modules-left": ["group/left1", "group/left2"],
@@ -249,6 +259,11 @@
     "format": "",
     "tooltip": false,
     "on-click": "argvus-launcher"
+  },
+  "custom/right-2-expander": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "More controls"
   },
   // Removable storage (UDisks2). Compact Nerd Font icon near recording/sound;
   // left = choose device and open, right = full context menu.

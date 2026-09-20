@@ -100,6 +100,7 @@ window#waybar.empty #window {
 #custom-network,
 #bluetooth,
 #custom-bluetooth,
+#custom-right-2-expander,
 #clock,
 #custom-date,
 #custom-expand-icon,
@@ -131,6 +132,7 @@ window#waybar.empty #window {
 #custom-recording,
 #custom-keep-awake,
 #custom-notifications,
+#custom-right-2-expander,
 #custom-search,
 #pulseaudio,
 #power-profiles-daemon,
@@ -186,6 +188,7 @@ tooltip label {
 #custom-cpu-temp,
 #custom-keep-awake,
 #custom-notifications,
+#custom-right-2-expander,
 #custom-gpu-temp
 {
   border-bottom: 1px solid @transparent;
@@ -200,6 +203,7 @@ tooltip label {
 #custom-window-or-mpris,
 #custom-recording,
 #custom-search,
+#custom-right-2-expander,
 #pulseaudio,
 #language,
 #power-profiles-daemon,
@@ -285,6 +289,13 @@ tooltip label {
 #right-2 {
   background: @th-right02-bg;
   color: @th-foreground;
+  transition: background-color 180ms ease-in-out;
+}
+
+/* Keep a quiet expansion affordance visible while the utility drawer is collapsed. */
+#right-2:not(.expanded) {
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 #right-search {
