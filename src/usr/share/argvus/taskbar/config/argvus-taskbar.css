@@ -4,6 +4,8 @@
 /*  Waybar — Top Painel  */
 
 @define-color transparent transparent;
+@define-color th-background-effective @th-background-rgba;
+@define-color th-mpris-bg-effective @th-mpris-bg;
 
 
 /* --- Global-Settings --- */
@@ -17,7 +19,7 @@ window#waybar {
   min-height: 0px;
   border-radius: 0px;
   border: 1px solid @th-decorate;
-  background: @th-background-rgba;
+  background: @th-background-effective;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -398,7 +400,7 @@ tooltip label {
 
 #mpris,
 #custom-spotify-mpris {
-  background: @th-mpris-bg;
+  background: @th-mpris-bg-effective;
   color: @th-foreground;
   border: 1px solid @th-mpris-border;
   box-shadow: none;
