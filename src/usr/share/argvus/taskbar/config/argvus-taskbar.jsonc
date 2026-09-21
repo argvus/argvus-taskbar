@@ -143,7 +143,7 @@
     //     "today": "<span color='#ff6699'><b>{}</b></span>"
     //   }
     // },
-    "on-click": "/usr/lib/argvus-taskbar-calendar/waybar-launcher --surface {x_root} {y_root}"
+    "on-click": "/usr/lib/argvus-taskbar-calendar/waybar-launcher --root {x} {y}"
   },
   "clock#time": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",
@@ -273,7 +273,7 @@
     "format": "{}",
     "tooltip": true,
     "hide-empty-text": true,
-    "on-click": "/usr/share/argvus/removable-devices/sh/removable-devices-menu.sh"
+    "on-click": "/usr/share/argvus/removable-devices/sh/removable-devices-menu.sh --root {x} {y}"
     // "on-click-right": "argvus-removable-devices devices"
   },
   "tray": {
