@@ -46,7 +46,7 @@
       // ARGVUS_RIGHT_2_EXPANDER
       "custom/right-2-expander",
       "custom/notifications",
-      "custom/storage",
+      "custom/removable-devices",
       "custom/recording",
       "custom/bluetooth",
       "pulseaudio#input",
@@ -265,15 +265,16 @@
     "tooltip": true,
     "tooltip-format": "More controls"
   },
-  // Removable storage (UDisks2). Compact Nerd Font icon near recording/sound;
-  // left = choose device and open, right = full context menu.
-  "custom/storage": {
+  // Removable devices (UDisks2). Compact Nerd Font icon near recording/sound.
+  "custom/removable-devices": {
     "exec": "argvus --removable-devices watch",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
     "hide-empty-text": true,
+    // ARGVUS_RIGHT_2_REMOVABLE_DEVICES_CLICK_BEGIN
     "on-click": "/usr/share/argvus/removable-devices/sh/removable-devices-menu.sh --root {x} {y}"
+    // ARGVUS_RIGHT_2_REMOVABLE_DEVICES_CLICK_END
     // "on-click-right": "argvus-removable-devices devices"
   },
   "tray": {
