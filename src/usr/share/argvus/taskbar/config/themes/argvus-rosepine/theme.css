@@ -1,0 +1,23 @@
+/* theme: argvus-rosepine */
+@define-color th-foreground      #E0DEF4;
+@define-color th-foreground2     #908CAA;
+@define-color th-decorate        #C4A7E7;
+@define-color th-decorate-rgba   rgba(196, 167, 231, 0.45);
+@define-color th-hover           #26233A;
+@define-color th-background      #1F1D2E;
+@define-color th-background-rgba rgba(31, 29, 46, 0.85);
+@define-color th-right1-bg       #26233A;
+@define-color th-right02-bg      #21202E;
+@define-color th-border-rights   rgba(82, 79, 103, 0.25);
+@define-color th-window-fg       #E0DEF4;
+
+@define-color th-danger          #EB6F92;
+@define-color th-warn            #F6C177;
+@define-color th-ok              #31748F;
+@define-color th-recording       #EB6F92;
+@define-color th-recording-pause #F6C177;
+@define-color th-power           #C4A7E7;
+
+@define-color th-mpris-bg        rgba(38, 35, 58, 0.85);
+@define-color th-mpris-border    rgba(82, 79, 103, 0.25);
+@define-color th-mpris-fg-anim   #9CCFD8;

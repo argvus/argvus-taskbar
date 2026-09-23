@@ -6,6 +6,7 @@
 @define-color transparent transparent;
 @define-color th-background-effective @th-background-rgba;
 @define-color th-mpris-bg-effective @th-mpris-bg;
+@define-color th-border-bottom @transparent;
 
 
 /* --- Global-Settings --- */
@@ -193,7 +194,7 @@ tooltip label {
 #custom-right-2-expander,
 #custom-gpu-temp
 {
-  border-bottom: 1px solid @transparent;
+  border-bottom: 1px solid @th-border-bottom;
 }
 
 /* SPACES ICONS */

@@ -1,0 +1,23 @@
+/* theme: argvus-dracula */
+@define-color th-foreground      #F8F8F2;
+@define-color th-foreground2     #6272A4;
+@define-color th-decorate        #BD93F9;
+@define-color th-decorate-rgba   rgba(189, 147, 249, 0.45);
+@define-color th-hover           #343746;
+@define-color th-background      #282A36;
+@define-color th-background-rgba rgba(40, 42, 54, 0.85);
+@define-color th-right1-bg       #343746;
+@define-color th-right02-bg      #21222C;
+@define-color th-border-rights   rgba(189, 147, 249, 0.25);
+@define-color th-window-fg       #F8F8F2;
+
+@define-color th-danger          #DE5735;
+@define-color th-warn            #A39514;
+@define-color th-ok              #089108;
+@define-color th-recording       #DE5735;
+@define-color th-recording-pause #A39514;
+@define-color th-power           #BD93F9;
+
+@define-color th-mpris-bg        rgba(52, 55, 70, 0.85);
+@define-color th-mpris-border    rgba(189, 147, 249, 0.25);
+@define-color th-mpris-fg-anim   #6272A4;
