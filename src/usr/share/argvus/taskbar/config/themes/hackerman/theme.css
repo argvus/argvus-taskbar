@@ -1,0 +1,23 @@
+/* theme: hackerman */
+@define-color th-foreground      #DDF7FF;
+@define-color th-foreground2     #A7BEC5;
+@define-color th-decorate        #82FB9C;
+@define-color th-decorate-rgba   rgba(226, 190, 138, 0.45);
+@define-color th-hover           #9DFFB2;
+@define-color th-background      #0B0C16;
+@define-color th-background-rgba rgba(15, 15, 15, 0.85);
+@define-color th-right1-bg       #141722;
+@define-color th-right02-bg      #1A1D29;
+@define-color th-border-rights   rgba(226, 190, 138, 0.25);
+@define-color th-window-fg       #DDF7FF;
+
+@define-color th-danger          #FF6B7A;
+@define-color th-warn            #E5D57A;
+@define-color th-ok              #A7BEC5;
+@define-color th-recording       #FF6B7A;
+@define-color th-recording-pause #E5D57A;
+@define-color th-power           #82FB9C;
+
+@define-color th-mpris-bg        rgba(26, 24, 22, 0.85);
+@define-color th-mpris-border    rgba(226, 190, 138, 0.25);
+@define-color th-mpris-fg-anim   #9DFFB2;

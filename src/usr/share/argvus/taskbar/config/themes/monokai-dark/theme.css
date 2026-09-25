@@ -1,0 +1,21 @@
+/* theme: monokai-dark; palette based on Monokai Pro colors */
+@define-color th-foreground #FCFCFA;
+@define-color th-foreground2 #C1C0C0;
+@define-color th-decorate #78DCE8;
+@define-color th-decorate-rgba rgba(120, 220, 232, 0.45);
+@define-color th-hover #403E41;
+@define-color th-background #2D2A2E;
+@define-color th-background-rgba rgba(34, 31, 34, 0.92);
+@define-color th-right1-bg #221F22;
+@define-color th-right02-bg #353237;
+@define-color th-border-rights #5B595C;
+@define-color th-window-fg #FCFCFA;
+@define-color th-danger #FF6188;
+@define-color th-warn #FFD866;
+@define-color th-ok #A9DC76;
+@define-color th-recording #FF6188;
+@define-color th-recording-pause #FFD866;
+@define-color th-power #78DCE8;
+@define-color th-mpris-bg rgba(34, 31, 34, 0.92);
+@define-color th-mpris-border #5B595C;
+@define-color th-mpris-fg-anim #78DCE8;

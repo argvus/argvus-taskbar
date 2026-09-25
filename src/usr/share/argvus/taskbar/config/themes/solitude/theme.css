@@ -1,0 +1,23 @@
+/* theme: solitude */
+@define-color th-foreground      #CACCCC;
+@define-color th-foreground2     #9FA5A9;
+@define-color th-decorate        #798186;
+@define-color th-decorate-rgba   rgba(121, 129, 134, 0.45);
+@define-color th-hover           #A5AEB4;
+@define-color th-background      #101315;
+@define-color th-background-rgba rgba(16, 19, 21, 0.85);
+@define-color th-right1-bg       #1A1E20;
+@define-color th-right02-bg      #202528;
+@define-color th-border-rights   rgba(121, 129, 134, 0.25);
+@define-color th-window-fg       #CACCCC;
+
+@define-color th-danger          #DE6145;
+@define-color th-warn            #C9C2B4;
+@define-color th-ok              #798186;
+@define-color th-recording       #DE6145;
+@define-color th-recording-pause #C9C2B4;
+@define-color th-power           #798186;
+
+@define-color th-mpris-bg        rgba(26, 30, 32, 0.85);
+@define-color th-mpris-border    rgba(121, 129, 134, 0.25);
+@define-color th-mpris-fg-anim   #A5AEB4;

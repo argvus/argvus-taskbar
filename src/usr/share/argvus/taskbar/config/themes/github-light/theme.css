@@ -1,0 +1,23 @@
+/* theme: github-light */
+@define-color th-foreground      #1F2328;
+@define-color th-foreground2     #57606A;
+@define-color th-decorate        #0969DA;
+@define-color th-decorate-rgba   rgba(9, 105, 218, 0.18);
+@define-color th-hover           #EAECEF;
+@define-color th-background      #F6F8FA;
+@define-color th-background-rgba rgba(246, 248, 250, 1);
+@define-color th-right1-bg       #F6F8FA;
+@define-color th-right02-bg      #EAECEF;
+@define-color th-border-rights   rgba(208, 215, 222, 1);
+@define-color th-window-fg       #1F2328;
+
+@define-color th-danger          #CF222E;
+@define-color th-warn            #9A6700;
+@define-color th-ok              #1A7F37;
+@define-color th-recording       #CF222E;
+@define-color th-recording-pause #9A6700;
+@define-color th-power           #0969DA;
+
+@define-color th-mpris-bg        rgba(246, 248, 250, 1);
+@define-color th-mpris-border    rgba(208, 215, 222, 0.70);
+@define-color th-mpris-fg-anim   #57606A;

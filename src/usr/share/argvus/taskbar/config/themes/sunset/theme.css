@@ -1,0 +1,23 @@
+/* theme: sunset */
+@define-color th-foreground      #EADCCC;
+@define-color th-foreground2     #CEA37F;
+@define-color th-decorate        #E2BE8A;
+@define-color th-decorate-rgba   rgba(226, 190, 138, 0.45);
+@define-color th-hover           #EACEA7;
+@define-color th-background      #0F0F0F;
+@define-color th-background-rgba rgba(15, 15, 15, 0.85);
+@define-color th-right1-bg       #1A1816;
+@define-color th-right02-bg      #211E1B;
+@define-color th-border-rights   rgba(226, 190, 138, 0.25);
+@define-color th-window-fg       #EADCCC;
+
+@define-color th-danger          #E25D6C;
+@define-color th-warn            #F4BB54;
+@define-color th-ok              #CEA37F;
+@define-color th-recording       #E25D6C;
+@define-color th-recording-pause #F4BB54;
+@define-color th-power           #E2BE8A;
+
+@define-color th-mpris-bg        rgba(26, 24, 22, 0.85);
+@define-color th-mpris-border    rgba(226, 190, 138, 0.25);
+@define-color th-mpris-fg-anim   #EACEA7;
