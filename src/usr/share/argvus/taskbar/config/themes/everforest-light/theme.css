@@ -5,7 +5,7 @@
 @define-color th-decorate-rgba   rgba(58, 148, 197, 0.18);
 @define-color th-hover           #EAE5D0;
 @define-color th-background      #F4F0D9;
-@define-color th-background-rgba rgba(244, 240, 217, 1);
+@define-color th-background-rgba rgba(244, 240, 217, 0.85);
 @define-color th-right1-bg       #F4F0D9;
 @define-color th-right02-bg      #E6E2CC;
 @define-color th-border-rights   rgba(189, 195, 175, 1);
@@ -18,6 +18,6 @@
 @define-color th-recording-pause #DFA000;
 @define-color th-power           #3A94C5;
 
-@define-color th-mpris-bg        rgba(244, 240, 217, 1);
+@define-color th-mpris-bg        rgba(244, 240, 217, 0.85);
 @define-color th-mpris-border    rgba(189, 195, 175, 0.70);
 @define-color th-mpris-fg-anim   #829181;
