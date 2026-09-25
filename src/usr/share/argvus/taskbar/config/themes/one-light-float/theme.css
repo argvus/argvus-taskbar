@@ -1,0 +1,23 @@
+/* theme: one-light-float */
+@define-color th-foreground      #383A42;
+@define-color th-foreground2     #696C77;
+@define-color th-decorate        #4078F2;
+@define-color th-decorate-rgba   rgba(64, 120, 242, 0.18);
+@define-color th-hover           #E8EAED;
+@define-color th-background      #F0F0F1;
+@define-color th-background-rgba rgba(240, 240, 241, 1);
+@define-color th-right1-bg       #F0F0F1;
+@define-color th-right02-bg      #F4F4F5;
+@define-color th-border-rights   rgba(201, 206, 214, 1);
+@define-color th-window-fg       #383A42;
+
+@define-color th-danger          #E45649;
+@define-color th-warn            #C18401;
+@define-color th-ok              #50A14F;
+@define-color th-recording       #E45649;
+@define-color th-recording-pause #C18401;
+@define-color th-power           #4078F2;
+
+@define-color th-mpris-bg        rgba(240, 240, 241, 1);
+@define-color th-mpris-border    rgba(215, 218, 224, 0.70);
+@define-color th-mpris-fg-anim   #696C77;
