@@ -69,7 +69,7 @@ power_menu() {
 term_exec() {
   _class="$1"
   shift
-  exec argvus-tui-terminal --class "$_class" --term foot -- "$@"
+  exec argvus-tui-terminal --class "$_class" --term kitty --profile control-center -- "$@"
 }
 
 sidebar_toggle() {
