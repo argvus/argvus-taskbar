@@ -11,7 +11,7 @@ depends=(
   'argvus-control-panel' 'argvus-fonts' 'argvus-i18n' 'argvus-widget-telemetry'
   'argvus-network' 'argvus-power' 'argvus-pwvucontrol' 'argvus-session'
   'argvus-hyprland' 'argvus-launcher' 'argvus-removable-devices' 'argvus-waybar'
-  'foot' 'hyprland' 'jq' 'libnotify' 'lm_sensors' 'pamixer' 'playerctl'
+  'hyprland' 'jq' 'libnotify' 'lm_sensors' 'pamixer' 'playerctl'
   'power-profiles-daemon' 'procps-ng' 'wireplumber'
 )
 optdepends=(
