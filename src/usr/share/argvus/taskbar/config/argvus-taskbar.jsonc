@@ -126,7 +126,7 @@
     "on-click": "argvus-taskbar-actions --mem"
   },
   "custom/date": {
-    "exec": "/usr/share/argvus/taskbar/sh/waybar-date.sh",
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-date.sh weekday_day_month",
     "interval": 30,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰸗</span> {}",
     "tooltip": false,
@@ -148,7 +148,8 @@
   },
   "clock#time": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",
-    "tooltip": false
+    "tooltip": false,
+    "interval": 60
   },
   "custom/network": {
     "exec": "/usr/share/argvus/network/sh/waybar-network.sh",
@@ -184,6 +185,7 @@
   },
   "battery": {
     "interval": 30,
+    "hide-empty-text": true,
     "states": {
       "warning": 30,
       "critical": 15

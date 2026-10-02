@@ -295,12 +295,6 @@ tooltip label {
   transition: background-color 180ms ease-in-out;
 }
 
-/* Keep a quiet expansion affordance visible while the utility drawer is collapsed. */
-#right-2:not(.expanded) {
-  padding-left: 7px;
-  padding-right: 7px;
-}
-
 #right-search {
   background: @th-right02-bg;
   color: @th-foreground;
