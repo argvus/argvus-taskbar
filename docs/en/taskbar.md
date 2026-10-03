@@ -13,7 +13,7 @@ The taskbar is not the Control Panel. The bar communicates persistent desktop st
 
 The default position is the top edge in dock mode. Control Center exposes taskbar position, taskbar/shell margins and the utility group under **Appearance → Spaces, Borders & Position**. The layout state stores independent top, left, right and bottom margins. Sticky mode keeps the bar close to the edge; Float mode uses a default `18`-unit shell margin.
 
-Taskbar margin, window outer gap and panel geometry are related but distinct. Changing one does not rewrite every other value. If a bar appears visually detached from windows, review the mode, taskbar margins and window spacing together; see [Windows and layout](./windows-and-layout/).
+Taskbar margin, window outer gap and panel geometry are related but distinct. Changing one does not rewrite every other value. If a bar appears visually detached from windows, review the mode, taskbar margins and window spacing together; see [Windows and layout](/docs/argvus-hyprland/windows-and-layout/).
 
 The taskbar position control currently selects **Top** or **Bottom**. The four independent margins control how far the bar sits from each screen edge. The utility group can use **Auto** or **Always expanded** behavior. Module availability still depends on the installed provider and hardware, so a missing Bluetooth, brightness or storage indicator is not created by changing bar spacing.
 
@@ -24,7 +24,7 @@ Use `↑/↓` to move between the enable and value rows. Press `Tab` for **Actio
 
 ## Configuration and overrides
 
-The taskbar configuration is owned by `argvus-taskbar`, rendered by `argvus-waybar` and started by `argvus-session`. `argvus-config` is the only component that writes the taskbar consumer files: it projects the active layer under `~/.config/argvus/data/generated/waybar/` and reapplies the theme layer, taskbar margins, `right-2` utility-group mode, border radius and the font block whenever themes or layout state change. Because the generated copy is resolved first, a native Waybar path under `~/.config/waybar/` only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](./waybar-overrides/) for precedence, examples and troubleshooting.
+The taskbar configuration is owned by `argvus-taskbar`, rendered by `argvus-waybar` and started by `argvus-session`. `argvus-config` is the only component that writes the taskbar consumer files: it projects the active layer under `~/.config/argvus/data/generated/waybar/` and reapplies the theme layer, taskbar margins, `right-2` utility-group mode, border radius and the font block whenever themes or layout state change. Because the generated copy is resolved first, a native Waybar path under `~/.config/waybar/` only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
 
 ## Windows and panels
 
@@ -38,4 +38,4 @@ The main service is `argvus-taskbar.service`. When a documented configuration ch
 argvus-sessionctl restart waybar
 ```
 
-Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar then follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](./waybar-overrides/) path.
+Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar then follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.
