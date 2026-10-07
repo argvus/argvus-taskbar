@@ -86,14 +86,14 @@
     "tooltip": false
   },
   "hyprland/workspaces": {
-    "format": "{id}",
+    "format": "{name}",
     "on-click": "activate",
     "all-outputs": false,
     "disable-scroll": true,
     "sort-by-number": true,
     "tooltip": false,
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({ workspace = \\\"e+1\\\" })\"",
+    "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = \\\"e-1\\\" })\""
   },
   "hyprland/language": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰌌</span> {short}",
