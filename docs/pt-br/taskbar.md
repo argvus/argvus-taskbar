@@ -8,7 +8,7 @@ A taskbar é a superfície Waybar persistente do desktop. `argvus-taskbar` possu
 
 Ela comunica workspaces, janela em foco, acesso ao relógio e calendário, rede, Bluetooth, áudio/mídia, notificações, armazenamento, gravação, manter acordado e ações de energia/sessão. Os módulos exatos podem depender dos providers instalados e do hardware.
 
-O ícone mais à esquerda abre o `argvus-launcher` e usa por padrão o ícone de menu do ARGVUS (`/usr/share/argvus/svg/ARGVUS-menu.svg`, fornecido pelo `argvus-branding`). Use **Control Center → Aparência → Taskbar → Ícones → Launcher** para habilitar/desabilitar ou escolher um ícone customizado.
+O ícone mais à esquerda abre o `argvus-launcher`. Ele vem desabilitado por padrão. Quando habilitado, acompanha o tema ativo: cada pacote `argvus-theme-*` fornece seu próprio `/usr/share/argvus/svg/menu-<id>.svg`, enquanto os temas embutidos ARGVUS Dark/ARGVUS Light usam `menu-default-dark.svg`/`menu-default-light.svg` (ambos fornecidos pelo `argvus-branding`). Use **Control Center → Aparência → Taskbar → Ícones → Launcher** para habilitar/desabilitar ou escolher um ícone customizado, que tem prioridade sobre o ícone do tema.
 
 A taskbar não é o Control Panel. A barra comunica o estado persistente do desktop e status; o Control Panel é uma superfície expansível de ações rápidas. Popups de calendário e dispositivos removíveis são superfícies complementares, não taskbars separadas.
 

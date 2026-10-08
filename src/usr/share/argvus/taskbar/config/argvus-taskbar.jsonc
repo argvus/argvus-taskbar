@@ -256,7 +256,7 @@
     "on-click-right": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full-stop"
   },
   "image#argvus-logo": {
-    "path": "/usr/share/argvus/svg/ARGVUS-menu.svg",
+    "path": "/usr/share/argvus/svg/menu-default-dark.svg",
     "size": 20,
     "tooltip": false,
     "on-click": "argvus-launcher"
