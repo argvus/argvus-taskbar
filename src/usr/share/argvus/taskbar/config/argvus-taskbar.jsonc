@@ -10,6 +10,10 @@
   "margin-right": 1,
   "margin-bottom": 1,
 
+  "group/left0": {
+    "orientation": "inherit",
+    "modules": ["image#argvus-logo"]
+  },
   "group/left1": {
     "orientation": "inherit",
     "modules": ["hyprland/workspaces"]
@@ -26,12 +30,6 @@
     "orientation": "inherit",
     "spacing": 2,
     "modules": ["custom/network", "power-profiles-daemon", "hyprland/language", "battery", "memory", "cpu", "custom/cpu-temp", "custom/gpu-temp"]
-  },
-  "group/right-search": {
-    "orientation": "inherit",
-    "modules": [
-      "custom/search"
-    ]
   },
   "group/right-2": {
     "orientation": "inherit",
@@ -55,11 +53,10 @@
       "custom/keep-awake"
     ]
   },
-  "modules-left": ["group/left1", "group/left2"],
+  "modules-left": ["group/left0", "group/left1", "group/left2"],
   "modules-center": ["custom/icon-window", "hyprland/submap", "hyprland/window"],
   "modules-right": [
     "tray",
-    "group/right-search",
     "group/right-2",
     "group/right-1",
     "group/right-0",
@@ -258,8 +255,9 @@
     "on-click": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full",
     "on-click-right": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full-stop"
   },
-  "custom/search": {
-    "format": "",
+  "image#argvus-logo": {
+    "path": "/usr/share/argvus/svg/ARGVUS-menu.svg",
+    "size": 20,
     "tooltip": false,
     "on-click": "argvus-launcher"
   },

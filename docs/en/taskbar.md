@@ -7,6 +7,8 @@ The taskbar is the persistent Waybar surface across the desktop. `argvus-taskbar
 
 It communicates workspaces, focused-window state, clock and calendar access, network, Bluetooth, audio/media, notifications, storage, recording, keep-awake and power/session actions. The exact status modules can be affected by installed providers and hardware.
 
+The leftmost icon opens `argvus-launcher` and defaults to the ARGVUS menu icon (`/usr/share/argvus/svg/ARGVUS-menu.svg`, provided by `argvus-branding`). Use **Control Center → Appearance → Taskbar → Icons → Launcher** to enable/disable it or to pick a custom icon image.
+
 The taskbar is not the Control Panel. The bar communicates persistent desktop state and status; the Control Panel is an expandable quick-action surface. Calendar and removable-device popups are companion applications/surfaces, not separate taskbars.
 
 ## Position and spacing

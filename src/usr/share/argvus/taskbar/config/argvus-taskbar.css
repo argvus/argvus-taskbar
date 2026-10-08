@@ -113,7 +113,6 @@ window#waybar.empty #window {
 #custom-window-or-mpris,
 #tray,
 #custom-recording,
-#custom-search,
 #pulseaudio,
 #power-profiles-daemon,
 #custom-settings,
@@ -136,7 +135,6 @@ window#waybar.empty #window {
 #custom-keep-awake,
 #custom-notifications,
 #custom-right-2-expander,
-#custom-search,
 #pulseaudio,
 #power-profiles-daemon,
 #custom-settings,
@@ -182,7 +180,6 @@ tooltip label {
 #memory,
 #battery,
 #custom-settings,
-#custom-search,
 #pulseaudio,
 #custom-recording,
 #window,
@@ -205,7 +202,6 @@ tooltip label {
 #custom-spotify-mpris,
 #custom-window-or-mpris,
 #custom-recording,
-#custom-search,
 #custom-right-2-expander,
 #pulseaudio,
 #language,
@@ -224,6 +220,14 @@ tooltip label {
   /* top right bottom left */
   margin: 0px 4px 0px 4px;
   padding: 0px 4px 0px 4px;
+}
+
+#image.argvus-logo {
+  /* top right bottom left: tighter than the shared rule above so the icon
+     sits close to the workspace numbers right after it, not floating in
+     its own whitespace. */
+  margin: 4px 0px 4px 4px;
+  padding: 0px 2px 0px 2px;
 }
 
 #custom-notifications {
@@ -271,7 +275,7 @@ tooltip label {
   margin-left: 15px;
 }
 
-#right-0, #right-1, #right-2, #right-search, #mpris, #custom-spotify-mpris {
+#right-0, #right-1, #right-2, #mpris, #custom-spotify-mpris {
   margin: 3px 0px;
   margin-left: 5px;
   padding: 0px 10px;
@@ -295,11 +299,6 @@ tooltip label {
   transition: background-color 180ms ease-in-out;
 }
 
-#right-search {
-  background: @th-right02-bg;
-  color: @th-foreground;
-}
-
 /* --- Hover --- */
 #custom-date:hover,
 #tray,
@@ -309,7 +308,6 @@ tooltip label {
 #battery:hover,
 #language:hover,
 #custom-recording:hover,
-#custom-search:hover,
 #power-profiles-daemon:hover,
 #custom-update:hover,
 #network:hover,
