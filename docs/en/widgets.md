@@ -12,12 +12,12 @@ Block selection is canonical in `config.json`, at `control_panel.widget_telemetr
 The controller supports:
 
 ```sh
-argvus-widget-telemetry-toggle status
-argvus-widget-telemetry-toggle on
-argvus-widget-telemetry-toggle off
-argvus-widget-telemetry-toggle blocks status
-argvus-widget-telemetry-toggle blocks set memory disabled
-argvus-widget-telemetry-toggle blocks apply
+argvus widget-telemetry-toggle status
+argvus widget-telemetry-toggle on
+argvus widget-telemetry-toggle off
+argvus widget-telemetry-toggle blocks status
+argvus widget-telemetry-toggle blocks set memory disabled
+argvus widget-telemetry-toggle blocks apply
 ```
 
 The controller also accepts `blocks set <block> <enabled|disabled>` for `system`, `cpu_gpu`, `memory`, `storage`, `processes`, `network` and `keys`. Preferences are persistent; when a block has no explicit preference it follows the enabled default. `blocks set` rewrites the canonical array in a single atomic patch, then reprojects the Waybar profile and reconciles the service lifecycle. `apply-state` is the Control Center's path: it assumes the caller already persisted the selection and only projects it, so never call it with an unpersisted state.

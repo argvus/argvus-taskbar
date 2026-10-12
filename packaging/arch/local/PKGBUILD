@@ -15,7 +15,6 @@ depends=(
   'power-profiles-daemon' 'procps-ng' 'wireplumber'
 )
 optdepends=(
-  'argvus: dispatcher used by taskbar click actions'
   'nvidia-utils: NVIDIA GPU temperature popup'
 )
 options=('!debug')

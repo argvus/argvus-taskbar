@@ -16,12 +16,12 @@ Use **Control Center → Aparência → Widget Telemetry** para configurar o con
 Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` para **Ações** e ative **\[ Aplicar ]**.
 
 ```sh
-argvus-widget-telemetry-toggle status
-argvus-widget-telemetry-toggle on
-argvus-widget-telemetry-toggle off
-argvus-widget-telemetry-toggle blocks status
-argvus-widget-telemetry-toggle blocks set memory disabled
-argvus-widget-telemetry-toggle blocks apply
+argvus widget-telemetry-toggle status
+argvus widget-telemetry-toggle on
+argvus widget-telemetry-toggle off
+argvus widget-telemetry-toggle blocks status
+argvus widget-telemetry-toggle blocks set memory disabled
+argvus widget-telemetry-toggle blocks apply
 ```
 
 O controlador também aceita `blocks set <block> <enabled|disabled>` para `system`, `cpu_gpu`, `memory`, `storage`, `processes`, `network` e `keys`. As preferências são persistentes; quando um bloco não possui preferência explícita, segue o padrão habilitado. `blocks set` reescreve o array canônico em um único patch atômico e então reprojeta o perfil Waybar e reconcilia o ciclo de vida do serviço. `apply-state` é o caminho do Control Center: ele pressupõe que quem chamou já persistiu a seleção e apenas a projeta, portanto nunca chame com um estado não persistido.

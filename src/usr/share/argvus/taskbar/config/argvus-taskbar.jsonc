@@ -94,20 +94,20 @@
   },
   "hyprland/language": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰌌</span> {short}",
-    "on-click": "argvus-taskbar-actions --layout-keyboard",
-    "on-click-right": "argvus-taskbar-actions --layout-keyboard-settings"
+    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --layout-keyboard",
+    "on-click-right": "/usr/lib/argvus/commands/argvus-taskbar-actions --layout-keyboard-settings"
   },
   "cpu": {
     "interval": 5,
     "format": "<span font_family='Symbols Nerd Font Mono'></span> {usage}%",
-    "on-click": "argvus-taskbar-actions --cpu"
+    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --cpu"
   },
   "custom/cpu-temp": {
     "exec-if": "/usr/share/argvus/widget-telemetry/sh/cpu-temp.sh --available",
     "exec": "/usr/share/argvus/widget-telemetry/sh/cpu-temp.sh",
     "interval": 10,
     "format": "<span font_family='Symbols Nerd Font Mono'></span>{}°C",
-    "on-click": "argvus-taskbar-actions --cpu-temp"
+    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
     "exec-if": "/usr/share/argvus/widget-telemetry/sh/gpu.sh --available-temp",
@@ -115,12 +115,12 @@
     "interval": 15,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰢮</span> {}",
     "tooltip": false,
-    "on-click": "argvus-taskbar-actions --gpu-temp"
+    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --gpu-temp"
   },
   "memory": {
     "interval": 5,
     "format": "<span font_family='Symbols Nerd Font Mono'></span> {percentage}%",
-    "on-click": "argvus-taskbar-actions --mem"
+    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --mem"
   },
   "custom/date": {
     "exec": "/usr/share/argvus/taskbar/sh/waybar-date.sh weekday_day_month",
@@ -155,8 +155,8 @@
     "interval": 10,
     "tooltip": true,
     "nospacing": 1,
-    "on-click": "argvus-networkctl manager",
-    "on-click-right": "argvus-networkctl toggle"
+    "on-click": "argvus networkctl manager",
+    "on-click-right": "argvus networkctl toggle"
   },
   "custom/bluetooth": {
     "exec-if": "/usr/share/argvus/network/sh/bluetooth-control.sh available",
@@ -230,7 +230,7 @@
     "exec": "/usr/share/argvus/taskbar/sh/waybar-notifications.sh",
     "return-type": "json",
     "interval": 2,
-    "on-click": "argvus-notifications dnd toggle",
+    "on-click": "argvus notifications dnd toggle",
     "tooltip": true
   },
   "custom/keep-awake": {
@@ -245,7 +245,7 @@
       "interval": 1,
       "format": "{}",
       "tooltip": false,
-      "on-click": "argvus-taskbar-actions --sidebar-toggle"
+      "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --sidebar-toggle"
   },
   "custom/recording": {
     "exec": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full-status",
@@ -259,7 +259,7 @@
     "path": "/usr/share/argvus/svg/menu-default-dark.svg",
     "size": 20,
     "tooltip": false,
-    "on-click": "argvus-launcher"
+    "on-click": "argvus launcher"
   },
   "custom/right-2-expander": {
     "format": "",
@@ -311,6 +311,6 @@
   "custom/power": {
     "format": "󰐥",
     "tooltip": false,
-    "on-click": "argvus-taskbar-actions --power-menu"
+    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --power-menu"
   }
 }

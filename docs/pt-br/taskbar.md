@@ -8,7 +8,7 @@ A taskbar é a superfície Waybar persistente do desktop. `argvus-taskbar` possu
 
 Ela comunica workspaces, janela em foco, acesso ao relógio e calendário, rede, Bluetooth, áudio/mídia, notificações, armazenamento, gravação, manter acordado e ações de energia/sessão. Os módulos exatos podem depender dos providers instalados e do hardware.
 
-O ícone mais à esquerda abre o `argvus-launcher`. Ele vem desabilitado por padrão. Quando habilitado, acompanha o tema ativo: cada pacote `argvus-theme-*` fornece seu próprio `/usr/share/argvus/svg/menu-<id>.svg`, enquanto os temas embutidos ARGVUS Dark/ARGVUS Light usam `menu-default-dark.svg`/`menu-default-light.svg` (ambos fornecidos pelo `argvus-branding`). Use **Control Center → Aparência → Taskbar → Ícones → Launcher** para habilitar/desabilitar ou escolher um ícone customizado, que tem prioridade sobre o ícone do tema.
+O ícone mais à esquerda abre o `argvus launcher`. Ele vem desabilitado por padrão. Quando habilitado, acompanha o tema ativo: cada pacote `argvus-theme-*` fornece seu próprio `/usr/share/argvus/svg/menu-<id>.svg`, enquanto os temas embutidos ARGVUS Dark/ARGVUS Light usam `menu-default-dark.svg`/`menu-default-light.svg` (ambos fornecidos pelo `argvus-branding`). Use **Control Center → Aparência → Taskbar → Ícones → Launcher** para habilitar/desabilitar ou escolher um ícone customizado, que tem prioridade sobre o ícone do tema.
 
 A taskbar não é o Control Panel. A barra comunica o estado persistente do desktop e status; o Control Panel é uma superfície expansível de ações rápidas. Popups de calendário e dispositivos removíveis são superfícies complementares, não taskbars separadas.
 
@@ -38,7 +38,7 @@ A taskbar é uma superfície do shell junto ao Control Panel e ao widget opciona
 O serviço principal é `argvus-taskbar.service`. Quando uma alteração documentada exigir recarga manual, use o controlador de sessão:
 
 ```sh
-argvus-sessionctl restart waybar
+argvus sessionctl restart waybar
 ```
 
 Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).

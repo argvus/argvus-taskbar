@@ -4,7 +4,7 @@ set -eu
 # shellcheck disable=SC1091
 . /usr/share/argvus/lib/i18n.sh
 
-if ! status="$(argvus-notifications status 2>/dev/null)"; then
+if ! status="$(argvus notifications status 2>/dev/null)"; then
   printf '{"text":"󰂛","tooltip":"%s","class":"unavailable"}\n' \
     "$(argvus_tr taskbar notifications.unavailable)"
   exit 0

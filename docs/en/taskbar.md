@@ -7,7 +7,7 @@ The taskbar is the persistent Waybar surface across the desktop. `argvus-taskbar
 
 It communicates workspaces, focused-window state, clock and calendar access, network, Bluetooth, audio/media, notifications, storage, recording, keep-awake and power/session actions. The exact status modules can be affected by installed providers and hardware.
 
-The leftmost icon opens `argvus-launcher`. It is disabled by default. When enabled, it follows the active theme: each `argvus-theme-*` package ships its own `/usr/share/argvus/svg/menu-<id>.svg`, while the built-in ARGVUS Dark/ARGVUS Light themes use `menu-default-dark.svg`/`menu-default-light.svg` (both provided by `argvus-branding`). Use **Control Center → Appearance → Taskbar → Icons → Launcher** to enable/disable it or to pick a custom icon image, which overrides the theme icon.
+The leftmost icon opens `argvus launcher`. It is disabled by default. When enabled, it follows the active theme: each `argvus-theme-*` package ships its own `/usr/share/argvus/svg/menu-<id>.svg`, while the built-in ARGVUS Dark/ARGVUS Light themes use `menu-default-dark.svg`/`menu-default-light.svg` (both provided by `argvus-branding`). Use **Control Center → Appearance → Taskbar → Icons → Launcher** to enable/disable it or to pick a custom icon image, which overrides the theme icon.
 
 The taskbar is not the Control Panel. The bar communicates persistent desktop state and status; the Control Panel is an expandable quick-action surface. Calendar and removable-device popups are companion applications/surfaces, not separate taskbars.
 
@@ -37,7 +37,7 @@ The taskbar is one shell surface alongside the Control Panel and optional teleme
 The main service is `argvus-taskbar.service`. When a documented configuration change requires a manual reload, use the session controller:
 
 ```sh
-argvus-sessionctl restart waybar
+argvus sessionctl restart waybar
 ```
 
 Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar then follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.
