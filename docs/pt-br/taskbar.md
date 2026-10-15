@@ -19,7 +19,7 @@ Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` 
 
 ## Posição e espaçamento
 
-A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar, margens da taskbar/shell e grupo de utilitários em **Aparência → Espaços, bordas e posição**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky mantém a barra próxima à borda; Float usa margem padrão de shell `18`.
+A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky mantém a barra próxima à borda; Float usa margem padrão de shell `18`.
 
 Margem da taskbar, gap externo das janelas e geometria dos painéis são relacionados, mas distintos. Alterar um não reescreve todos os outros valores. Se a barra parecer visualmente afastada das janelas, revise modo, margens da taskbar e espaçamento das janelas juntos; veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/).
 
