@@ -25,7 +25,7 @@ for name in spotify audacious rhythmbox strawberry lollypop; do
     STATUS=$(playerctl -p "$name" status 2>/dev/null)
     if [ "$STATUS" = "Playing" ] || [ "$STATUS" = "Paused" ]; then
         CLASS=$(resolve_class "$name")
-        hyprctl eval "hl.dispatch(hl.dsp.focus({ window = 'class:$CLASS' }))" 2>/dev/null
+        argvus config hyprland focus-class "$CLASS" 2>/dev/null
         exit 0
     fi
 done
@@ -41,7 +41,7 @@ for player in $(playerctl -l 2>/dev/null); do
                 case "$META" in
                     *[Ss]potify*)
                         CLASS=$(resolve_class "$player")
-                        hyprctl eval "hl.dispatch(hl.dsp.focus({ window = 'class:$CLASS' }))" 2>/dev/null
+                        argvus config hyprland focus-class "$CLASS" 2>/dev/null
                         exit 0
                         ;;
                 esac

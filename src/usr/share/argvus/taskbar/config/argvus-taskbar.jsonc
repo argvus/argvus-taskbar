@@ -103,15 +103,15 @@
     "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --cpu"
   },
   "custom/cpu-temp": {
-    "exec-if": "/usr/share/argvus/widget-telemetry/sh/cpu-temp.sh --available",
-    "exec": "/usr/share/argvus/widget-telemetry/sh/cpu-temp.sh",
+    "exec-if": "/usr/lib/argvus/commands/argvus-widget-telemetry-block cpu-temp --available",
+    "exec": "/usr/lib/argvus/commands/argvus-widget-telemetry-block cpu-temp",
     "interval": 10,
     "format": "<span font_family='Symbols Nerd Font Mono'></span>{}°C",
     "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
-    "exec-if": "/usr/share/argvus/widget-telemetry/sh/gpu.sh --available-temp",
-    "exec": "/usr/share/argvus/widget-telemetry/sh/gpu.sh --temp",
+    "exec-if": "/usr/lib/argvus/commands/argvus-widget-telemetry-block gpu --available-temp",
+    "exec": "/usr/lib/argvus/commands/argvus-widget-telemetry-block gpu --temp",
     "interval": 15,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰢮</span> {}",
     "tooltip": false,
@@ -159,14 +159,14 @@
     "on-click-right": "argvus networkctl toggle"
   },
   "custom/bluetooth": {
-    "exec-if": "/usr/share/argvus/network/sh/bluetooth-control.sh available",
-    "exec": "/usr/share/argvus/network/sh/bluetooth-control.sh waybar",
+    "exec-if": "/usr/lib/argvus/commands/argvus-bluetoothctl available",
+    "exec": "/usr/lib/argvus/commands/argvus-bluetoothctl waybar",
     "return-type": "json",
     "format": "{}",
     "hide-empty-text": true,
     "tooltip": true,
-    "on-click": "/usr/share/argvus/network/sh/bluetooth-control.sh toggle",
-    "on-click-right": "/usr/share/argvus/network/sh/bluetooth-control.sh manager",
+    "on-click": "/usr/lib/argvus/commands/argvus-bluetoothctl toggle",
+    "on-click-right": "/usr/lib/argvus/commands/argvus-bluetoothctl manager",
     "interval": 30
   },
   "power-profiles-daemon": {
