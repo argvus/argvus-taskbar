@@ -94,33 +94,33 @@
   },
   "hyprland/language": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰌌</span> {short}",
-    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --layout-keyboard",
-    "on-click-right": "/usr/lib/argvus/commands/argvus-taskbar-actions --layout-keyboard-settings"
+    "on-click": "argvus taskbar-actions --layout-keyboard",
+    "on-click-right": "argvus taskbar-actions --layout-keyboard-settings"
   },
   "cpu": {
     "interval": 5,
     "format": "<span font_family='Symbols Nerd Font Mono'></span> {usage}%",
-    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --cpu"
+    "on-click": "argvus taskbar-actions --cpu"
   },
   "custom/cpu-temp": {
-    "exec-if": "/usr/lib/argvus/commands/argvus-widget-telemetry-block cpu-temp --available",
-    "exec": "/usr/lib/argvus/commands/argvus-widget-telemetry-block cpu-temp",
+    "exec-if": "argvus widget-telemetry block cpu-temp --available",
+    "exec": "argvus widget-telemetry block cpu-temp",
     "interval": 10,
     "format": "<span font_family='Symbols Nerd Font Mono'></span>{}°C",
-    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --cpu-temp"
+    "on-click": "argvus taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
-    "exec-if": "/usr/lib/argvus/commands/argvus-widget-telemetry-block gpu --available-temp",
-    "exec": "/usr/lib/argvus/commands/argvus-widget-telemetry-block gpu --temp",
+    "exec-if": "argvus widget-telemetry block gpu --available-temp",
+    "exec": "argvus widget-telemetry block gpu --temp",
     "interval": 15,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰢮</span> {}",
     "tooltip": false,
-    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --gpu-temp"
+    "on-click": "argvus taskbar-actions --gpu-temp"
   },
   "memory": {
     "interval": 5,
     "format": "<span font_family='Symbols Nerd Font Mono'></span> {percentage}%",
-    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --mem"
+    "on-click": "argvus taskbar-actions --mem"
   },
   "custom/date": {
     "exec": "/usr/share/argvus/taskbar/sh/waybar-date.sh weekday_day_month",
@@ -159,14 +159,14 @@
     "on-click-right": "argvus networkctl toggle"
   },
   "custom/bluetooth": {
-    "exec-if": "/usr/lib/argvus/commands/argvus-bluetoothctl available",
-    "exec": "/usr/lib/argvus/commands/argvus-bluetoothctl waybar",
+    "exec-if": "argvus bluetooth available",
+    "exec": "argvus bluetooth waybar",
     "return-type": "json",
     "format": "{}",
     "hide-empty-text": true,
     "tooltip": true,
-    "on-click": "/usr/lib/argvus/commands/argvus-bluetoothctl toggle",
-    "on-click-right": "/usr/lib/argvus/commands/argvus-bluetoothctl manager",
+    "on-click": "argvus bluetooth toggle",
+    "on-click-right": "argvus bluetooth manager",
     "interval": 30
   },
   "power-profiles-daemon": {
@@ -245,7 +245,7 @@
       "interval": 1,
       "format": "{}",
       "tooltip": false,
-      "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --sidebar-toggle"
+      "on-click": "argvus taskbar-actions --sidebar-toggle"
   },
   "custom/recording": {
     "exec": "/usr/share/argvus/hyprland/sh/hypr-screenshot.sh --video-full-status",
@@ -311,6 +311,6 @@
   "custom/power": {
     "format": "󰐥",
     "tooltip": false,
-    "on-click": "/usr/lib/argvus/commands/argvus-taskbar-actions --power-menu"
+    "on-click": "argvus taskbar-actions --power-menu"
   }
 }

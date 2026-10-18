@@ -90,7 +90,7 @@ case $1 in
     term_exec argvus-taskbar-cpu env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'argvus --system-monitor --cpu; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     ;;
   --cpu-temp)
-    if /usr/lib/argvus/commands/argvus-widget-telemetry-block cpu-temp --available; then
+    if argvus widget-telemetry block cpu-temp --available; then
       # shellcheck disable=SC2016
       term_exec cpu-temp-popup env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'sensors; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     fi
@@ -99,7 +99,7 @@ case $1 in
   --gpu-temp)
     if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
       term_exec gpu-temp-popup watch -n 1 nvidia-smi
-    elif /usr/lib/argvus/commands/argvus-widget-telemetry-block gpu --available-temp; then
+    elif argvus widget-telemetry block gpu --available-temp; then
       # shellcheck disable=SC2016
       term_exec gpu-temp-popup env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'sensors; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
     fi

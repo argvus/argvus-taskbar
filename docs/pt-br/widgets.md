@@ -4,7 +4,7 @@ description: Configure widgets opcionais de telemetria.
 slug: pt/0.4.0/docs/user-guide/desktop/widgets
 ---
 
-`argvus-widget-telemetry` fornece uma superfície Waybar auxiliar opcional para informações do sistema. Seus blocos atuais são **Sistema**, **CPU/GPU**, **Memória**, **Armazenamento**, **Processos**, **Rede** e **Atalhos**. O bloco de atalhos usa a chave `keys` no arquivo de estado.
+`argvus widget-telemetry` fornece uma superfície Waybar auxiliar opcional para informações do sistema. Seus blocos atuais são **Sistema**, **CPU/GPU**, **Memória**, **Armazenamento**, **Processos**, **Rede** e **Atalhos**. O bloco de atalhos usa a chave `keys` no arquivo de estado.
 
 Use **Control Center → Aparência → Widgets de telemetria** para ativar a superfície e ligar ou desligar blocos individuais. Desativar um bloco oculta esse módulo do perfil Waybar; não desinstala pacotes nem interrompe o restante da sessão. O switch principal controla toda a superfície de telemetria.
 

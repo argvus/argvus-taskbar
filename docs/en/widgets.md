@@ -3,7 +3,7 @@ title: Widgets
 description: Configure optional system telemetry widgets.
 ---
 
-`argvus-widget-telemetry` provides an optional auxiliary Waybar surface for system information. Its current blocks are **System**, **CPU/GPU**, **Memory**, **Storage**, **Processes**, **Network** and **Shortcuts**. The Shortcuts block is stored with the key `keys` in the state file.
+`argvus widget-telemetry` provides an optional auxiliary Waybar surface for system information. Its current blocks are **System**, **CPU/GPU**, **Memory**, **Storage**, **Processes**, **Network** and **Shortcuts**. The Shortcuts block is stored with the key `keys` in the state file.
 
 Use **Control Center → Appearance → Widget Telemetry** to enable the surface and turn individual blocks on or off. Disabling a block hides that telemetry module from the Waybar profile; it does not uninstall a package or stop the rest of the session. The master toggle controls the telemetry surface as a whole.
 
