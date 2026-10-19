@@ -1,7 +1,6 @@
 ---
 title: Taskbar
 description: Use a taskbar Waybar do ARGVUS.
-slug: pt/0.4.0/docs/user-guide/desktop/taskbar
 ---
 
 A taskbar é a superfície Waybar persistente do desktop. `argvus-taskbar` possui sua configuração e ações do ARGVUS; `argvus-waybar` fornece o binário Waybar modificado que a renderiza. `argvus-session` possui o ciclo de vida do serviço.
