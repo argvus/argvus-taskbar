@@ -5,7 +5,7 @@ This package keeps two PKGBUILDs because they use different source inputs:
 | Path | Use | Source |
 | --- | --- | --- |
 | `local/PKGBUILD` | local working-tree builds | generated local archive |
-| `ci/PKGBUILD` | tagged releases | GitHub tag archive |
+| `remote/PKGBUILD` | tagged releases | GitHub tag archive |
 
 Both files share package metadata and payload logic through
 `common/functions.sh`. `prepare()` normalizes GitHub's extracted directory to
