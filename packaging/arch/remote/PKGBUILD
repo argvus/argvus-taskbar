@@ -10,7 +10,6 @@ depends=(
   'argvus-app-profiles'
   'argvus-appearance'
   'argvus'
-  'argvus-gtk'
   'argvus-control-panel'
   'argvus-fonts'
   'argvus-power'

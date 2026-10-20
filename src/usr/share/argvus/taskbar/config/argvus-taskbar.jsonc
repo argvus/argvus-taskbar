@@ -141,7 +141,7 @@
     //     "today": "<span color='#ff6699'><b>{}</b></span>"
     //   }
     // },
-    "on-click": "/usr/lib/argvus-taskbar-calendar/waybar-launcher --root {x} {y}"
+    "on-click": "/usr/lib/argvus/taskbar-calendar/waybar-launcher --root {x} {y}"
   },
   "clock#time": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",

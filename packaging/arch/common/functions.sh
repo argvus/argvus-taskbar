@@ -38,7 +38,7 @@ arch_package_taskbar_payload() {
 	local source_root="${srcdir}/${pkgname}-${pkgver}"
 
 	install -Dm755 "${source_root}/src/usr/bin/argvus-taskbar-actions" \
-		"${pkgdir}/usr/lib/argvus/commands/argvus-taskbar-actions"
+		"${pkgdir}/usr/lib/argvus/commands/taskbar-actions"
 	install -dm755 "${pkgdir}/usr/share/argvus/taskbar"
 	cp -R --no-preserve=ownership "${source_root}/src/usr/share/argvus/taskbar/." \
 		"${pkgdir}/usr/share/argvus/taskbar/"
