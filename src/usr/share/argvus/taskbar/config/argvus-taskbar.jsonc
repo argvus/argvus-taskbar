@@ -222,9 +222,9 @@
     "scroll-step": 2,
     "smooth-scrolling-threshold": 1,
     "on-click": "argvus --control-center audio output",
-    "on-click-right": "pamixer -t",
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    "on-click-right": "argvus config audio mute toggle",
+    "on-scroll-up": "argvus config audio volume +2",
+    "on-scroll-down": "argvus config audio volume -2"
   },
   "custom/notifications": {
     "exec": "/usr/share/argvus/taskbar/sh/waybar-notifications.sh",
