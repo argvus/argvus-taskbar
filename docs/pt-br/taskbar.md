@@ -20,13 +20,15 @@ Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` 
 
 A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky mantém a barra próxima à borda; Float usa margem padrão de shell `18`.
 
+**Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1` e `right-2` e o player MPRIS, que também tem a borda de hover. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
+
 Margem da taskbar, gap externo das janelas e geometria dos painéis são relacionados, mas distintos. Alterar um não reescreve todos os outros valores. Se a barra parecer visualmente afastada das janelas, revise modo, margens da taskbar e espaçamento das janelas juntos; veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/).
 
 O controle de posição seleciona **Top** ou **Bottom**. As quatro margens independentes controlam a distância da barra de cada borda da tela. O grupo utilitário pode usar o comportamento **Auto** ou **Always expanded**. A disponibilidade de módulos ainda depende dos providers e do hardware instalados; mudar o espaçamento não cria um indicador de Bluetooth, brilho ou armazenamento ausente.
 
 ## Configuração e overrides
 
-A configuração da taskbar pertence ao `argvus-taskbar`, é renderizada pelo `argvus-waybar` e iniciada pelo `argvus-session`. O `argvus-config` é o único componente que escreve os arquivos de consumo da taskbar: ele projeta a camada ativa em `~/.config/argvus/data/generated/waybar/` e reaplica a camada do tema, as margens da taskbar, o modo `right-2` do grupo utilitário, o raio das bordas e o bloco de fonte sempre que temas ou o estado de layout mudam. Como a cópia gerada é resolvida primeiro, um caminho nativo da Waybar em `~/.config/waybar/` só entra em vigor enquanto o arquivo gerado correspondente estiver ausente. Veja [Overrides da Waybar e da taskbar](/pt/docs/argvus-waybar/) para precedência, exemplos e diagnóstico.
+A configuração da taskbar pertence ao `argvus-taskbar`, é renderizada pelo `argvus-waybar` e iniciada pelo `argvus-session`. O `argvus-config` é o único componente que escreve os arquivos de consumo da taskbar: ele projeta a camada ativa em `~/.config/argvus/data/generated/waybar/` e reaplica a camada do tema, as margens da taskbar, o modo `right-2` do grupo utilitário, o raio das bordas e o bloco de fonte sempre que temas ou o estado de layout mudam. A troca de tema também restaura os arquivos empacotados da taskbar, então altura e borda voltam aos padrões do tema (28 px e 1 px). Como a cópia gerada é resolvida primeiro, um caminho nativo da Waybar em `~/.config/waybar/` só entra em vigor enquanto o arquivo gerado correspondente estiver ausente. Veja [Overrides da Waybar e da taskbar](/pt/docs/argvus-waybar/) para precedência, exemplos e diagnóstico.
 
 ## Janelas e painéis
 

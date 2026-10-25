@@ -19,6 +19,8 @@ Taskbar margin, window outer gap and panel geometry are related but distinct. Ch
 
 The taskbar position control currently selects **Top** or **Bottom**. The four independent margins control how far the bar sits from each screen edge. The utility group can use **Auto** or **Always expanded** behavior. Module availability still depends on the installed provider and hardware, so a missing Bluetooth, brightness or storage indicator is not created by changing bar spacing.
 
+**Height** sets the bar height to 24, 28 (the default), 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the `right-0`, `right-1` and `right-2` groups, and the MPRIS player, which also has a hover edge. With the border off, those borders are written as `0px`. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
+
 ## Transparency and blur
 
 Use **Control Center → Appearance → Taskbar** to configure Utility Icons, Transparency and Blur. Transparency and Blur each have an enable switch and a `0–100%` value. Change values with `+` and `-` in 5% steps; changes are drafts until **[ Apply ]** is selected. New themes default to both effects enabled at `50%`.
@@ -26,7 +28,7 @@ Use `↑/↓` to move between the enable and value rows. Press `Tab` for **Actio
 
 ## Configuration and overrides
 
-The taskbar configuration is owned by `argvus-taskbar`, rendered by `argvus-waybar` and started by `argvus-session`. `argvus-config` is the only component that writes the taskbar consumer files: it projects the active layer under `~/.config/argvus/data/generated/waybar/` and reapplies the theme layer, taskbar margins, `right-2` utility-group mode, border radius and the font block whenever themes or layout state change. Because the generated copy is resolved first, a native Waybar path under `~/.config/waybar/` only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
+The taskbar configuration is owned by `argvus-taskbar`, rendered by `argvus-waybar` and started by `argvus-session`. `argvus-config` is the only component that writes the taskbar consumer files: it projects the active layer under `~/.config/argvus/data/generated/waybar/` and reapplies the theme layer, taskbar margins, `right-2` utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files, so the height and border return to the theme's defaults (28 px and 1 px). Because the generated copy is resolved first, a native Waybar path under `~/.config/waybar/` only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
 
 ## Windows and panels
 
