@@ -1,0 +1,23 @@
+/* theme: {{ theme.id }} */
+@define-color th-foreground      {{ @fg | hex }};
+@define-color th-foreground2     {{ @bar_foreground2 | hex }};
+@define-color th-decorate        {{ @accent | hex }};
+@define-color th-decorate-rgba   {{ @accent | alpha(0.45) | rgba }};
+@define-color th-hover           {{ @bar_hover | hex }};
+@define-color th-background      {{ @bar_background | hex }};
+@define-color th-background-rgba {{ @bar_background_rgba | rgba }};
+@define-color th-right1-bg       {{ @bar_right1_bg | hex }};
+@define-color th-right02-bg      {{ @bar_right02_bg | hex }};
+@define-color th-border-rights   {{ @accent | alpha(0.25) | rgba }};
+@define-color th-window-fg       {{ @fg | hex }};
+
+@define-color th-danger          {{ @danger | hex }};
+@define-color th-warn            {{ @bar_warn | hex }};
+@define-color th-ok              {{ @bar_ok | hex }};
+@define-color th-recording       {{ @danger | hex }};
+@define-color th-recording-pause {{ @bar_recording_pause | hex }};
+@define-color th-power           {{ @accent | hex }};
+
+@define-color th-mpris-bg        {{ @bar_mpris_bg | rgba }};
+@define-color th-mpris-border    {{ @accent | alpha(0.25) | rgba }};
+@define-color th-mpris-fg-anim   {{ @bar_mpris_fg_anim | hex }};

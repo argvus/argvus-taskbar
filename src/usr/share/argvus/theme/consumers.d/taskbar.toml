@@ -1,0 +1,26 @@
+# Theme consumer: rendered into every theme build as taskbar/theme.css.
+id = "taskbar"
+template = "taskbar/theme-template/theme.css"
+output = "taskbar/theme.css"
+# It reads the build directly, so it reloads as soon as the build is active.
+reload_stage = "build"
+
+# Waybar reloads its CSS when the stylesheet that imports the build is rewritten.
+[reload]
+kind = "rewrite"
+path = "argvus/data/waybar/argvus-taskbar.css"
+
+# Defaults for the tokens the template reads; a theme that defines one wins.
+[palette]
+bar_background = "@bg"
+bar_background_rgba = "@bg | alpha(0.85)"
+bar_foreground2 = "@fg | mix(@bg, 0.2)"
+bar_hover = "@bg | mix(@fg, 0.5)"
+bar_mpris_bg = "@bg | mix(@accent, 0.1) | alpha(0.85)"
+bar_mpris_fg_anim = "@fg | mix(@bg, 0.3)"
+bar_ok = "@bg | mix(@fg, 0.5)"
+bar_recording_pause = "@danger | mix(@fg, 0.2)"
+bar_right02_bg = "@bg | mix(@danger, 0.1)"
+bar_right1_bg = "@bg | mix(@fg, 0.1)"
+bar_warn = "@danger | mix(@fg, 0.2)"
+danger = "#E06C75"

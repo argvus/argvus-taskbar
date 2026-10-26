@@ -1,0 +1,5 @@
+# Theme consumer: the launcher icon of the taskbar, in the theme's accent.
+# Waybar reads the image at start; the path through `current` never changes.
+id = "taskbar-menu"
+template = "taskbar/theme-template/menu.svg"
+output = "taskbar/menu.svg"

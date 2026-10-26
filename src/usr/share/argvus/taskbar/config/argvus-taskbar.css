@@ -1,4 +1,4 @@
-@import url("./themes/argvus-dark/theme.css");
+@import url("../generated/theme/current/taskbar/theme.css");
 @import url("/usr/share/argvus/appearance/config/waybar/mode.css");
 
 /*  Waybar — Top Painel  */

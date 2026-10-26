@@ -42,6 +42,9 @@ arch_package_taskbar_payload() {
 	install -dm755 "${pkgdir}/usr/share/argvus/taskbar"
 	cp -R --no-preserve=ownership "${source_root}/src/usr/share/argvus/taskbar/." \
 		"${pkgdir}/usr/share/argvus/taskbar/"
+	install -dm755 "${pkgdir}/usr/share/argvus/theme"
+	cp -R --no-preserve=ownership "${source_root}/src/usr/share/argvus/theme/." \
+		"${pkgdir}/usr/share/argvus/theme/"
 	while IFS= read -r -d '' script; do
 		install -Dm755 "$script" "${pkgdir}${script#"$source_root/src"}"
 	done < <(find "${source_root}/src/usr/share/argvus/taskbar/sh" -type f -name '*.sh' -print0)
