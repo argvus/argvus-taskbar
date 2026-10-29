@@ -239,10 +239,14 @@ tooltip label {
   padding: 0px 4px 0px 4px;
 }
 
-#custom-keep-awake,
-#custom-focus {
+#custom-keep-awake {
  margin: 2px 4px 0px 4px;
  padding: 0px 4px 0px 4px;
+}
+
+#custom-focus {
+ margin: 0px 0px 0px 0px;
+ padding: 0px 0px 0px 0px;
 }
 
 #language {
