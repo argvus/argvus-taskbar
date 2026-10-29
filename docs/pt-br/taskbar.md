@@ -20,7 +20,7 @@ Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` 
 
 A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky mantém a barra próxima à borda; Float usa margem padrão de shell `18`.
 
-**Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1` e `right-2` e o player MPRIS, que também tem a borda de hover. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
+**Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1`, `focus` e `right-2` e o player MPRIS, que também tem a borda de hover. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
 
 Margem da taskbar, gap externo das janelas e geometria dos painéis são relacionados, mas distintos. Alterar um não reescreve todos os outros valores. Se a barra parecer visualmente afastada das janelas, revise modo, margens da taskbar e espaçamento das janelas juntos; veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/).
 
@@ -34,6 +34,10 @@ A configuração da taskbar pertence ao `argvus-taskbar`, é renderizada pelo `a
 
 A taskbar é uma superfície do shell junto ao Control Panel e ao widget opcional de telemetria. O Hyprland organiza janelas conforme o estado de layout ativo, enquanto essas superfícies possuem âncoras e margens próprias. `SUPER + SHIFT + Space` alterna a janela em foco entre layouts tileado e flutuante.
 
+## Relógio e Focus
+
+O módulo de hora (`clock#time`) abre ou oculta o popup do ARGVUS Clock e passa as coordenadas raiz do clique para que ele se alinhe à taskbar e ao monitor clicados. O indicador do Focus tem seu próprio grupo `focus`, entre o grupo de rede/desempenho (`right-1`) e data/hora (`right-0`). Ele executa `argvus focus status --waybar --follow` sem carregar GTK: quando ocioso, mostra o ícone de timer; durante uma fase de foco ou pausa, também mostra o tempo restante `MM:SS`. A cor identifica a fase e o estado pausado. Clicar nele abre ou oculta o popup do Focus junto ao ponto clicado. Ambos os popups também fecham com **Esc** ou clique fora.
+
 ## Recarga
 
 O serviço principal é `argvus-taskbar.service`. Quando uma alteração documentada exigir recarga manual, use o controlador de sessão:
@@ -42,4 +46,4 @@ O serviço principal é `argvus-taskbar.service`. Quando uma alteração documen
 argvus sessionctl restart waybar
 ```
 
-Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).
+Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data; o módulo de data abre o calendário. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).

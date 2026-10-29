@@ -31,6 +31,10 @@
     "spacing": 2,
     "modules": ["custom/network", "power-profiles-daemon", "hyprland/language", "battery", "memory", "cpu", "custom/cpu-temp", "custom/gpu-temp"]
   },
+  "group/focus": {
+    "orientation": "inherit",
+    "modules": ["custom/focus"]
+  },
   "group/right-2": {
     "orientation": "inherit",
     // ARGVUS_RIGHT_2_AUTO_BEGIN
@@ -59,6 +63,7 @@
     "tray",
     "group/right-2",
     "group/right-1",
+    "group/focus",
     "group/right-0",
     "custom/power",
     "custom/settings"
@@ -146,6 +151,9 @@
   "clock#time": {
     "format": "<span font_family='Symbols Nerd Font Mono'>󰅐</span> {:L%H:%M}",
     "tooltip": false,
+    // Opens or hides ARGVUS Clock; "interval" stays last because the
+    // taskbar widgets mode rewrites that line without a trailing comma.
+    "on-click": "argvus clock --toggle --x {x} --y {y}",
     "interval": 60
   },
   "custom/network": {
@@ -231,6 +239,12 @@
     "return-type": "json",
     "interval": 2,
     "on-click": "argvus notifications dnd toggle",
+    "tooltip": true
+  },
+  "custom/focus": {
+    "exec": "argvus focus status --waybar --follow",
+    "return-type": "json",
+    "on-click": "argvus focus --toggle --x {x} --y {y}",
     "tooltip": true
   },
   "custom/keep-awake": {

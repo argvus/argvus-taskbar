@@ -19,7 +19,7 @@ Taskbar margin, window outer gap and panel geometry are related but distinct. Ch
 
 The taskbar position control currently selects **Top** or **Bottom**. The four independent margins control how far the bar sits from each screen edge. The utility group can use **Auto** or **Always expanded** behavior. Module availability still depends on the installed provider and hardware, so a missing Bluetooth, brightness or storage indicator is not created by changing bar spacing.
 
-**Height** sets the bar height to 24, 28 (the default), 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the `right-0`, `right-1` and `right-2` groups, and the MPRIS player, which also has a hover edge. With the border off, those borders are written as `0px`. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
+**Height** sets the bar height to 24, 28 (the default), 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the `right-0`, `right-1`, `focus` and `right-2` groups, and the MPRIS player, which also has a hover edge. With the border off, those borders are written as `0px`. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
 
 ## Transparency and blur
 
@@ -34,6 +34,10 @@ The taskbar configuration is owned by `argvus-taskbar`, rendered by `argvus-wayb
 
 The taskbar is one shell surface alongside the Control Panel and optional telemetry widget. Hyprland arranges windows according to the active layout state, while these surfaces have their own anchors and margins. `SUPER + SHIFT + Space` toggles the focused window between tiled and floating layouts.
 
+## Clock and Focus
+
+The time module (`clock#time`) opens or hides the ARGVUS Clock popup and passes its root click coordinates so it can align with the clicked taskbar and monitor. The Focus indicator has its own `focus` group between the network/performance group (`right-1`) and date/time (`right-0`). It runs `argvus focus status --waybar --follow` without loading GTK: while idle it shows the timer icon, and during a focus or break phase it adds the remaining `MM:SS`; its color identifies the phase and paused state. Clicking it opens or hides the Focus popup at that click position. Both popups also close with **Esc** or a click outside.
+
 ## Reloading
 
 The main service is `argvus-taskbar.service`. When a documented configuration change requires a manual reload, use the session controller:
@@ -42,4 +46,4 @@ The main service is `argvus-taskbar.service`. When a documented configuration ch
 argvus sessionctl restart waybar
 ```
 
-Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar then follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.
+Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked; the date module opens the calendar. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.

@@ -133,6 +133,7 @@ window#waybar.empty #window {
 #custom-removable-devices,
 #custom-recording,
 #custom-keep-awake,
+#custom-focus,
 #custom-notifications,
 #custom-right-2-expander,
 #pulseaudio,
@@ -187,6 +188,7 @@ tooltip label {
 #custom-power,
 #custom-cpu-temp,
 #custom-keep-awake,
+#custom-focus,
 #custom-notifications,
 #custom-right-2-expander,
 #custom-gpu-temp
@@ -213,6 +215,7 @@ tooltip label {
 #clock,
 #custom-date,
 #custom-keep-awake,
+#custom-focus,
 #custom-notifications,
 #custom-settings,
 #custom-power
@@ -236,7 +239,8 @@ tooltip label {
   padding: 0px 4px 0px 4px;
 }
 
-#custom-keep-awake {
+#custom-keep-awake,
+#custom-focus {
  margin: 2px 4px 0px 4px;
  padding: 0px 4px 0px 4px;
 }
@@ -275,7 +279,7 @@ tooltip label {
   margin-left: 15px;
 }
 
-#right-0, #right-1, #right-2, #mpris, #custom-spotify-mpris {
+#right-0, #right-1, #right-2, #focus, #mpris, #custom-spotify-mpris {
   margin: 3px 0px;
   margin-left: 5px;
   padding: 0px 10px;
@@ -290,6 +294,11 @@ tooltip label {
 
 #right-1 {
   background: @th-right1-bg;
+  color: @th-foreground;
+}
+
+#focus {
+  background: @th-right02-bg;
   color: @th-foreground;
 }
 
@@ -318,6 +327,7 @@ tooltip label {
 #custom-power:hover,
 #custom-cpu-temp:hover,
 #custom-keep-awake:hover,
+#custom-focus:hover,
 #custom-notifications:hover,
 #custom-gpu-temp:hover {
   color: @th-foreground2;
@@ -421,6 +431,24 @@ tooltip label {
 
 #custom-power {
   color: @th-power;
+}
+
+/* ARGVUS Focus: the icon alone when idle, the time left during a session. */
+#custom-focus {
+  color: @th-foreground;
+}
+
+#custom-focus.focus {
+  color: @th-decorate;
+}
+
+#custom-focus.short-break,
+#custom-focus.long-break {
+  color: @th-foreground2;
+}
+
+#custom-focus.paused {
+  color: @th-recording-pause;
 }
 
 /* Recording Screen */
