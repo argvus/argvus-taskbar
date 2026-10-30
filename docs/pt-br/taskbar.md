@@ -18,7 +18,7 @@ Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` 
 
 ## Posição e espaçamento
 
-A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky mantém a barra próxima à borda; Float usa margem padrão de shell `18`.
+A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky usa margem inferior padrão `2` e mantém a barra próxima à borda; Float usa margem padrão de shell `18`.
 
 **Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1`, `focus` e `right-2` e o player MPRIS, que também tem a borda de hover. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
 
