@@ -115,7 +115,7 @@
     "on-click": "argvus taskbar-actions --cpu-temp"
   },
   "custom/gpu-temp": {
-    "exec-if": "argvus widget-telemetry block gpu --available-temp",
+    "exec-if": "argvus widget-telemetry block gpu --available",
     "exec": "argvus widget-telemetry block gpu --temp",
     "interval": 15,
     "format": "<span font_family='Symbols Nerd Font Mono'>󰢮</span> {}",

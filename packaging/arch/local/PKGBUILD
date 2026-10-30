@@ -17,6 +17,7 @@ depends=(
   'argvus-hyprland'
   'argvus-launcher'
   'argvus-waybar'
+  'btop'
   'hyprland'
   'jq'
   'libnotify'
@@ -28,7 +29,7 @@ depends=(
   'wireplumber'
 )
 optdepends=(
-  'nvidia-utils: NVIDIA GPU temperature popup'
+  'nvidia-utils: NVIDIA GPU temperature readings through NVML'
 )
 options=('!debug')
 source=("${pkgname}-${pkgver}.tar.gz")

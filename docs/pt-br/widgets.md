@@ -14,6 +14,8 @@ A seleção de blocos é canônica no `config.json`, em `control_panel.widget_te
 Use **Control Center → Aparência → Widget Telemetry** para configurar o controle geral, as sessões de telemetria, Transparência e Blur. Os dois efeitos têm controles de ativação independentes e valores de `0–100%`. Use `+` e `-` em passos de 5% e selecione **\[ Aplicar ]**; os valores só são aplicados após a confirmação e ficam salvos para o tema ativo.
 Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` para **Ações** e ative **\[ Aplicar ]**.
 
+O módulo de temperatura da GPU aparece quando DRM/sysfs expõe uma GPU NVIDIA, AMD ou Intel suportada e o `btop` está instalado. O valor é a maior temperatura válida atribuível a uma das GPUs detectadas; sem sensor exposto, aparece `Indisponível`. Clicar abre os painéis GPU-only do btop no Kitty por `argvus tui-terminal`, usando o perfil `taskbar-monitor`. Pressione `q` ou `Esc` para fechar; a aba inferior localizada mostra `Pressione q para fechar`. O btop 1.4.7 suporta até seis caixas de GPU. Métricas NVIDIA exigem suporte a GPU no btop e NVML; AMD exige suporte a GPU e ROCm SMI; Intel exige interfaces sysfs legíveis. Temperaturas de NVIDIA nouveau, AMD e Intel aparecem somente quando há sensor hwmon vinculado ao dispositivo. O ARGVUS não altera permissões nem adiciona helpers privilegiados. O pacote taskbar depende do btop; providers de fabricante continuam opcionais.
+
 ```sh
 argvus widget-telemetry-toggle status
 argvus widget-telemetry-toggle on

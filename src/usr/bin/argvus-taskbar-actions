@@ -95,10 +95,8 @@ case $1 in
     go_workspace "$CURRENT_WS"
     ;;
   --gpu-temp)
-    if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
-      term_exec gpu-temp-popup control-center watch -n 1 nvidia-smi
-    elif argvus widget-telemetry block gpu --available-temp; then
-      term_exec gpu-temp-popup taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus sensors
+    if argvus widget-telemetry block gpu --available; then
+      term_exec gpu-temp-popup taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus --system-monitor --panel --gpu
     fi
     go_workspace "$CURRENT_WS"
     ;;
