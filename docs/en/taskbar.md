@@ -11,7 +11,7 @@ The leftmost icon opens `argvus launcher`. It is disabled by default. When enabl
 
 The taskbar is not the Control Panel. The bar communicates persistent desktop state and status; the Control Panel is an expandable quick-action surface. Calendar and removable-device popups are companion applications/surfaces, not separate taskbars.
 
-Clicking **Memory** or **CPU** opens the system monitor focused on that module. Temperature modules open the live `argvus sensors` overview, grouped by chip; the GPU continues to use `nvidia-smi` when available and otherwise opens the same overview. Press `q` or `Esc` to close the sensor panel. A bottom Kitty tab shows the localized **Press q to close** hint.
+Clicking **Memory** or **CPU** opens `btop` inside the themed ARGVUS monitor panel, with an `ARGVUS` header and an `Esc Close` footer. The bottom Kitty tab names the module and shows its localized close hint. Press `Esc` to close the panel; `q` is passed to `btop` and also exits its view. Temperature modules open the live `argvus sensors` overview, grouped by chip; the GPU continues to use `nvidia-smi` when available and otherwise opens the same overview.
 
 ## Position and spacing
 

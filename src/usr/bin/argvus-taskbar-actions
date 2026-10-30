@@ -83,10 +83,10 @@ case $1 in
     argvus --calendar
     ;;
   --mem)
-    term_exec argvus-taskbar-mem taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus --system-monitor --mem
+    term_exec argvus-taskbar-mem taskbar-monitor --title "$(argvus_tr taskbar monitor.memory.title)" argvus --system-monitor --panel --mem
     ;;
   --cpu)
-    term_exec argvus-taskbar-cpu taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus --system-monitor --cpu
+    term_exec argvus-taskbar-cpu taskbar-monitor --title "$(argvus_tr taskbar monitor.cpu.title)" argvus --system-monitor --panel --cpu
     ;;
   --cpu-temp)
     if argvus widget-telemetry block cpu-temp --available; then

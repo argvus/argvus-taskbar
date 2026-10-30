@@ -11,7 +11,7 @@ O ícone mais à esquerda abre o `argvus launcher`. Ele vem desabilitado por pad
 
 A taskbar não é o Control Panel. A barra comunica o estado persistente do desktop e status; o Control Panel é uma superfície expansível de ações rápidas. Popups de calendário e dispositivos removíveis são superfícies complementares, não taskbars separadas.
 
-Clicar em **Memória** ou **CPU** abre o monitor do sistema focado nesse módulo. Os módulos de temperatura abrem o painel ao vivo `argvus sensors`, agrupado por chip; a GPU continua usando `nvidia-smi` quando disponível e, caso contrário, abre o mesmo painel. Pressione `q` ou `Esc` para fechar o painel. Uma aba inferior do Kitty mostra a dica localizada **Pressione q para fechar**.
+Clicar em **Memória** ou **CPU** abre o `btop` dentro do painel temático ARGVUS, com cabeçalho `ARGVUS` e rodapé `Esc Fechar`. A aba inferior do Kitty identifica o módulo e mostra a dica localizada para fechar. Pressione `Esc` para fechar o painel; `q` é encaminhado ao `btop` e também encerra a visualização dele. Os módulos de temperatura abrem o painel ao vivo `argvus sensors`, agrupado por chip; a GPU continua usando `nvidia-smi` quando disponível e, caso contrário, abre o mesmo painel.
 
 ## Transparência e blur
 
