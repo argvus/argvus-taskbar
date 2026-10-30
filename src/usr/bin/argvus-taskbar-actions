@@ -68,8 +68,9 @@ power_menu() {
 
 term_exec() {
   _class="$1"
-  shift
-  exec argvus tui-terminal --class "$_class" --term kitty --profile control-center -- "$@"
+  _profile="$2"
+  shift 2
+  exec argvus tui-terminal --class "$_class" --term kitty --profile "$_profile" -- "$@"
 }
 
 sidebar_toggle() {
@@ -82,26 +83,22 @@ case $1 in
     argvus --calendar
     ;;
   --mem)
-    # shellcheck disable=SC2016
-    term_exec argvus-taskbar-mem env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'argvus --system-monitor --mem; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
+    term_exec argvus-taskbar-mem taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus --system-monitor --mem
     ;;
   --cpu)
-    # shellcheck disable=SC2016
-    term_exec argvus-taskbar-cpu env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'argvus --system-monitor --cpu; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
+    term_exec argvus-taskbar-cpu taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus --system-monitor --cpu
     ;;
   --cpu-temp)
     if argvus widget-telemetry block cpu-temp --available; then
-      # shellcheck disable=SC2016
-      term_exec cpu-temp-popup env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'sensors; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
+      term_exec cpu-temp-popup taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus sensors
     fi
     go_workspace "$CURRENT_WS"
     ;;
   --gpu-temp)
     if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
-      term_exec gpu-temp-popup watch -n 1 nvidia-smi
+      term_exec gpu-temp-popup control-center watch -n 1 nvidia-smi
     elif argvus widget-telemetry block gpu --available-temp; then
-      # shellcheck disable=SC2016
-      term_exec gpu-temp-popup env ARGVUS_TASKBAR_PROMPT="$(argvus_tr taskbar prompt.press_enter)" sh -c 'sensors; echo; read -p "$ARGVUS_TASKBAR_PROMPT"'
+      term_exec gpu-temp-popup taskbar-monitor --title "$(argvus_tr taskbar prompt.press_q_to_close)" argvus sensors
     fi
     go_workspace "$CURRENT_WS"
     ;;

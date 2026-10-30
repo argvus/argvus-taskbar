@@ -11,6 +11,8 @@ The leftmost icon opens `argvus launcher`. It is disabled by default. When enabl
 
 The taskbar is not the Control Panel. The bar communicates persistent desktop state and status; the Control Panel is an expandable quick-action surface. Calendar and removable-device popups are companion applications/surfaces, not separate taskbars.
 
+Clicking **Memory** or **CPU** opens the system monitor focused on that module. Temperature modules open the live `argvus sensors` overview, grouped by chip; the GPU continues to use `nvidia-smi` when available and otherwise opens the same overview. Press `q` or `Esc` to close the sensor panel. A bottom Kitty tab shows the localized **Press q to close** hint.
+
 ## Position and spacing
 
 The default position is the top edge in dock mode. Control Center exposes taskbar position and taskbar/shell margins under **Appearance → Taskbar → Position** and **Spaces**, and the utility group under **Appearance → Taskbar → Icons**. The layout state stores independent top, left, right and bottom margins. Sticky mode defaults the bottom margin to `2` and keeps the bar close to the edge; Float mode uses a default `18`-unit shell margin.
