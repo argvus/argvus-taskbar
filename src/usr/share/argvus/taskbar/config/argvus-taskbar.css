@@ -314,6 +314,7 @@ tooltip label {
 
 /* --- Hover --- */
 #custom-date:hover,
+#clock.time:hover,
 #tray,
 #custom-removable-devices:hover,
 #cpu:hover,
