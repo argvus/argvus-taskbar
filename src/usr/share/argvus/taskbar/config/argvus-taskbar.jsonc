@@ -81,14 +81,13 @@
     "max-length": 20,
     "tooltip": false
   },
-  "custom/window-or-mpris": {
-    "exec": "/usr/share/argvus/taskbar/sh/waybar-window-or-mpris.sh",
-    "interval": 5,
-    "format": "{}",
-    "tooltip": false
-  },
   "hyprland/workspaces": {
     "format": "{name}",
+    "workspace-taskbar": {
+      "enable": false,
+      "update-active-window": false,
+      "icon-size": 16
+    },
     "on-click": "activate",
     "all-outputs": false,
     "disable-scroll": true,
@@ -303,14 +302,17 @@
     "on-click-right": "/usr/share/argvus/taskbar/sh/waybar-spotify-focus.sh",
     "format": "{}",
     "format-paused": "{}",
-    "return-type": "text",
+    "return-type": "json",
     "max-length": 80,
     "interval": 5,
-    "tooltip": false
+    "tooltip": true,
+    "hide-empty-text": true
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+    "tooltip": true,
+    "tooltip-format": "{player} — {status}\n{dynamic}",
     "max-length": 80,
     "interval": 5,
     "player-icons": {

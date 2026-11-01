@@ -23,6 +23,8 @@ The taskbar position control currently selects **Top** or **Bottom**. The four i
 
 **Height** sets the bar height to 24, 28 (the default), 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the `right-0`, `right-1`, `focus` and `right-2` groups, and the MPRIS player border. Hovering interactive modules, including the player, gently lowers their opacity. With the border off, those borders are written as `0px`. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
 
+**Control Center → Appearance → Taskbar → Icons → Optional modules** controls the visibility of optional status and action modules. Workspaces, the focused-window title, Settings and Power remain available. **Workspace presentation** selects workspace labels (the default) or application icons. MPRIS players show track details in their tooltips; the player no longer uses a continuous color pulse.
+
 ## Transparency and blur
 
 Use **Control Center → Appearance → Taskbar** to configure Utility Icons, Transparency and Blur. Transparency and Blur each have an enable switch and a `0–100%` value. Change values with `+` and `-` in 5% steps; changes are drafts until **[ Apply ]** is selected. New themes default to both effects enabled at `50%`.
@@ -49,3 +51,5 @@ argvus sessionctl restart waybar
 ```
 
 Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked; the date module opens the calendar. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.
+
+Utilities collapse to an expander in hover mode and reveal enabled controls on pointer entry. System tray visibility controls background application icons; an empty tray has no visible icons. Workspace icon presentation shows application icons for open windows alongside workspace labels.

@@ -110,7 +110,6 @@ window#waybar.empty #window {
 #custom-removable-devices,
 #mpris,
 #custom-spotify-mpris,
-#custom-window-or-mpris,
 #tray,
 #custom-recording,
 #pulseaudio,
@@ -203,7 +202,6 @@ tooltip label {
 #custom-removable-devices,
 #mpris,
 #custom-spotify-mpris,
-#custom-window-or-mpris,
 #custom-recording,
 #custom-right-2-expander,
 #pulseaudio,
@@ -280,10 +278,6 @@ tooltip label {
   margin: 0.7px 0px 0px 14px;
 }
 
-#custom-window-or-mpris {
-  margin-left: 15px;
-}
-
 #right-0, #right-1, #right-2, #focus, #mpris, #custom-spotify-mpris {
   margin: 3px 0px;
   margin-left: 5px;
@@ -324,7 +318,6 @@ tooltip label {
 #language:hover,
 #custom-recording:hover,
 #power-profiles-daemon:hover,
-#custom-update:hover,
 #network:hover,
 #bluetooth:hover,
 #custom-bluetooth:hover,
@@ -414,12 +407,6 @@ tooltip label {
   border: 1px solid @th-mpris-border;
   box-shadow: none;
   text-shadow: none;
-  animation: repeat;
-  animation-name: blink-player;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
   transition: opacity 160ms ease-in-out;
 }
 
@@ -428,12 +415,6 @@ tooltip label {
   opacity: 0.75;
   box-shadow: none;
   text-shadow: none;
-}
-
-@keyframes blink-player {
-  to {
-    color: @th-mpris-fg-anim;
-  }
 }
 
 #custom-power {

@@ -24,6 +24,8 @@ A posição padrão é a borda superior em modo dock. O Control Center expõe po
 
 **Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1`, `focus` e `right-2` e a borda do player MPRIS. Ao passar o cursor sobre módulos interativos, incluindo o player, a opacidade diminui suavemente. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
 
+**Control Center → Aparência → Barra de tarefas → Ícones → Módulos opcionais** controla a visibilidade dos módulos opcionais de status e ações. Workspaces, título da janela em foco e ações Configurações e Energia permanecem disponíveis. **Apresentação dos workspaces** seleciona nomes (padrão) ou ícones dos aplicativos. Os players MPRIS mostram detalhes da faixa nas dicas; o player não usa mais uma pulsação contínua de cor.
+
 Margem da taskbar, gap externo das janelas e geometria dos painéis são relacionados, mas distintos. Alterar um não reescreve todos os outros valores. Se a barra parecer visualmente afastada das janelas, revise modo, margens da taskbar e espaçamento das janelas juntos; veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/).
 
 O controle de posição seleciona **Top** ou **Bottom**. As quatro margens independentes controlam a distância da barra de cada borda da tela. O grupo utilitário pode usar o comportamento **Auto** ou **Always expanded**. A disponibilidade de módulos ainda depende dos providers e do hardware instalados; mudar o espaçamento não cria um indicador de Bluetooth, brilho ou armazenamento ausente.
@@ -49,3 +51,5 @@ argvus sessionctl restart waybar
 ```
 
 Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data; o módulo de data abre o calendário. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).
+
+No modo hover, Utilities fica recolhido no expansor e revela os controles habilitados ao passar o mouse. A bandeja controla os ícones de aplicativos em segundo plano; quando vazia, não há ícones visíveis. A apresentação por ícones mostra os aplicativos com janelas abertas junto aos rótulos dos workspaces.

@@ -1,50 +1,50 @@
 #!/usr/bin/env sh
-# Detect music player content — native app or via browser MediaSession.
-# Outputs Pango-markup icon + "artist — title" if a player is active.
-# Supported: Spotify, Audacious, Rhythmbox, Strawberry, Lollypop,
-#            and Spotify via browser (Firefox, Chrome, Brave, etc.).
+# Render Spotify MPRIS metadata as Waybar JSON, including a readable tooltip.
+# Supports native players and Spotify MediaSession instances in browsers.
 
-# Symbols Nerd Font: md-play=U+F040A, md-pause=U+F03E4
+set -eu
+
 PLAY=$(printf '\xf3\xb0\x90\x8a')
 PAUSE=$(printf '\xf3\xb0\x8f\xa4')
 
-icon() {
-    printf "<span font_family='Symbols Nerd Font Mono'>%s</span>" "$1"
-}
-
 emit() {
-    STATUS="$1"; TRACK="$2"
-    if [ "$STATUS" = "Playing" ]; then IC=$(icon "$PLAY"); else IC=$(icon "$PAUSE"); fi
-    echo "$IC $TRACK"
-    exit 0
+  _player="$1"
+  _status="$2"
+  _artist="$(playerctl -p "$_player" metadata --format '{{ artist }}' 2>/dev/null || true)"
+  _title="$(playerctl -p "$_player" metadata --format '{{ title }}' 2>/dev/null || true)"
+  [ -n "$_title" ] || return 0
+  _icon="$PAUSE"
+  [ "$_status" = Playing ] && _icon="$PLAY"
+  _track="$_title"
+  [ -z "$_artist" ] || _track="$_artist — $_title"
+  _text="$(printf "<span font_family='Symbols Nerd Font Mono'>%s</span> %s" "$_icon" "$_track")"
+  _tooltip="$(printf '%s — %s\n%s\n%s' "$_player" "$_status" "$_artist" "$_title")"
+  jq -cn --arg text "$_text" --arg tooltip "$_tooltip" '{text:$text,tooltip:$tooltip}'
+  exit 0
 }
 
-# ── Native players (by playerctl name) ──
 for name in spotify audacious rhythmbox strawberry lollypop; do
-    STATUS=$(playerctl -p "$name" status 2>/dev/null)
-    if [ "$STATUS" = "Playing" ] || [ "$STATUS" = "Paused" ]; then
-        TRACK=$(playerctl -p "$name" metadata --format "{{ artist }} — {{ title }}" 2>/dev/null)
-        emit "$STATUS" "$TRACK"
-    fi
+  STATUS="$(playerctl -p "$name" status 2>/dev/null || true)"
+  case "$STATUS" in
+  Playing | Paused) emit "$name" "$STATUS" ;;
+  esac
 done
 
-# ── Spotify via browser (check metadata for spotify URL) ──
-for player in $(playerctl -l 2>/dev/null); do
-    case "$(echo "$player" | tr '[:upper:]' '[:lower:]')" in
-        spotify|audacious|rhythmbox|strawberry|lollypop) continue ;;
-        chrome*|chromium*|firefox*|brave*|edge*|vivaldi*|opera*)
-            STATUS=$(playerctl -p "$player" status 2>/dev/null)
-            if [ "$STATUS" = "Playing" ] || [ "$STATUS" = "Paused" ]; then
-                META=$(playerctl -p "$player" metadata 2>/dev/null)
-                case "$META" in
-                    *[Ss]potify*)
-                        TRACK=$(playerctl -p "$player" metadata --format "{{ artist }} — {{ title }}" 2>/dev/null)
-                        emit "$STATUS" "$TRACK"
-                        ;;
-                esac
-            fi
-            ;;
+for player in $(playerctl -l 2>/dev/null || true); do
+  case "$(printf '%s' "$player" | tr '[:upper:]' '[:lower:]')" in
+  spotify | audacious | rhythmbox | strawberry | lollypop) continue ;;
+  chrome* | chromium* | firefox* | brave* | edge* | vivaldi* | opera*)
+    STATUS="$(playerctl -p "$player" status 2>/dev/null || true)"
+    case "$STATUS" in
+    Playing | Paused)
+      META="$(playerctl -p "$player" metadata 2>/dev/null || true)"
+      case "$META" in
+      *[Ss]potify*) emit "$player" "$STATUS" ;;
+      esac
+      ;;
     esac
+    ;;
+  esac
 done
 
-exit 0
+printf '%s\n' '{"text":"","tooltip":""}'
