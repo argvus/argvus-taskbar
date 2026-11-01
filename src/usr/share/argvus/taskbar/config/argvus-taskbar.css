@@ -194,6 +194,7 @@ tooltip label {
 #custom-gpu-temp
 {
   border-bottom: 1px solid @th-border-bottom;
+  transition: opacity 160ms ease-in-out;
 }
 
 /* SPACES ICONS */
@@ -315,7 +316,7 @@ tooltip label {
 /* --- Hover --- */
 #custom-date:hover,
 #clock.time:hover,
-#tray,
+#tray:hover,
 #custom-removable-devices:hover,
 #cpu:hover,
 #memory:hover,
@@ -335,8 +336,7 @@ tooltip label {
 #custom-focus:hover,
 #custom-notifications:hover,
 #custom-gpu-temp:hover {
-  color: @th-foreground2;
-  border-bottom: 1px solid @th-foreground2;
+  opacity: 0.75;
 }
 
 #language {
@@ -380,6 +380,7 @@ tooltip label {
   background: none;
   margin-left: 5px;
   margin-right: 5px;
+  transition: opacity 160ms ease-in-out;
 }
 
 #tray > .passive {
@@ -419,11 +420,12 @@ tooltip label {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  transition: opacity 160ms ease-in-out;
 }
 
 #mpris:hover,
 #custom-spotify-mpris:hover {
-  border-bottom: 1px solid @th-decorate;
+  opacity: 0.75;
   box-shadow: none;
   text-shadow: none;
 }
