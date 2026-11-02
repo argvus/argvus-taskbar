@@ -103,6 +103,7 @@ window#waybar.empty #window {
 #custom-network,
 #bluetooth,
 #custom-bluetooth,
+#custom-ai,
 #custom-right-2-expander,
 #clock,
 #custom-date,
@@ -134,6 +135,7 @@ window#waybar.empty #window {
 #custom-keep-awake,
 #custom-focus,
 #custom-notifications,
+#custom-ai,
 #custom-right-2-expander,
 #pulseaudio,
 #power-profiles-daemon,
@@ -189,6 +191,7 @@ tooltip label {
 #custom-keep-awake,
 #custom-focus,
 #custom-notifications,
+#custom-ai,
 #custom-right-2-expander,
 #custom-gpu-temp
 {
@@ -203,6 +206,7 @@ tooltip label {
 #mpris,
 #custom-spotify-mpris,
 #custom-recording,
+#custom-ai,
 #custom-right-2-expander,
 #pulseaudio,
 #language,
@@ -327,6 +331,7 @@ tooltip label {
 #custom-cpu-temp:hover,
 #custom-keep-awake:hover,
 #custom-focus:hover,
+#custom-ai:hover,
 #custom-notifications:hover,
 #custom-gpu-temp:hover {
   opacity: 0.75;
