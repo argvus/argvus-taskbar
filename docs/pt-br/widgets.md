@@ -31,3 +31,6 @@ O serviço é `argvus-widget-telemetry.service` e é gerenciado pelo `argvus-ses
 
 
 O ícone opcional de agentes de IA em group/right-2 abre argvus-ai menu. A presença do helper é verificada a cada cinco segundos; sem ele ou sem agentes disponíveis, o ícone é ocultado (argvus-ai status --check). O Claude é oferecido para instalação quando o mise está presente. Selecioná-lo abre o terminal ARGVUS, instala-o no perfil do usuário atual se necessário e o inicia com o diretório do binário no PATH do processo. Não há hook de instalação do pacote. Recarregue a barra para carregar a configuração atualizada; cópias do usuário não são sobrescritas.
+
+
+O lançador de IA usa nf-md-robot (U+F06A9) com Symbols Nerd Font Mono. O projetor de aparência o preserva em group/right-2, junto dos controles de microfone e áudio.

@@ -33,3 +33,6 @@ The GPU temperature module is shown when DRM/sysfs exposes a supported NVIDIA, A
 
 
 The optional AI agents icon in group/right-2 opens argvus-ai menu. It is checked every five seconds and hidden when the helper is absent or no agents are available (argvus-ai status --check). Claude is offered as installable when mise is present. Selecting it opens the ARGVUS terminal, installs it in the current user profile if missing, then launches it with its binary directory in the process PATH. No package installation hook is used. Reload the bar to load the updated system configuration; user copies are not overwritten.
+
+
+The AI launcher uses nf-md-robot (U+F06A9) with Symbols Nerd Font Mono. The appearance projector preserves it in group/right-2 alongside the microphone and audio controls.

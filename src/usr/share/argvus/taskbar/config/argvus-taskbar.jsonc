@@ -36,6 +36,7 @@
     "modules": ["custom/focus"]
   },
   "custom/ai": {
+    "format": "<span font_family='Symbols Nerd Font Mono'>{}</span>",
     "exec-if": "command -v argvus-ai >/dev/null 2>&1 && argvus-ai status --check",
     "exec": "argvus-ai status",
     "return-type": "json",
