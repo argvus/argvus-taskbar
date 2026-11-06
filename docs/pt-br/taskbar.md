@@ -53,3 +53,9 @@ argvus sessionctl restart waybar
 Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data; o módulo de data abre o calendário. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).
 
 No modo hover, Utilities fica recolhido no expansor e revela os controles habilitados ao passar o mouse. A bandeja controla os ícones de aplicativos em segundo plano; quando vazia, não há ícones visíveis. A apresentação por ícones mostra os aplicativos com janelas abertas junto aos rótulos dos workspaces.
+
+## Workspaces de projetos
+
+Projetos abertos aparecem como botões de workspace comuns, com rótulo `Projeto: nome`; clicar em um deles o foca. O tooltip mostra o caminho completo e o atalho `SUPER + ALT + N`. Apenas workspaces abertos no monitor da barra aparecem; o seletor (`SUPER + O`) continua sendo o catálogo completo. Workspaces especiais mantêm a política de visibilidade existente.
+
+O módulo `hyprland/workspaces` lê `workspace-metadata: "argvus/project-workspaces.json"`, relativo a `$XDG_RUNTIME_DIR`. `argvus projects` regenera esse arquivo derivado ao abrir um projeto. O `argvus-waybar` corrigido aceita endereços textuais de workspaces do Hyprland 0.57 e usa os metadados para os rótulos sem alterar as identidades dos workspaces. Atualize os três pacotes e reprojete a configuração da taskbar antes de reiniciar o serviço.

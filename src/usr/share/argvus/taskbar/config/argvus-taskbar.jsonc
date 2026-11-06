@@ -91,6 +91,7 @@
     "tooltip": false
   },
   "hyprland/workspaces": {
+    "workspace-metadata": "argvus/project-workspaces.json",
     "format": "{name}",
     "workspace-taskbar": {
       "enable": false,

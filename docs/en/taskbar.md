@@ -53,3 +53,9 @@ argvus sessionctl restart waybar
 Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked; the date module opens the calendar. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.
 
 Utilities collapse to an expander in hover mode and reveal enabled controls on pointer entry. System tray visibility controls background application icons; an empty tray has no visible icons. Workspace icon presentation shows application icons for open windows alongside workspace labels.
+
+## Project workspaces
+
+Open projects appear as ordinary workspace buttons, labelled `Project: name`; clicking one focuses it. Hover shows the full project path and `SUPER + ALT + N` shortcut. Only open workspaces on the bar's monitor are displayed; the picker (`SUPER + O`) remains the full project catalog. Special workspaces keep their existing visibility policy.
+
+The `hyprland/workspaces` module reads `workspace-metadata: "argvus/project-workspaces.json"`, relative to `$XDG_RUNTIME_DIR`. `argvus projects` regenerates this derived file whenever a project opens. The patched `argvus-waybar` supports Hyprland 0.57 textual workspace addresses and uses the metadata for labels without changing workspace identities. Update all three packages and reproject the taskbar configuration before restarting the service.
