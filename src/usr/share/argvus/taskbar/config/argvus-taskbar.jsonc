@@ -31,6 +31,10 @@
     "spacing": 2,
     "modules": ["custom/network", "power-profiles-daemon", "hyprland/language", "battery", "memory", "cpu", "custom/cpu-temp", "custom/gpu-temp"]
   },
+  "group/update-status": {
+    "orientation": "inherit",
+    "modules": ["custom/update-status"]
+  },
   "group/focus": {
     "orientation": "inherit",
     "modules": ["custom/focus"]
@@ -71,12 +75,20 @@
   "modules-right": [
     "tray",
     "group/right-2",
+    "group/update-status",
     "group/right-1",
     "group/focus",
     "group/right-0",
     "custom/power",
     "custom/settings"
   ],
+  "custom/update-status": {
+    "exec": "/usr/share/argvus/taskbar/sh/waybar-update-status.sh",
+    "return-type": "json",
+    "format": "<span font_family='Symbols Nerd Font Mono'>󰚰</span> {}",
+    "interval": 3600,
+    "on-click": "argvus control-center packages updates"
+  },
   "custom/icon-window": {
     "format": "<span font_family='Symbols Nerd Font Mono'></span> "
   },

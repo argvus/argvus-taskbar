@@ -101,6 +101,7 @@ window#waybar.empty #window {
 #battery,
 #network,
 #custom-network,
+#custom-update-status,
 #bluetooth,
 #custom-bluetooth,
 #custom-ai,
@@ -127,6 +128,7 @@ window#waybar.empty #window {
 #custom-icon-window,
 #network,
 #custom-network,
+#custom-update-status,
 #bluetooth,
 #custom-bluetooth,
 #custom-expand-icon,
@@ -144,7 +146,8 @@ window#waybar.empty #window {
   font-family: "Symbols Nerd Font Mono";
 }
 
-#custom-network.limited {
+#custom-network.limited,
+#custom-update-status.error {
   color: @th-warn;
 }
 
@@ -176,6 +179,7 @@ tooltip label {
 #cpu,
 #custom-date,
 #clock.time,
+#custom-update-status,
 #network,
 #bluetooth,
 #custom-bluetooth,
@@ -211,6 +215,7 @@ tooltip label {
 #pulseaudio,
 #language,
 #power-profiles-daemon,
+#custom-update-status,
 #network,
 #bluetooth,
 #custom-bluetooth,
@@ -247,7 +252,8 @@ tooltip label {
  padding: 0px 4px 0px 4px;
 }
 
-#custom-focus {
+#custom-focus,
+#custom-update-status {
  margin: 0px 0px 0px 0px;
  padding: 0px 0px 0px 0px;
 }
@@ -282,7 +288,7 @@ tooltip label {
   margin: 0.7px 0px 0px 14px;
 }
 
-#right-0, #right-1, #right-2, #focus, #mpris, #custom-spotify-mpris {
+#right-0, #right-1, #right-2, #focus, #update-status, #mpris, #custom-spotify-mpris {
   margin: 3px 0px;
   margin-left: 5px;
   padding: 0px 10px;
@@ -300,7 +306,8 @@ tooltip label {
   color: @th-foreground;
 }
 
-#focus {
+#focus,
+#update-status {
   background: @th-right02-bg;
   color: @th-foreground;
 }
@@ -322,6 +329,7 @@ tooltip label {
 #language:hover,
 #custom-recording:hover,
 #power-profiles-daemon:hover,
+#custom-update-status:hover,
 #network:hover,
 #bluetooth:hover,
 #custom-bluetooth:hover,
