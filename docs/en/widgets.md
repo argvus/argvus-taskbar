@@ -41,7 +41,7 @@ The AI launcher uses nf-md-robot (U+F06A9) with Symbols Nerd Font Mono. The appe
 
 The window icon in `group/right-2`, after the utility expander, opens a GTK popup with **Tile Windows (Default)** and **Floating Windows**. The current preference is marked. Select an option to apply it immediately; Escape or clicking outside dismisses the popup. The icon reflects the effective mode, with a pending/error style when application has not completed. The popup follows the taskbar position and current theme.
 
-The setting is shared with **Control Center → Desktop & Input → Hyprland → Window Rules**. Floating affects all application windows across monitors and workspaces. Returning to Tile preserves windows that were originally floating. The selection persists between logins.
+The setting is shared with **Control Center → Desktop & Input → Hyprland → Windows → Mode**. Floating affects all application windows across monitors and workspaces. Returning to Tile preserves windows that were originally floating. The selection persists between logins.
 
 The helper is `argvus window-mode-menu`; `argvus window-mode-menu --status` emits Waybar JSON. It is shipped by the master `argvus` package. Existing customized taskbar copies are preserved: add the `custom/window-mode` module definition and group entry from the packaged template to opt in, or use Control Center. The appearance projector preserves the module when its definition is present, even if other utility icons are disabled.
 

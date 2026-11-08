@@ -39,7 +39,7 @@ O lançador de IA usa nf-md-robot (U+F06A9) com Symbols Nerd Font Mono. O projet
 
 O ícone de janelas em `group/right-2`, após o expansor de utilitários, abre um popup GTK com **Janelas em mosaico (padrão)** e **Janelas flutuantes**. A preferência atual aparece marcada. A seleção é aplicada imediatamente; Escape ou clique externo fecha o popup. O ícone reflete o modo efetivo, com estilo de pendência/erro quando a aplicação ainda não terminou. O popup acompanha a posição da barra e o tema atual.
 
-A opção é compartilhada com **Control Center → Desktop e entrada → Hyprland → Regras de janelas**. O modo flutuante afeta todas as janelas de aplicativos, em todos os monitores e workspaces. Voltar ao mosaico preserva as janelas que já eram flutuantes. A seleção persiste entre logins.
+A opção é compartilhada com **Control Center → Desktop e entrada → Hyprland → Janelas → Modo**. O modo flutuante afeta todas as janelas de aplicativos, em todos os monitores e workspaces. Voltar ao mosaico preserva as janelas que já eram flutuantes. A seleção persiste entre logins.
 
 O helper é `argvus window-mode-menu`; `argvus window-mode-menu --status` emite JSON para Waybar. Ele é distribuído pelo pacote mestre `argvus`. Cópias personalizadas da taskbar são preservadas: para incluir o ícone, copie a definição do módulo `custom/window-mode` e sua entrada no grupo a partir do template do pacote, ou use o Control Center. O projetor de aparência preserva o módulo quando sua definição existe, mesmo com os demais ícones de utilitários desabilitados.
 
