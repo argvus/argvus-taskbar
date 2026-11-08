@@ -34,3 +34,27 @@ O ícone opcional de agentes de IA em group/right-2 abre argvus-ai menu. A prese
 
 
 O lançador de IA usa nf-md-robot (U+F06A9) com Symbols Nerd Font Mono. O projetor de aparência o preserva em group/right-2, junto dos controles de microfone e áudio.
+
+## Seletor de modo de janelas
+
+O ícone de janelas em `group/right-2`, após o expansor de utilitários, abre um popup GTK com **Janelas em mosaico (padrão)** e **Janelas flutuantes**. A preferência atual aparece marcada. A seleção é aplicada imediatamente; Escape ou clique externo fecha o popup. O ícone reflete o modo efetivo, com estilo de pendência/erro quando a aplicação ainda não terminou. O popup acompanha a posição da barra e o tema atual.
+
+A opção é compartilhada com **Control Center → Desktop e entrada → Hyprland → Regras de janelas**. O modo flutuante afeta todas as janelas de aplicativos, em todos os monitores e workspaces. Voltar ao mosaico preserva as janelas que já eram flutuantes. A seleção persiste entre logins.
+
+O helper é `argvus window-mode-menu`; `argvus window-mode-menu --status` emite JSON para Waybar. Ele é distribuído pelo pacote mestre `argvus`. Cópias personalizadas da taskbar são preservadas: para incluir o ícone, copie a definição do módulo `custom/window-mode` e sua entrada no grupo a partir do template do pacote, ou use o Control Center. O projetor de aparência preserva o módulo quando sua definição existe, mesmo com os demais ícones de utilitários desabilitados.
+
+## Botões de janela e barra de aplicativos
+
+O modo flutuante adiciona uma barra de título ARGVUS com **Minimizar**, **Maximizar / Restaurar** e **Fechar** às janelas normais de aplicativos. O clique duplo na barra alterna a maximização. A decoração adicional fica oculta em mosaico e tela cheia. Aplicativos que desenham seus próprios controles podem exibir as duas barras; os controles ARGVUS uniformes são intencionais.
+
+Uma segunda Waybar aparece em cada monitor, na borda oposta à taskbar principal. Ela lista apenas as janelas do workspace atual daquele monitor, incluindo as minimizadas desse workspace. Abas ocultas de grupos não geram entradas extras. As minimizadas mantêm a associação ao monitor e workspace originais. Clique em uma entrada para restaurar/ativar; o menu de contexto oferece restaurar, minimizar, maximizar/restaurar e fechar. Ícones de aplicativos desconhecidos usam um símbolo de janela. A ativação e a restauração pela lista preservam a posição do ponteiro. A barra secundária usa o CSS efetivo da principal (cores, fontes, borda e arredondamento), com altura e margens espelhadas na borda oposta.
+
+`SUPER + Alt + seta para cima` coloca a barra principal no topo e a barra de janelas no rodapé. `SUPER + Alt + seta para baixo` faz o inverso. Repetir a direção mantém as posições. Em mosaico existe apenas a barra principal. Voltar ao mosaico restaura todas as minimizadas antes de remover a barra de janelas e então preserva a política original de janelas tiled/flutuantes.
+
+A minimização usa o workspace reservado `special:argvus-minimized`. Não use esse workspace manualmente. O processo `argvus windows service` registra identidade, workspace/monitor de origem, geometria, tela cheia/maximização e fixação em um registro de runtime separado por instância do compositor, em `$XDG_RUNTIME_DIR/argvus`. Os registros sobrevivem ao reinício do serviço ou reload da configuração, mas não atravessam sessões do compositor. Fechar uma janela remove seu registro. Se um monitor desaparecer, a restauração usa uma saída disponível. Uma barra de recuperação ausente ou com falha impede novas minimizações; falhas de restauração preservam o registro e a barra de recuperação.
+
+A sessão gerencia `argvus-windows.service` e `argvus-window-bar.service`. O segundo mantém sua Waybar inativa em mosaico. O plugin hyprbars é distribuído por `argvus-hyprland`, compilado para a ABI do Hyprland 0.57.0 em x86_64; não é compilado no diretório pessoal do usuário. Recompile o plugin ao atualizar a ABI do compositor.
+
+Comandos: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` e `minimize|restore|activate|maximize|close ADDRESS`. Os endereços das janelas vêm da listagem. `position top --persist` salva/projeta a preferência sem reiniciar a barra principal. Detalhes de erros vão para o journal; falhas de ações visíveis também exibem uma notificação traduzida.
+
+No modo **Spaced + Floating**, as janelas respeitam os espaços externos e as áreas reservadas pelas duas barras. O cálculo inclui a borda e o título, que fica dentro da mesma borda da janela. Maximizar pelos controles ARGVUS ocupa essa área com margens; restaurar recupera a geometria anterior, inclusive após reiniciar o serviço. Tela cheia continua usando o monitor inteiro. Janelas flutuantes podem se sobrepor; os espaços internos do mosaico não separam essas janelas.

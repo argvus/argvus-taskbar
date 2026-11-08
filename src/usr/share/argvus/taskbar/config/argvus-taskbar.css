@@ -105,6 +105,7 @@ window#waybar.empty #window {
 #bluetooth,
 #custom-bluetooth,
 #custom-ai,
+#custom-window-mode,
 #custom-right-2-expander,
 #clock,
 #custom-date,
@@ -138,6 +139,7 @@ window#waybar.empty #window {
 #custom-focus,
 #custom-notifications,
 #custom-ai,
+#custom-window-mode,
 #custom-right-2-expander,
 #pulseaudio,
 #power-profiles-daemon,
@@ -196,6 +198,7 @@ tooltip label {
 #custom-focus,
 #custom-notifications,
 #custom-ai,
+#custom-window-mode,
 #custom-right-2-expander,
 #custom-gpu-temp
 {
@@ -211,6 +214,7 @@ tooltip label {
 #custom-spotify-mpris,
 #custom-recording,
 #custom-ai,
+#custom-window-mode,
 #custom-right-2-expander,
 #pulseaudio,
 #language,
@@ -340,6 +344,7 @@ tooltip label {
 #custom-keep-awake:hover,
 #custom-focus:hover,
 #custom-ai:hover,
+#custom-window-mode:hover,
 #custom-notifications:hover,
 #custom-gpu-temp:hover {
   opacity: 0.75;
@@ -476,3 +481,7 @@ tooltip label {
     opacity: 0.4;
   }
 }
+
+/* Window mode follows the utility group's existing icon spacing and colors. */
+#custom-window-mode.pending { opacity: 0.65; }
+#custom-window-mode.error { color: @th-danger; }

@@ -47,6 +47,13 @@
     "interval": 5,
     "on-click": "sh -c 'command -v argvus-ai >/dev/null 2>&1 && argvus-ai status --check && exec argvus-ai menu'"
   },
+  "custom/window-mode": {
+    "format": "<span font_family='Symbols Nerd Font Mono'>{}</span>",
+    "exec": "argvus window-mode-menu --status",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "argvus window-mode-menu"
+  },
   "group/right-2": {
     "orientation": "inherit",
     // ARGVUS_RIGHT_2_AUTO_BEGIN
@@ -60,6 +67,7 @@
     "modules": [
       // ARGVUS_RIGHT_2_EXPANDER
       "custom/right-2-expander",
+      "custom/window-mode",
       "custom/ai",
       "custom/notifications",
       "custom/removable-devices",

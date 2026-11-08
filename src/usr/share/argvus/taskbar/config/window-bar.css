@@ -1,0 +1,19 @@
+/* The runner imports the effective primary taskbar CSS before these module rules.
+ * Window borders, colors, fonts, rounding and mode overrides are shared. */
+#argvus-windows { padding: 0 4px; }
+#argvus-windows button {
+  background: @th-right02-bg;
+  color: @th-foreground;
+  min-height: 0;
+  min-width: 0;
+  box-shadow: none;
+  text-shadow: none;
+  border: 1px solid @th-border-rights;
+  border-radius: inherit;
+  margin: 3px 2px;
+  padding: 0px 10px;
+  transition: opacity 160ms ease-in-out;
+}
+#argvus-windows button.active { border-color: @th-decorate; }
+#argvus-windows button.minimized { opacity: 0.55; }
+#argvus-windows button:hover, #argvus-windows button:focus { background: alpha(@th-decorate, 0.25); }
