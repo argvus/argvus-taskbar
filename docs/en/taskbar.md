@@ -15,7 +15,7 @@ Clicking **Memory** or **CPU** opens `btop` inside the themed ARGVUS monitor pan
 
 ## Position and spacing
 
-The default position is the top edge in dock mode. Control Center exposes taskbar position and taskbar/shell margins under **Appearance → Taskbar → Position** and **Spaces**, and the utility group under **Appearance → Taskbar → Icons**. The layout state stores independent top, left, right and bottom margins. Sticky mode defaults the bottom margin to `2` and keeps the bar close to the edge; Float mode uses a default `18`-unit shell margin.
+The default position is the top edge in dock mode. Control Center exposes taskbar position and taskbar/shell margins under **Appearance → Taskbar → Position** and **Spaces**, and the utility group under **Appearance → Taskbar → Icons**. The layout state stores independent top, left, right and bottom margins. Sticky mode defaults the bottom margin to `2` and keeps the bar close to the edge; Spaced mode uses a default `18`-unit shell margin.
 
 Taskbar margin, window outer gap and panel geometry are related but distinct. Changing one does not rewrite every other value. If a bar appears visually detached from windows, review the mode, taskbar margins and window spacing together; see [Windows and layout](/docs/argvus-hyprland/windows-and-layout/).
 
