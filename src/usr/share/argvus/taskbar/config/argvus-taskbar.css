@@ -475,6 +475,10 @@ tooltip label {
   color: @th-recording-pause;
 }
 
+#custom-window-mode label {
+  font-size: 12px;
+}
+
 /* Specific animation Module */
 @keyframes blink-recording {
   50% {
