@@ -186,10 +186,9 @@
     "interval": 60
   },
   "custom/network": {
-    "exec": "/usr/share/argvus/network/sh/waybar-network.sh",
+    "exec": "argvus networkctl waybar --follow",
     "return-type": "json",
     "format": "{}",
-    "interval": 10,
     "tooltip": true,
     "nospacing": 1,
     "on-click": "argvus networkctl manager",
