@@ -1,0 +1,65 @@
+---
+title: Taskbar
+description: Use a taskbar Waybar do ARGVUS.
+---
+
+A taskbar é a superfície Waybar persistente do desktop. `argvus-taskbar` possui sua configuração e ações do ARGVUS; `argvus-waybar` fornece o binário Waybar modificado que a renderiza. `argvus-session` possui o ciclo de vida do serviço.
+
+Ela comunica workspaces, janela em foco, acesso ao relógio e calendário, rede, Bluetooth, áudio/mídia, notificações, armazenamento, gravação, manter acordado e ações de energia/sessão. Os módulos exatos podem depender dos providers instalados e do hardware.
+
+O ícone mais à esquerda abre o `argvus launcher`. Ele vem desativado por padrão. Quando ativado, acompanha o tema ativo: o build do tema o renderiza na cor de destaque do tema (`taskbar/menu.svg`, a partir do template `taskbar-menu` deste pacote), enquanto os temas embutidos ARGVUS Dark/ARGVUS Light usam `menu-default-dark.svg`/`menu-default-light.svg` (ambos fornecidos pelo `argvus-branding`). Use **Control Center → Aparência → Taskbar → Ícones → Launcher** para ativar/desativar ou escolher um ícone customizado, que tem prioridade sobre o ícone do tema.
+
+A taskbar não é o Control Panel. A barra comunica o estado persistente do desktop e status; o Control Panel é uma superfície expansível de ações rápidas. Popups de calendário e dispositivos removíveis são superfícies complementares, não taskbars separadas.
+
+Clicar em **Memória** ou **CPU** abre o `btop` dentro do painel temático ARGVUS, com cabeçalho `ARGVUS` e rodapé `Esc Fechar`. A aba inferior do Kitty mostra a dica localizada `Pressione q para fechar`. Prima `q` ou `Esc` para fechar. O módulo de temperatura da CPU abre o painel ao vivo `argvus sensors`, agrupado por chip. O módulo de temperatura da GPU aparece quando há uma GPU suportada e `btop`; mostra a maior temperatura atribuível a uma GPU ou `Indisponível`, e o clique abre os painéis GPU-only do btop na mesma moldura temática. O btop suporta até seis caixas de GPU. Métricas NVIDIA exigem suporte a GPU e NVML; AMD exige ROCm SMI; Intel exige interfaces sysfs legíveis. A temperatura da GPU só aparece quando o sistema fornece uma leitura vinculada ao dispositivo; o btop 1.4.7 não fornece temperatura Intel. Quando o btop não consegue renderizar uma caixa de GPU por falta de suporte ou provider, o painel ARGVUS informa que as métricas estão indisponíveis. O ARGVUS não altera permissões do sistema.
+
+## Transparência e blur
+
+Use **Control Center → Aparência → Taskbar** para configurar Ícones de utilidade, Transparência e Blur. Transparência e Blur têm um controle de ativação e um valor de `0–100%`. Altere os valores com `+` e `-` em passos de 5%; as mudanças ficam em rascunho até selecionar **\[ Aplicar ]**. Temas novos começam com os dois efeitos ativados em `50%`.
+Use `↑/↓` para mover entre as linhas de ativação e valor. Prima `Tab` para **Ações** e ative **\[ Aplicar ]**.
+
+## Posição e espaçamento
+
+A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky usa margem inferior padrão `2` e mantém a barra próxima à borda; Spaced usa margem padrão de shell `18`.
+
+**Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1`, `focus` e `right-2` e a borda do player MPRIS. Ao passar o cursor sobre módulos interativos, incluindo o player, a opacidade diminui suavemente. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
+
+**Control Center → Aparência → Barra de tarefas → Ícones → Módulos opcionais** controla a visibilidade dos módulos opcionais de status e ações. Workspaces, título da janela em foco e ações Definições e Energia permanecem disponíveis. **Apresentação dos workspaces** seleciona nomes (padrão) ou ícones das aplicações. Os players MPRIS mostram detalhes da faixa nas dicas; o player não usa mais uma pulsação contínua de cor.
+
+Margem da taskbar, gap externo das janelas e geometria dos painéis são relacionados, mas distintos. Alterar um não reescreve todos os outros valores. Se a barra parecer visualmente afastada das janelas, revise modo, margens da taskbar e espaçamento das janelas juntos; veja [Janelas e layout](/pt/docs/argvus-hyprland/windows-and-layout/).
+
+O controle de posição seleciona **Top** ou **Bottom**. As quatro margens independentes controlam a distância da barra de cada borda do ecrã. O grupo utilitário pode usar o comportamento **Auto** ou **Always expanded**. A disponibilidade de módulos ainda depende dos providers e do hardware instalados; mudar o espaçamento não cria um indicador de Bluetooth, brilho ou armazenamento ausente.
+
+## Configuração e overrides
+
+A configuração da taskbar pertence ao `argvus-taskbar`, é renderizada pelo `argvus-waybar` e iniciada pelo `argvus-session`. O `argvus-config` é o único componente que escreve os ficheiros de consumo da taskbar: ele projeta a camada ativa em `~/.config/argvus/data/generated/waybar/` e reaplica a camada do tema, as margens da taskbar, o modo `right-2` do grupo utilitário, o raio das bordas e o bloco de fonte sempre que temas ou o estado de layout mudam. A troca de tema também restaura os ficheiros empacotados da taskbar e, em seguida, regrava a altura e a borda escolhidas no Control Center, guardadas como `/taskbar/shape/height` e `/taskbar/shape/border_width` no `argvus config`. Enquanto não são escolhidas, valem `null` e seguem o tema: 28 px de altura e borda de 1 px (o Slate Dark não tem borda). Como a cópia gerada é resolvida primeiro, um caminho nativo da Waybar em `~/.config/waybar/` só entra em vigor enquanto o ficheiro gerado correspondente estiver ausente. Veja [Overrides da Waybar e da taskbar](/pt/docs/argvus-waybar/) para precedência, exemplos e diagnóstico.
+
+## Janelas e painéis
+
+A taskbar é uma superfície do shell junto ao Control Panel e ao widget opcional de telemetria. O Hyprland organiza janelas conforme o estado de layout ativo, enquanto essas superfícies possuem âncoras e margens próprias. `SUPER + SHIFT + Space` alterna a janela em foco entre layouts tileado e flutuante.
+
+## Relógio e Focus
+
+O módulo de hora (`clock#time`) abre ou oculta o popup do ARGVUS Clock e passa as coordenadas raiz do clique para que ele se alinhe à taskbar e ao monitor clicados. O indicador do Focus tem seu próprio grupo `focus`, entre o grupo de rede/desempenho (`right-1`) e data/hora (`right-0`). Ele executa `argvus focus status --waybar --follow` sem carregar GTK: quando ocioso, mostra o ícone de timer; durante uma fase de foco ou pausa, também mostra o tempo restante `MM:SS`. A cor identifica a fase e o estado pausado. Clicar nele abre ou oculta o popup do Focus junto ao ponto clicado. Ambos os popups também fecham com **Esc** ou clique fora.
+
+## Recarga
+
+O serviço principal é `argvus-taskbar.service`. Quando uma alteração documentada exigir recarga manual, use o controlador de sessão:
+
+```sh
+argvus sessionctl restart waybar
+```
+
+Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data; o módulo de data abre o calendário. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).
+
+No modo hover, Utilities fica recolhido no expansor e revela os controles ativados ao passar o rato. A bandeja controla os ícones de aplicações em segundo plano; quando vazia, não há ícones visíveis. A apresentação por ícones mostra as aplicações com janelas abertas junto aos rótulos dos workspaces.
+
+## Workspaces de projetos
+
+Projetos abertos aparecem como botões de workspace comuns, com rótulo `Projeto: nome`; clicar em um deles o foca. O tooltip mostra o caminho completo e o atalho `SUPER + ALT + N`. Apenas workspaces abertos no monitor da barra aparecem; o seletor (`SUPER + O`) continua sendo o catálogo completo. Workspaces especiais mantêm a política de visibilidade existente.
+
+O módulo `hyprland/workspaces` lê `workspace-metadata: "argvus/project-workspaces.json"`, relativo a `$XDG_RUNTIME_DIR`. `argvus projects` regenera esse ficheiro derivado ao abrir um projeto. O `argvus-waybar` corrigido aceita endereços textuais de workspaces do Hyprland 0.57 e usa os metadados para os rótulos sem alterar as identidades dos workspaces. Atualize os três pacotes e reprojete a configuração da taskbar antes de reiniciar o serviço.
+
+O módulo **Estado das atualizações** tem um grupo próprio entre Utilities e rede/desempenho e mostra a quantidade de pacotes com atualização disponível. Consulta os repositórios oficiais ao iniciar e a cada hora com `checkupdates` (do pacote `pacman-contrib`), sem atualizar pacotes. **Verificar AUR** vem desativado; quando ligado, consulta com `paru` ou `yay`. A dica separa as origens e informa falhas; `?` indica uma contagem incompleta. Clique no módulo para abrir atualizações oficiais em Pacotes. Configure as opções em **Ícones → Módulos opcionais** e aplique o rascunho da taskbar. O módulo vem ativado.
+
+O indicador de rede da taskbar acompanha os eventos do NetworkManager com `argvus networkctl waybar --follow`, com leitura inicial e reconexão automática do monitor. Ele não espera mais o intervalo de consulta de 10 segundos. Conectado, acesso limitado à internet e desconectado continuam sendo estados distintos. A consulta Wi-Fi usa os pontos de acesso em cache sem solicitar varredura. `argvus networkctl waybar` emite um único status JSON para Waybar.
