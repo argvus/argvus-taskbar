@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: widgets
 description: Configurar widgets opcionales de telemetría del sistema.
 ---
 `argvus widget-telemetry` proporciona una superficie auxiliar opcional de Waybar para información del sistema. Sus bloques actuales son **Sistema**, **CPU/GPU**, **Memoria**, **Almacenamiento**, **Procesos**, **Red** y **Accesos directos**. El bloque de Accesos directos se guarda con la clave `keys` en el archivo de estado.

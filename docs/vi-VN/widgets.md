@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: Widget
 description: Cấu hình các tiện ích theo dõi hệ thống tùy chọn.
 ---
 
@@ -9,7 +9,7 @@ Sử dụng **Control Center → Appearance → Widget Telemetry** để bật g
 
 Việc lựa chọn khối là chuẩn trong `config.json`, tại `control_panel.widget_telemetry_blocks`, và công tắc chính là `control_panel.widget_telemetry_enabled`. `argvus-config` chiếu lựa chọn đó vào hồ sơ Waybar `data/waybar/argvus-widget-telemetry.jsonc` bằng cách bỏ dấu chú thích hoặc thêm dấu chú thích vào các dòng bên trong các khối được phân tách `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END`, để phần còn lại của tập tin không bị thay đổi. Một tập tin `~/.local/state/argvus/widget-telemetry-blocks` cũ vẫn được đọc như phương án dự phòng khi di chuyển trên các cài đặt cũ, nhưng nó không bao giờ được ghi. Lưu ý rằng toàn bộ hồ sơ sẽ được thay thế theo mặc định đã đóng gói khi thay đổi giao diện, vì vậy các dấu hiệu khối là cách lựa chọn được giữ lại; văn bản bên ngoài chúng sẽ không được bảo tồn qua việc chuyển đổi chủ đề.
 
-The controller supports:
+Bộ điều khiển hỗ trợ:
 
 ```sh
 argvus widget-telemetry-toggle status
@@ -45,7 +45,7 @@ Cài đặt được chia sẻ với **Control Center → Desktop & Input → Hy
 
 Trợ lý là `argvus window-mode-menu`; `argvus window-mode-menu --status` phát JSON của Waybar. Nó được cung cấp bởi gói chính `argvus`. Các bản sao thanh tác vụ tùy chỉnh hiện có được giữ nguyên: thêm định nghĩa mô-đun `custom/window-mode` và mục nhóm từ mẫu gói để tham gia, hoặc sử dụng Trung tâm Kiểm soát. Máy chiếu giao diện giữ lại mô-đun khi định nghĩa của nó có mặt, ngay cả khi các biểu tượng tiện ích khác bị tắt.
 
-## 
+##
 
 Chế độ nổi thêm một thanh tiêu đề ARGVUS với **Thu nhỏ**, **Phóng to / Khôi phục** và **Đóng** cho các cửa sổ ứng dụng bình thường. Nháy đúp vào thanh tiêu đề sẽ chuyển đổi giữa trạng thái phóng to và khôi phục. Trang trí bổ sung này sẽ ẩn trong chế độ Tile và toàn màn hình. Các ứng dụng tự vẽ các điều khiển của riêng chúng có thể hiển thị cả hai thanh; các điều khiển ARGVUS đồng bộ là có chủ ý.
 

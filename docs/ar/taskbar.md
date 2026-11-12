@@ -1,23 +1,23 @@
 ---
-title: Taskbar
+title: شريط المهام
 description: ARGVUS Waybar.  ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ ﻡﺪﺨﺘﺳﺍ
 ---
 
-The leftmost icon opens 
+The leftmost icon opens
 
 ```sh
 argvus sessionctl restart waybar
 ```
 
-. It is disabled by default. When enabled, it follows the active theme: the theme build renders it in the theme's highlight colour (argvus-taskbar, from the argvus-waybar template of this package), while the built-in ARGVUS Dark/ARGVUS Light themes use argvus-session/argvus launcher (both provided by taskbar/menu.svg). Use **Control Center → Appearance → Taskbar → Icons → Launcher** to enable/disable it or to pick a custom icon image, which overrides the theme icon.
+. يتم تعطيله بشكل افتراضي. عند تمكينه، فإنه يتبع السمة النشطة: تصميم السمة يعرضه بلون تمييز السمة (argvus-شريط المهام، من argvus-waybar قالب هذه الحزمة)، في حين أن ARGVUS الداكن/ARGVUS تستخدم السمات الفاتحة argvus-session/argvus Launcher (كلاهما مقدم من شريط المهام/menu.svg). استخدم **مركز التحكم → المظهر → شريط المهام → الأيقونات → Launcher** لتمكينه/تعطيله أو لاختيار صورة رمز مخصصة، والتي تتجاوز رمز السمة.
 
 
 
-Clicking **Memory** or **CPU** opens 
+Clicking **Memory** or **CPU** opens
 
- inside the themed ARGVUS monitor panel, with an argvus-taskbar header and an argvus-waybar footer. The bottom Kitty tab shows the localized argvus-session hint. Press argvus launcher or taskbar/menu.svg to close. The CPU temperature module opens the live taskbar-menu overview, grouped by chip. The GPU temperature module appears when a supported GPU and menu-default-dark.svg are available; it shows the highest attributable GPU temperature or menu-default-light.svg, and clicking it opens GPU-only btop panels in the same themed frame. btop supports up to six GPU boxes. NVIDIA metrics need its GPU support and NVML, AMD metrics need ROCm SMI, and Intel metrics need readable sysfs interfaces. GPU temperature is shown only when the system exposes a reading linked to that device; Intel temperature is not available from btop 1.4.7. When btop cannot render a GPU box because support or a provider is missing, the ARGVUS panel reports that metrics are unavailable. ARGVUS does not change system permissions.
+ داخل لوحة الشاشة ARGVUS ذات السمة، مع رأس شريط المهام argvus وتذييل argvus-waybar. تعرض علامة التبويب Kitty السفلية تلميح الجلسة argvus المترجم. اضغط على argvus Launcher أو شريط المهام/menu.svg للإغلاق. تفتح وحدة درجة حرارة وحدة المعالجة المركزية نظرة عامة على قائمة شريط المهام المباشرة، مجمعة حسب الشريحة. تظهر وحدة درجة حرارة وحدة معالجة الرسومات عند توفر وحدة معالجة الرسومات المدعومة وmenu-default-dark.svg؛ فإنه يعرض أعلى درجة حرارة منسوبة لوحدة معالجة الرسومات أو Menu-default-light.svg، والنقر عليه يفتح لوحات btop الخاصة بوحدة معالجة الرسومات فقط في نفس الإطار الموضوعي. يدعم btop ما يصل إلى ستة صناديق GPU. تحتاج مقاييس NVIDIA إلى دعم GPU الخاص بها، وتحتاج مقاييس NVML، AMD إلى ROCm SMI، وتحتاج مقاييس Intel إلى واجهات sysfs قابلة للقراءة. تظهر درجة حرارة وحدة معالجة الرسومات فقط عندما يكشف النظام عن قراءة مرتبطة بهذا الجهاز؛ Intel درجة الحرارة غير متوفرة من btop 1.4.7. عندما يتعذر على btop عرض صندوق GPU بسبب فقدان الدعم أو الموفر، تشير لوحة ARGVUS إلى عدم توفر المقاييس. ARGVUS لا يغير أذونات النظام.
 
-## 
+##
 
 18.
 
@@ -31,12 +31,12 @@ Clicking **Memory** or **CPU** opens
 
 ##                                                              ﺶﻳﻮﺸﺘﻟﺍﻭ ﺔﻴﻓﺎﻔﺸﻟﺍ
 
-Use **Control Center → Appearance → Taskbar** to configure Utility Icons, Transparency and Blur. Transparency and Blur each have an enable switch and a 0–100% value. Change values with + and - in 5% steps; changes are drafts until **[ Apply ]** is selected. New themes default to both effects enabled at 50%.
+استخدم **مركز التحكم → المظهر → شريط المهام** لتكوين أيقونات الأدوات المساعدة والشفافية والتمويه. يحتوي كل من Transparency وBlur على مفتاح تمكين وقيمة 0–100%. قم بتغيير القيم باستخدام + و- في خطوات بنسبة 5%؛ تعتبر التغييرات بمثابة مسودات حتى يتم تحديد **[تطبيق]**. تم تمكين السمات الجديدة بشكل افتراضي لكلا التأثيرين بنسبة 50%.
 .**[ ﻖﻴﺒﻄﺗ ]** ﻞّﻌﻓ ﻢﺛ ،**
 
 ## ﺕﺍﺯﻭﺎﺠﺘﻟﺍﻭ ﺔﺌﻴﻬﺘﻟﺍ
 
-The taskbar configuration is owned by 
+The taskbar configuration is owned by
 
 
 ##                                                                ﺡﺍﻮﻟﻷ﻿ﺍﻭ ﺬﻓﺍﻮﻨﻟﺍ
@@ -47,9 +47,9 @@ The taskbar configuration is owned by
 
 
 
-## Reloading
+## إعادة التحميل
 
-## 
+##
 
 
 
@@ -60,8 +60,8 @@ The taskbar configuration is owned by
 Waybar.
 
 
- for the installed and user paths. for the installed and user paths.(/docs/argvus-waybar/) path.
+ للمسارات المثبتة والمستخدم. للمسارات المثبتة ومسارات المستخدم.(/docs/argvus-waybar/).
 
 ﺮﻈﻧﺍ ؛ﺎًﻌﻣ ﺬﻓﺍﻮﻨﻟﺍ ﺪﻋﺎﺒﺗﻭ ،ﻡﺎﻬﻤﻟﺍ ﻂﻳﺮﺷ ﺶﻣﺍﻮﻫﻭ ،ﻊﺿﻮﻟﺍ ﻊﺟﺍﺮﻓ ،ﺬﻓﺍﻮﻨﻟﺍ ﻦﻋ ﺎًﻳﺮﺼﺑ ﺎًﻠ[                                                              ﻂﻴﻄﺨﺘﻟﺍﻭ ﺬﻓﺍﻮﻨﻟﺍ](/docs/argvus-hyprland/windows-and-layout/).
-The taskbar configuration is owned by argvus-taskbar, rendered by argvus-waybar and started by argvus-session. argvus-config is the only component that writes the taskbar consumer files: it projects the active layer under ~/.config/argvus/data/generated/waybar/ and reapplies the theme layer, taskbar margins, right-2 utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files and then writes back the height and border chosen in Control Center, which are stored as /taskbar/shape/height and /taskbar/shape/border_width in argvus config. Until one is chosen it is null and follows the theme: 28 px high, with a 1 px border (Slate Dark has none). Because the generated copy is resolved first, a native Waybar path under ~/.config/waybar/ only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
+تكوين شريط المهام مملوك لـ argvus-taskbar، ويتم تقديمه بواسطة argvus-waybar ويبدأ بواسطة argvus-session. argvus-config هو المكون الوحيد الذي يكتب ملفات المستهلك لشريط المهام: فهو يعرض الطبقة النشطة ضمن ~/.config/argvus/data/generated/waybar/ ويعيد تطبيق طبقة السمة وهوامش شريط المهام ووضع مجموعة الأدوات المساعدة اليمنى-2 ونصف قطر الحدود وكتلة الخط كلما تغيرت السمات أو حالة التخطيط. يستعيد مفتاح السمة أيضًا ملفات شريط المهام المجمعة ثم يعيد كتابة الارتفاع والحدود المختارة في مركز التحكم، والتي يتم تخزينها كـ /taskbar/shape/height و/taskbar/shape/border_width في التكوين argvus. حتى يتم اختيار واحد، يكون خاليًا ويتبع السمة: ارتفاع 28 بكسل، مع حد يبلغ 1 بكسل (لا يحتوي Slate Dark على أي شيء). نظرًا لأنه تم حل النسخة التي تم إنشاؤها أولاً، فإن المسار Waybar الأصلي ضمن ~/.config/waybar/ يصبح ساري المفعول فقط عندما يكون الملف الذي تم إنشاؤه المقابل غائبًا. راجع [Waybar وتجاوزات شريط المهام](/docs/argvus-waybar/) للحصول على الأسبقية والأمثلة واستكشاف الأخطاء وإصلاحها.
 ﺎًﻤﺋﺍﺩ ﻪﻠﻌﺠﻟ ﺪﻟﻮﻤﻟﺍ ﻞﻴﻐﺸﺘﻟﺍ ﺖﻗﻭ ﻦﻳﻮﻜﺗ ﺮﻳﺮﺤﺘﺑ ﻢﻘﺗ ﻻ﻿ .ﻢﻳﻮﻘﺘﻟﺍ ﺦﻳﺭﺎﺘﻟﺍ ﺓﺪﺣﻭ ﺢﺘﻔﺗ ؛                                      ﺪﻨﺘﺴﻤﻟﺍ ﻭﺃ ﻢﻜﺤﺘﻟﺍ ﺰﻛﺮﻣ ﻡﺪﺨﺘﺳﺍ ؛ﺕﺍﺮﻴﻴﻐﺘﻟﺍ[                                                                  ﺭﺎﺒﻳﺍﻭ ﺯﻭﺎﺠﺗ](/docs/argvus-waybar/)                                                                         .ﺭﺎﺴﻣ

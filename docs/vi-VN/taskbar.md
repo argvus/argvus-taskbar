@@ -1,5 +1,5 @@
 ---
-title: Taskbar
+title: Thanh tác vụ
 description: Sử dụng thanh tác vụ Waybar ARGVUS.
 ---
 
@@ -11,9 +11,9 @@ Biểu tượng bên trái mở `argvus launcher`. Nó bị vô hiệu hóa theo
 
 Thanh tác vụ không phải là Bảng điều khiển. Thanh này truyền đạt trạng thái và tình trạng liên tục của màn hình; Bảng điều khiển là một bề mặt hành động nhanh có thể mở rộng. Các cửa sổ pop-up của lịch và thiết bị có thể tháo rời là các ứng dụng/bề mặt đi kèm, không phải thanh tác vụ riêng biệt.
 
-Clicking **Memory** or **CPU** opens 
+Clicking **Memory** or **CPU** opens
 
- inside the themed ARGVUS monitor panel, with an `btop` header and an `ARGVUS` footer. The bottom Kitty tab shows the localized `Esc Close` hint. Press `Press q to close` or `q` to close. The CPU temperature module opens the live `Esc` overview, grouped by chip. The GPU temperature module appears when a supported GPU and `argvus sensors` are available; it shows the highest attributable GPU temperature or `btop` `N/A` , and clicking it opens GPU-only btop panels in the same themed frame. btop supports up to six GPU boxes. NVIDIA metrics need its GPU support and NVML, AMD metrics need ROCm SMI, and Intel metrics need readable sysfs interfaces. GPU temperature is shown only when the system exposes a reading linked to that device; Intel temperature is not available from btop 1.4.7. When btop cannot render a GPU box because support or a provider is missing, the ARGVUS panel reports that metrics are unavailable. ARGVUS does not change system permissions.
+bên trong bảng điều khiển màn hình ARGVUS theo chủ đề, với tiêu đề `btop` và chân trang `ARGVUS`. Tab Kitty phía dưới hiển thị gợi ý `Esc Close` đã bản địa hóa. Nhấn `Press q to close` hoặc `q` để đóng. Mô-đun nhiệt độ CPU mở ra phần tổng quan `Esc` trực tiếp, được nhóm theo chip. Mô-đun nhiệt độ GPU xuất hiện khi có sẵn GPU được hỗ trợ và `argvus sensors`; nó hiển thị nhiệt độ GPU cao nhất có thể quy cho hoặc `btop` `N/A` và việc nhấp vào nó sẽ mở các bảng btop chỉ dành cho GPU trong cùng một khung theo chủ đề. btop hỗ trợ tối đa sáu hộp GPU. Số liệu NVIDIA cần hỗ trợ GPU và số liệu NVML, AMD cần ROCm SMI và số liệu Intel cần giao diện sysfs có thể đọc được. Nhiệt độ GPU chỉ được hiển thị khi hệ thống hiển thị kết quả đọc được liên kết với thiết bị đó; Intel nhiệt độ không có sẵn từ btop 1.4.7. Khi btop không thể hiển thị hộp GPU do thiếu hỗ trợ hoặc nhà cung cấp, bảng ARGVUS sẽ báo cáo rằng không có số liệu. ARGVUS không thay đổi quyền của hệ thống.
 
 ## Vị trí và khoảng cách
 
@@ -33,7 +33,7 @@ Sử dụng `↑/↓` để di chuyển giữa các hàng bật và giá trị. 
 
 ## Cấu hình và ghi đè
 
-The taskbar configuration is owned by 
+The taskbar configuration is owned by
 
 
 ## Cửa sổ và các bảng
@@ -44,7 +44,7 @@ Thanh tác vụ là một bề mặt giao diện cùng với Bảng điều khi�
 
 Module thời gian (`clock#time`) mở hoặc ẩn cửa sổ bật lên ARGVUS Clock và truyền tọa độ nhấp gốc của nó để có thể căn chỉnh với thanh tác vụ và màn hình đã nhấp. Chỉ báo Focus có nhóm `focus` riêng nằm giữa nhóm mạng/hiệu suất (`right-1`) và ngày/giờ (`right-0`). Nó chạy `argvus focus status --waybar --follow` mà không tải GTK: khi nhàn rỗi, nó hiển thị biểu tượng hẹn giờ, và trong giai đoạn tập trung hoặc nghỉ, nó thêm `MM:SS` còn lại; màu sắc của nó xác định giai đoạn và trạng thái tạm dừng. Nhấp vào nó mở hoặc ẩn cửa sổ bật lên Focus tại vị trí nhấp đó. Cả hai cửa sổ bật lên cũng đóng bằng **Esc** hoặc nhấp ra ngoài.
 
-## Reloading
+## Đang tải lại
 
 Dịch vụ chính là `argvus-taskbar.service`. Khi một thay đổi cấu hình được ghi chép yêu cầu tải lại thủ công, hãy sử dụng bộ điều khiển phiên:
 
@@ -56,7 +56,7 @@ argvus sessionctl restart waybar
 
 Các tiện ích sụp xuống thành một bộ mở rộng ở chế độ di chuột và hiển thị các điều khiển được bật khi con trỏ vào. Hiển thị khay hệ thống kiểm soát các biểu tượng ứng dụng nền; khay trống không có biểu tượng hiển thị. Trình bày biểu tượng không gian làm việc hiển thị các biểu tượng ứng dụng cho các cửa sổ đang mở cùng với nhãn không gian làm việc. Các không gian làm việc dự án
 
-## 
+##
 
 Các dự án đang mở xuất hiện dưới dạng các nút không gian làm việc thông thường, được gắn nhãn `Project: name`; nhấp vào một nút sẽ tập trung vào nó. Di chuột sẽ hiển thị đầy đủ đường dẫn dự án và phím tắt `SUPER + ALT + N`. Chỉ các không gian làm việc đang mở trên màn hình của thanh công cụ mới được hiển thị; bộ chọn (`SUPER + O`) vẫn giữ nguyên toàn bộ danh mục dự án. Các không gian làm việc đặc biệt giữ nguyên chính sách hiển thị hiện tại của chúng.
 
@@ -67,5 +67,5 @@ Mô-đun **Cập nhật Trạng thái** có nhóm riêng nằm giữa Tiện íc
 Chỉ báo mạng trên thanh tác vụ theo dõi các sự kiện của NetworkManager sử dụng `argvus networkctl waybar --follow`, với một bản chụp ban đầu và tự động kết nối lại giám sát. Nó không còn chờ khoảng thời gian kiểm tra 10 giây nữa. Kết nối, truy cập Internet hạn chế và ngắt kết nối vẫn là các trạng thái khác nhau. Trạng thái Wi-Fi đọc các điểm truy cập đã lưu mà không yêu cầu quét. `argvus networkctl waybar` phát ra một bản chụp Waybar JSON duy nhất.
 
 Lề thanh tác vụ, khoảng cách bên ngoài của cửa sổ và hình học của bảng liên quan nhưng khác nhau. Thay đổi một giá trị không thay đổi tất cả các giá trị khác. Nếu một thanh hiển thị tách rời về mặt hình ảnh so với các cửa sổ, hãy xem xét cùng lúc chế độ, lề thanh tác vụ và khoảng cách giữa các cửa sổ; xem[Cửa sổ và bố cục](/docs/argvus-hyprland/windows-and-layout/).
-The taskbar configuration is owned by argvus-taskbar, rendered by argvus-waybar and started by argvus-session. argvus-config is the only component that writes the taskbar consumer files: it projects the active layer under ~/.config/argvus/data/generated/waybar/ and reapplies the theme layer, taskbar margins, right-2 utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files and then writes back the height and border chosen in Control Center, which are stored as /taskbar/shape/height and /taskbar/shape/border_width in argvus config. Until one is chosen it is null and follows the theme: 28 px high, with a 1 px border (Slate Dark has none). Because the generated copy is resolved first, a native Waybar path under ~/.config/waybar/ only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
+Cấu hình thanh tác vụ thuộc quyền sở hữu của argvus-taskbar, được hiển thị bởi argvus-waybar và bắt đầu bởi argvus-session. argvus-config là thành phần duy nhất ghi các tệp tiêu dùng trên thanh tác vụ: nó chiếu lớp hoạt động dưới ~/.config/argvus/data/generated/waybar/ và áp dụng lại lớp chủ đề, lề thanh tác vụ, chế độ nhóm tiện ích bên phải 2, bán kính đường viền và khối phông chữ bất cứ khi nào chủ đề hoặc trạng thái bố cục thay đổi. Công tắc chủ đề cũng khôi phục các tệp trên thanh tác vụ được đóng gói, sau đó ghi lại chiều cao và đường viền đã chọn trong Trung tâm điều khiển, được lưu trữ dưới dạng /taskbar/shape/height và /taskbar/shape/border_width trong cấu hình argvus. Cho đến khi được chọn, nó sẽ không có giá trị và tuân theo chủ đề: cao 28 px, có đường viền 1 px (Slate Dark không có). Vì bản sao được tạo được giải quyết trước tiên nên đường dẫn Waybar gốc trong ~/.config/waybar/ chỉ có hiệu lực khi không có tệp được tạo tương ứng. Xem [Waybar và ghi đè thanh tác vụ](/docs/argvus-waybar/) để biết mức độ ưu tiên, ví dụ và cách khắc phục sự cố.
 Các popup lịch và lưu trữ có thể tháo rời sử dụng hợp đồng tọa độ gốc bất biến do bản xây dựng ARGVUS Waybar cung cấp để xác định màn hình. Lịch theo bề mặt Thanh tác vụ ngang thực: nó mở ra 4 pixel bên dưới thanh trên hoặc 4 pixel bên trên thanh dưới, bất kể vị trí bên trong mô-đun ngày được nhấp; mô-đun ngày mở lịch. Không chỉnh sửa cấu hình thời gian chạy được tạo ra để làm cho nó trở nên cố địnhthay đổi; sử dụng Trung tâm Điều khiển hoặc những gì đã được ghi lại[Ghi đè Waybar](/docs/argvus-waybar/)đường.

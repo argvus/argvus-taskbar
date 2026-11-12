@@ -1,5 +1,5 @@
 ---
-title: Taskbar
+title: Bilah Tugas
 description: Gunakan bilah tugas ARGVUS Waybar.
 ---
 
@@ -11,9 +11,9 @@ Ikon paling kiri membuka `argvus launcher`. Secara default, ikon ini dinonaktifk
 
 Taskbar bukan Panel Kontrol. Bar ini mengkomunikasikan status dan keadaan desktop secara persisten; Panel Kontrol adalah permukaan aksi cepat yang dapat diperluas. Popup kalender dan perangkat yang dapat dilepas adalah aplikasi/permukaan pendamping, bukan taskbar terpisah.
 
-Clicking **Memory** or **CPU** opens 
+Clicking **Memory** or **CPU** opens
 
- inside the themed ARGVUS monitor panel, with an `btop` header and an `ARGVUS` footer. The bottom Kitty tab shows the localized `Esc Close` hint. Press `Press q to close` or `q` to close. The CPU temperature module opens the live `Esc` overview, grouped by chip. The GPU temperature module appears when a supported GPU and `argvus sensors` are available; it shows the highest attributable GPU temperature or `btop` `N/A` , and clicking it opens GPU-only btop panels in the same themed frame. btop supports up to six GPU boxes. NVIDIA metrics need its GPU support and NVML, AMD metrics need ROCm SMI, and Intel metrics need readable sysfs interfaces. GPU temperature is shown only when the system exposes a reading linked to that device; Intel temperature is not available from btop 1.4.7. When btop cannot render a GPU box because support or a provider is missing, the ARGVUS panel reports that metrics are unavailable. ARGVUS does not change system permissions.
+ di dalam panel monitor bertema ARGVUS, dengan header `btop` dan footer `ARGVUS`. Tab Kitty bagian bawah menampilkan petunjuk `Esc Close` yang dilokalkan. Tekan `Press q to close` atau `q` untuk menutup. Modul suhu CPU membuka ikhtisar langsung `Esc`, yang dikelompokkan berdasarkan chip. Modul suhu GPU muncul ketika GPU yang didukung dan `argvus sensors` tersedia; ini menunjukkan suhu GPU tertinggi yang dapat diatribusikan atau `btop` `N/A` , dan mengekliknya akan membuka panel btop khusus GPU dalam bingkai bertema yang sama. btop mendukung hingga enam kotak GPU. Metrik NVIDIA memerlukan dukungan GPU dan metrik NVML, AMD memerlukan ROCm SMI, dan metrik Intel memerlukan antarmuka sysfs yang dapat dibaca. Suhu GPU hanya ditampilkan ketika sistem menampilkan pembacaan yang terkait dengan perangkat tersebut; Intel suhu tidak tersedia dari btop 1.4.7. Ketika btop tidak dapat merender kotak GPU karena dukungan atau penyedia tidak ada, panel ARGVUS melaporkan bahwa metrik tidak tersedia. ARGVUS tidak mengubah izin sistem.
 
 ## Posisi dan spasi
 
@@ -33,12 +33,12 @@ Gunakan `↑/↓` untuk berpindah antara baris enable dan value. Tekan `Tab` unt
 
 ## Konfigurasi dan override
 
-The taskbar configuration is owned by 
+The taskbar configuration is owned by
 
 
 ## Jendela dan panel
 
-The taskbar is one shell surface alongside the Control Panel and optional telemetry widget. Hyprland arranges windows according to the active layout state, while these surfaces have their own anchors and margins. 
+Bilah tugas adalah satu permukaan shell di samping Panel Kontrol dan widget telemetri opsional. Hyprland mengatur jendela sesuai dengan status tata letak aktif, sementara permukaan ini memiliki jangkar dan marginnya sendiri.
 
  toggles the focused window between tiled and floating layouts.
 
@@ -46,7 +46,7 @@ The taskbar is one shell surface alongside the Control Panel and optional teleme
 
 Modul waktu (  `argvus-taskbar`  `argvus-waybar`  `argvus-session`  `argvus-config`  `~/.config/argvus/data/generated/waybar/`  `right-2`  `/taskbar/shape/height`  `/taskbar/shape/border_width`  `argvus config`  `null` `~/.config/waybar/`  `SUPER + SHIFT + Space` `clock#time`) membuka atau menyembunyikan popup ARGVUS Clock dan meneruskan koordinat klik akar sehingga dapat selaras dengan taskbar dan monitor yang diklik. Indikator Fokus memiliki grup `focus` sendiri di antara grup jaringan/performa (`right-1`) dan tanggal/waktu (`right-0`). Ini menjalankan `argvus focus status --waybar --follow` tanpa memuat GTK: saat idle ditampilkan ikon timer, dan selama fase fokus atau istirahat menambahkan `MM:SS` yang tersisa; warnanya menunjukkan fase dan status jeda. Mengkliknya membuka atau menyembunyikan popup Fokus pada posisi klik tersebut. Kedua popup juga dapat ditutup dengan **Esc** atau klik di luar.
 
-## Reloading
+## Memuat ulang
 
 Layanan utama adalah `argvus-taskbar.service`. Ketika perubahan konfigurasi yang terdokumentasi memerlukan pemuatan ulang manual, gunakan pengendali sesi:
 
@@ -54,7 +54,7 @@ Layanan utama adalah `argvus-taskbar.service`. Ketika perubahan konfigurasi yang
 argvus sessionctl restart waybar
 ```
 
- for the installed and user paths. for the installed and user paths.(/docs/argvus-waybar/) path.
+ untuk jalur yang diinstal dan pengguna. untuk jalur yang diinstal dan jalur pengguna.(/docs/argvus-waybar/).
 
 Utilitas runtuh menjadi pengembang dalam mode hover dan menampilkan kontrol yang diaktifkan saat penunjuk masuk. Kontrol visibilitas baki sistem mengatur ikon aplikasi latar belakang; baki kosong tidak memiliki ikon yang terlihat. Presentasi ikon ruang kerja menampilkan ikon aplikasi untuk jendela yang terbuka bersama dengan label ruang kerja.
 
@@ -69,5 +69,5 @@ Modul **Status Pembaruan** memiliki grup sendiri antara Utilitas dan jaringan/pe
 Indikator jaringan di taskbar mengikuti peristiwa NetworkManager menggunakan `argvus networkctl waybar --follow`, dengan snapshot awal dan penyambungan ulang monitor secara otomatis. Ini tidak lagi menunggu interval polling 10 detik. Terhubung, akses Internet terbatas, dan terputus tetap merupakan status yang berbeda. Status Wi-Fi membaca titik akses yang di-cache tanpa meminta pemindaian. `argvus networkctl waybar` mengeluarkan satu snapshot JSON Waybar.
 
 Margin taskbar, celah luar jendela, dan geometri panel terkait tetapi berbeda. Mengubah salah satunya tidak menulis ulang setiap nilai lainnya. Jika sebuah bar terlihat terpisah secara visual dari jendela, tinjau mode, margin taskbar, dan jarak jendela bersama-sama; lihat[Jendela dan tata letak](/docs/argvus-hyprland/windows-and-layout/).
-The taskbar configuration is owned by argvus-taskbar, rendered by argvus-waybar and started by argvus-session. argvus-config is the only component that writes the taskbar consumer files: it projects the active layer under ~/.config/argvus/data/generated/waybar/ and reapplies the theme layer, taskbar margins, right-2 utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files and then writes back the height and border chosen in Control Center, which are stored as /taskbar/shape/height and /taskbar/shape/border_width in argvus config. Until one is chosen it is null and follows the theme: 28 px high, with a 1 px border (Slate Dark has none). Because the generated copy is resolved first, a native Waybar path under ~/.config/waybar/ only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
+Konfigurasi bilah tugas dimiliki oleh argvus-taskbar, dirender oleh argvus-waybar dan dimulai oleh argvus-session. argvus-config adalah satu-satunya komponen yang menulis file pengguna taskbar: komponen ini memproyeksikan lapisan aktif di bawah ~/.config/argvus/data/generated/waybar/ dan menerapkan kembali lapisan tema, margin taskbar, mode grup utilitas kanan-2, radius batas, dan blok font setiap kali tema atau status tata letak berubah. Peralihan tema juga memulihkan file bilah tugas yang dikemas dan kemudian menulis kembali tinggi dan batas yang dipilih di Pusat Kontrol, yang disimpan sebagai /taskbar/shape/height dan /taskbar/shape/border_width di konfigurasi argvus. Sampai salah satu dipilih, itu adalah null dan mengikuti tema: tinggi 28 px, dengan batas 1 px (Slate Dark tidak memilikinya). Karena salinan yang dihasilkan diselesaikan terlebih dahulu, jalur asli Waybar di bawah ~/.config/waybar/ hanya berlaku ketika file yang dihasilkan terkait tidak ada. Lihat [Waybar dan penggantian bilah tugas](/docs/argvus-waybar/) untuk prioritas, contoh, dan pemecahan masalah.
 Popup kalender dan penyimpanan yang dapat dilepas menggunakan kontrak koordinat akar yang tidak dapat diubah yang disediakan oleh build ARGVUS Waybar untuk mengidentifikasi monitor. Kalender mengikuti permukaan Taskbar horizontal yang sebenarnya: ia terbuka 4 piksel di bawah bilah atas atau 4 piksel di atas bilah bawah, terlepas dari di mana di dalam modul tanggal itu diklik; modul tanggal membuka kalender. Jangan mengedit konfigurasi runtime yang dihasilkan untuk membuatnya persistenperubahan; gunakan Pusat Kontrol atau yang didokumentasikan[Pengganti Waybar](/docs/argvus-waybar/)jalur.

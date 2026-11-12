@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: الحاجيات
 description:                    .ﺔﻴﺋﺎﺼﺣﻹ﻿ﺍ ﺕﺎﻣﻮﻠﻌﻤﻟﺍ ﻊﻤﺠﻟ ﺔﻳﺭﺎﻴﺘﺧﻻ﻿ﺍ ﻡﺎﻈﻨﻟﺍ ﺔﻬﺟﺍﻭ ﺮﺻﺎﻨﻋ ﻦﻳﻮﻜﺗ
 ---
 
@@ -9,7 +9,7 @@ description:                    .ﺔﻴﺋﺎﺼﺣﻹ﻿ﺍ ﺕﺎﻣﻮﻠﻌ�
 
 
 
-The controller supports:
+وحدة التحكم تدعم:
 
 ```sh
 argvus widget-telemetry-toggle status
@@ -33,7 +33,7 @@ argvus widget-telemetry-toggle blocks apply
 
 
 
-## 
+##
 
 
 
@@ -53,6 +53,6 @@ argvus widget-telemetry-toggle blocks apply
 
 
 
-Commands:  argvus-hyprland  argvus-window-bar.service  argvus-windows.service  $XDG_RUNTIME_DIR/argvus  argvus windows service  `special:argvus-minimized`  `argvus windows service`  `$XDG_RUNTIME_DIR/argvus`  `argvus-windows.service`  `argvus-window-bar.service`  `argvus-hyprland` `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, and `minimize|restore|activate|maximize|close ADDRESS`. The window addresses come from the list. `position top --persist` stores/projects the preference without restarting the main bar. Configuration and runtime error details are written to the journal; visible action failures also show a translated notification.
+Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG_RUNTIME_DIR/argvus argvus خدمة ويندوز `special:argvus-minimized` `argvus windows service` `$XDG_RUNTIME_DIR/argvus` `argvus-windows.service` `argvus-window-bar.service` `argvus-hyprland` `argvus windows list --json`، `watch --json`، `position top|bottom`، `restore-all`، و`minimize|restore|activate|maximize|close ADDRESS`. عناوين النافذة تأتي من القائمة. `position top --persist` يخزن/يعرض التفضيلات دون إعادة تشغيل الشريط الرئيسي. تتم كتابة تفاصيل أخطاء التكوين ووقت التشغيل إلى المجلة؛ تُظهر حالات فشل الإجراء المرئي أيضًا إشعارًا مترجمًا.
 
 

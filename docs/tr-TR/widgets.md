@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: Widget'lar
 description: İsteğe bağlı sistem telemetri bileşenlerini yapılandırın.
 ---
 
@@ -9,7 +9,7 @@ description: İsteğe bağlı sistem telemetri bileşenlerini yapılandırın.
 
 Blok seçimi `config.json`, `control_panel.widget_telemetry_blocks`'de kanoniktir ve ana anahtar `control_panel.widget_telemetry_enabled`'dir. `argvus-config`, seçimi Waybar profili `data/waybar/argvus-widget-telemetry.jsonc`'ye, sınırlı `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END` blokları içindeki satırların yorum satırı yapılması veya yorum satırı kaldırılması yoluyla projekte eder ve dosyanın geri kalanını değiştirmez. Eski bir `~/.local/state/argvus/widget-telemetry-blocks` dosyası, eski kurulumlarda göç yedeği olarak hâlâ okunur, ancak hiç yazılmaz. Tüm profilin görünüm değişikliği sırasında paketlenmiş varsayılan sürümden değiştirildiğini, bu nedenle blok işaretleyicilerinin seçimin korunmasını sağladığını not edin; bunların dışındaki metin bir tema değişikliği sırasında korunmaz.
 
-The controller supports:
+Denetleyici şunları destekler:
 
 ```sh
 argvus widget-telemetry-toggle status
@@ -22,9 +22,9 @@ argvus widget-telemetry-toggle blocks apply
 
 Kontrolcü ayrıca  `blocks set <block> <enabled|disabled>` `system`, `cpu_gpu`, `memory`, `storage`, `processes`, `network` ve `keys` için blocks set <block> <enabled|disabled> kabul eder. Tercihler kalıcıdır; bir bloğun belirli bir tercihi yoksa etkinleştirilmiş varsayılanı takip eder. `blocks set`, kanonik diziyi tek bir atomik yama ile yeniden yazar, ardından Waybar profilini yeniden projeler ve servis yaşam döngüsünü uzlaştırır. `apply-state`, Kontrol Merkezi'nin yoludur: çağıranın seçimi zaten kalıcı hâle getirdiğini varsayar ve yalnızca projeler, bu nedenle hiç bir zaman kalıcı olmayan bir durum ile çağrılmamalıdır.
 
-The service is 
+The service is
 
- and is managed by `argvus-widget-telemetry.service` `argvus-session` . There is no separate per-block reset button in the current page: enable the block again, or use the provider's supported state management, instead of editing generated Waybar output.
+ ve `argvus-widget-telemetry.service` `argvus-session` tarafından yönetilmektedir. Geçerli sayfada ayrı bir blok başına sıfırlama düğmesi yoktur: oluşturulan Waybar çıktısını düzenlemek yerine bloğu tekrar etkinleştirin veya sağlayıcının desteklenen durum yönetimini kullanın.
 
 ## Şeffaflık ve bulanıklık
 

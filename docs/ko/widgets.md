@@ -24,7 +24,7 @@ argvus widget-telemetry-toggle blocks apply
 
 ## 투명도 및 블러
 
-**제어 센터 → 모양 → 위젯 텔레메트리**를 사용하여 마스터 스위치, 텔레메트리 세션, 투명도 및 블러를 구성하십시오. 두 효과에는 각각 독립적인 활성화 스위치와 `0–100%` 값이 있습니다. `+` 및 `-`를 5% 단위로 사용하고 **[ 적용 ]**을 선택하십시오; 값은 확인 후에만 적용되며 활성 테마에 저장됩니다.  
+**제어 센터 → 모양 → 위젯 텔레메트리**를 사용하여 마스터 스위치, 텔레메트리 세션, 투명도 및 블러를 구성하십시오. 두 효과에는 각각 독립적인 활성화 스위치와 `0–100%` 값이 있습니다. `+` 및 `-`를 5% 단위로 사용하고 **[ 적용 ]**을 선택하십시오; 값은 확인 후에만 적용되며 활성 테마에 저장됩니다.
 활성화 및 값 행 사이를 이동하려면 `↑/↓`를 사용하십시오. **작업**을 위해 `Tab`를 누른 다음 **[ 적용 ]**을 활성화하십시오.
 
 GPU 온도 모듈은 DRM/sysfs가 지원되는 NVIDIA, AMD 또는 Intel GPU를 노출하고 `btop`가 설치된 경우 표시됩니다. 그 값은 감지된 GPU 중 하나에 할당될 수 있는 가장 높은 유효 온도입니다. 센서가 노출되지 않으면 `N/A`를 표시합니다. 클릭하면 `argvus tui-terminal`를 통해 `taskbar-monitor` 프로필을 사용하여 Kitty에서 GPU 전용 btop 패널이 열립니다. 닫으려면 `q` 또는 `Esc`를 누르십시오; 로컬화된 하단 탭에는 `Press q to close`가 표시됩니다. btop 1.4.7은 최대 여섯 개의 GPU 박스를 지원합니다. NVIDIA 메트릭은 btop GPU 지원과 NVML이 필요하며; AMD는 btop GPU 지원과 ROCm SMI가 필요하고; Intel은 읽을 수 있는 sysfs 인터페이스가 필요합니다. 연결된 hwmon 센서가 노출될 때만 NVIDIA nouveau, AMD 및 Intel 온도가 나타납니다. ARGVUS는 권한을 변경하거나 권한이 있는 도우미를 추가하지 않습니다. 작업 표시줄 패키지는 btop에 의존하며, 제조업체 제공자는 선택 사항으로 남습니다.
@@ -52,6 +52,6 @@ AI 런처는 Symbols Nerd Font Mono와 함께 nf-md-robot(U+F06A9)을 사용합�
 
 최소화는 예약된 `special:argvus-minimized` 작업 공간을 사용합니다. 해당 작업 공간을 수동으로 사용하지 마십시오. `argvus windows service` 프로세스는 컴포지터 인스턴스별 런타임 레지스트리에 `$XDG_RUNTIME_DIR/argvus` 아래에서 정체, 원래 작업 공간/모니터, 지오메트리, 전체 화면/최대화 및 고정 상태를 기록합니다. 기록은 서비스 재시작이나 설정 다시 불러오기 후에도 남아 있지만, 컴포지터 세션 간에는 공유되지 않습니다. 창을 닫으면 해당 기록이 삭제됩니다. 모니터가 사라지면 복원은 사용 가능한 출력으로 수행됩니다. 누락되거나 복원에 실패한 바는 새로운 최소화를 방해하며, 복원 실패 시 기록과 복원 바가 유지됩니다.
 
-세션은 `argvus-windows.service` 및 `argvus-window-bar.service`를 소유합니다. 후자는 Tile에서 Waybar 하위 항목을 대기 상태로 유지합니다. hyprbars 플러그인은 `argvus-hyprland`에 번들로 포함되어 있으며, x86_64에서 Hyprland 0.57.0 ABI용으로 빌드되었습니다; 사용자의 홈 디렉토리에서 컴파일되지 않았습니다. 컴포지터 ABI 업데이트 시 플러그인을 다시 빌드하십시오.명령어: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, `minimize|restore|activate|maximize|close ADDRESS`. 창 주소는 리스트에서 가져옵니다. `position top --persist`는 메인 바를 재시작하지 않고도 환경 설정을 저장/프로젝트합니다. 구성 및 런타임 오류 세부 사항은 저널에 기록되며, 눈에 보이는 동작 실패는 번역된 알림으로 표시됩니다.
+세션은 `argvus-windows.service` 및 `argvus-window-bar.service`를 소유합니다. 후자는 Tile에서 Waybar 하위 항목을 대기 상태로 유지합니다. hyprbars 플러그인은 `argvus-hyprland`에 번들로 포함되어 있으며, x86_64에서 Hyprland 0.57.0 ABI용으로 빌드되었습니다; 사용자의 홈 디렉토리에서 컴파일되지 않았습니다. 컴포지터 ABI 업데이트 시 플러그인을 다시 빌드하십시오. 명령어: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, `minimize|restore|activate|maximize|close ADDRESS`. 창 주소는 리스트에서 가져옵니다. `position top --persist`는 메인 바를 재시작하지 않고도 환경 설정을 저장/프로젝트합니다. 구성 및 런타임 오류 세부 사항은 저널에 기록되며, 눈에 보이는 동작 실패는 번역된 알림으로 표시됩니다.
 
 **Spaced + Floating** 모드에서, 창은 외부 간격과 두 바가 예약한 영역을 존중합니다. 경계에는 테두리와 제목이 포함되며, 제목은 같은 창 테두리 안에 위치합니다. ARGVUS 제어를 통해 최대화하면 이 영역이 여백과 함께 채워지고, 복원하면 이전 지오메트리를 복구하며, 서비스 재시작 이후에도 마찬가지입니다. 전체 화면은 여전히 전체 출력 영역을 사용합니다. 플로팅 창은 겹칠 수 있으며, 타일링 내부 간격은 창을 분리하지 않습니다.

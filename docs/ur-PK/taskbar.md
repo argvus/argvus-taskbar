@@ -1,38 +1,38 @@
 ---
-title: Taskbar
+title: ٹاسک بار
 description: ARGVUS ۔ﮟﯾﺮﮐ ﻝﺎﻤﻌﺘﺳﺍ ﺭﺎﺑ ﮏﺳﺎﭨ ﺭﺎﺑ ﮮﻭ
 ---
 
-Clicking **Memory** or **CPU** opens 
+**میموری** یا **CPU** پر کلک کرنے سے کھل جاتا ہے۔
 
 ```sh
 argvus sessionctl restart waybar
 ```
 
- inside the themed ARGVUS monitor panel, with an argvus-taskbar header and an argvus-waybar footer. The bottom Kitty tab shows the localized argvus-session hint. Press argvus launcher or taskbar/menu.svg to close. The CPU temperature module opens the live taskbar-menu overview, grouped by chip. The GPU temperature module appears when a supported GPU and menu-default-dark.svg are available; it shows the highest attributable GPU temperature or menu-default-light.svg, and clicking it opens GPU-only btop panels in the same themed frame. btop supports up to six GPU boxes. NVIDIA metrics need its GPU support and NVML, AMD metrics need ROCm SMI, and Intel metrics need readable sysfs interfaces. GPU temperature is shown only when the system exposes a reading linked to that device; Intel temperature is not available from btop 1.4.7. When btop cannot render a GPU box because support or a provider is missing, the ARGVUS panel reports that metrics are unavailable. ARGVUS does not change system permissions.
+تھیمڈ ARGVUS مانیٹر پینل کے اندر، ایک argvus-ٹاسک بار ہیڈر اور argvus-waybar فوٹر کے ساتھ۔ نیچے کٹی ٹیب مقامی argvus-سیشن اشارہ دکھاتا ہے۔ بند کرنے کے لیے argvus لانچر یا taskbar/menu.svg دبائیں۔ CPU درجہ حرارت ماڈیول لائیو ٹاسک بار مینو کا جائزہ کھولتا ہے، جو چپ کے ذریعے گروپ کیا جاتا ہے۔ GPU درجہ حرارت ماڈیول ظاہر ہوتا ہے جب ایک معاون GPU اور menu-default-dark.svg دستیاب ہوتا ہے۔ یہ سب سے زیادہ منسوب GPU درجہ حرارت یا menu-default-light.svg دکھاتا ہے، اور اس پر کلک کرنے سے اسی تھیم والے فریم میں GPU-only btop پینل کھل جاتے ہیں۔ btop چھ GPU خانوں کو سپورٹ کرتا ہے۔ NVIDIA میٹرکس کو اس کے GPU سپورٹ کی ضرورت ہے اور NVML، AMD میٹرکس کو ROCm SMI، اور Intel میٹرکس کو پڑھنے کے قابل sysfs انٹرفیس کی ضرورت ہے۔ GPU درجہ حرارت صرف اس وقت دکھایا جاتا ہے جب سسٹم اس ڈیوائس سے منسلک ریڈنگ کو ظاہر کرتا ہے۔ Intel درجہ حرارت btop 1.4.7 سے دستیاب نہیں ہے۔ جب btop GPU باکس نہیں دے سکتا کیونکہ سپورٹ یا فراہم کنندہ غائب ہے، ARGVUS پینل رپورٹ کرتا ہے کہ میٹرکس دستیاب نہیں ہیں۔ ARGVUS سسٹم کی اجازتوں کو تبدیل نہیں کرتا ہے۔
 
-## 
-
-
+##
 
 
 
 
 
-**Height** sets the bar height to 24, 28 (the default), 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the 
 
-, argvus-taskbar, argvus-waybar and argvus-session groups, and the MPRIS player border. Hovering interactive modules, including the player, gently lowers their opacity. With the border off, those borders are written as argvus launcher. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
+
+**اونچائی** بار کی اونچائی کو 24، 28 (پہلے سے طے شدہ)، 32 یا 36 پکسلز پر سیٹ کرتی ہے۔ **بارڈر** ٹاسک بار بارڈر کو آن یا آف کرتا ہے اور اس کی موٹائی کو 1، 2 یا 3 پکسلز پر سیٹ کرتا ہے۔ موٹائی کا اطلاق ٹاسک بار ونڈو پر ہوتا ہے۔
+
+, argvus-ٹاسک بار، argvus-waybar اور argvus-سیشن گروپس، اور MPRIS پلیئر بارڈر۔ پلیئر سمیت انٹرایکٹو ماڈیولز کو منڈلانا ان کی دھندلاپن کو آہستہ سے کم کرتا ہے۔ بارڈر آف ہونے کے ساتھ، وہ بارڈرز کو argvus لانچر کے طور پر لکھا جاتا ہے۔ دونوں **کنٹرول سینٹر → ظاہری شکل → ٹاسک بار** میں ڈرافٹ ہیں جب تک کہ **[ اپلائی کریں ]** کا انتخاب نہ ہوجائے۔
 
 
 
 ##                                                             ﻦﭘﻻ﻿ﺪﻨﮬﺩ ﺭﻭﺍ ﺖﯿﻓﺎﻔﺷ
 
-Use **Control Center → Appearance → Taskbar** to configure Utility Icons, Transparency and Blur. Transparency and Blur each have an enable switch and a 0–100% value. Change values with + and - in 5% steps; changes are drafts until **[ Apply ]** is selected. New themes default to both effects enabled at 50%.
+یوٹیلیٹی آئیکنز، شفافیت اور دھندلا پن کو کنفیگر کرنے کے لیے **کنٹرول سینٹر → ظاہری شکل → ٹاسک بار** کا استعمال کریں۔ شفافیت اور دھندلاپن میں سے ہر ایک میں ایک قابل سوئچ اور 0-100% قدر ہے۔ + اور - کے ساتھ اقدار کو 5% مراحل میں تبدیل کریں۔ تبدیلیاں ڈرافٹ ہیں جب تک **[ اپلائی کریں ]** کو منتخب نہیں کیا جاتا۔ دونوں اثرات کے لیے نئے تھیمز ڈیفالٹ 50% پر فعال ہیں۔
 ۔ﮟﯾﺮﮐ ﻝﺎﻌﻓ ﻮﮐ **[
 
 ## ﺯﮉﯿﺋﺍﺭ ﺭﻭﻭﺍ ﺭﻭﺍ ﻦﺸﯾﺮﮕﯿﻔﻨﮐ
 
-The taskbar configuration is owned by 
+ٹاسک بار کنفیگریشن کی ملکیت ہے۔
 
 
 ##                                                               ﻞﻨﯿﭘ ﺭﻭﺍ ﮞﺎﯿﮐﮍﮭﮐ
@@ -43,7 +43,7 @@ The taskbar is one shell surface alongside the Control Panel and optional teleme
 
 
 
-## Reloading
+## دوبارہ لوڈ ہو رہا ہے۔
 
 ۔ﮯﮨ ﯽﺗﺎﮭﮐﺩ ﮫﺗﺎﺳ ﮯﮐ ﺰﻠﺒﯿﻟ
 
@@ -55,12 +55,12 @@ The  `q`  `Esc`  `argvus sensors`  `btop`  `N/A`  `2` `18`   `right-0`  `right-1
 
 
 
-The taskbar network indicator follows NetworkManager events using 
+ٹاسک بار نیٹ ورک انڈیکیٹر نیٹ ورک مینجر کا استعمال کرتے ہوئے واقعات کی پیروی کرتا ہے۔
 
-, with an initial snapshot and automatic monitor reconnection. It no longer waits for a 10-second polling interval. Connected, limited Internet access and disconnected remain distinct states. Wi-Fi status reads cached access points without requesting a scan. `checkupdates` argvus networkctl waybar  argvus networkctl waybar --follow  ?  yay  paru  `pacman-contrib` `paru`  `yay`  `?`  `argvus networkctl waybar --follow`  `argvus networkctl waybar`   emits a single Waybar JSON snapshot.
+ایک ابتدائی سنیپ شاٹ اور خودکار مانیٹر کے دوبارہ کنکشن کے ساتھ۔ اب یہ 10 سیکنڈ کے پولنگ وقفے کا انتظار نہیں کرتا۔ منسلک، محدود انٹرنیٹ تک رسائی اور منقطع الگ الگ ریاستیں رہیں۔ Wi-Fi اسٹیٹس اسکین کی درخواست کیے بغیر کیشڈ رسائی پوائنٹس کو پڑھتا ہے۔ `checkupdates` argvus networkctl waybar argvus networkctl waybar -- فالو کریں؟  yay paru `pacman-contrib` `paru` `yay` `?` `argvus networkctl waybar --follow` `argvus networkctl waybar` ایک Waybar JSON سنیپ شاٹ خارج کرتا ہے۔
 
 
- for the installed and user paths. for the installed and user paths.(/docs/argvus-waybar/) path.
+انسٹال اور صارف کے راستوں کے لیے۔ انسٹال کردہ اور صارف کے راستوں کے لیے۔(/docs/argvus-waybar/) پاتھ۔
 
  ﮟﯿﮭﮑﯾﺩ ؛ﮟﯿﮭﮑﯾﺩ ﮫﺗﺎﺳ ﮏﯾﺍ ﻮﮐ ﮯﻠﺻﺎﻓ ﮯﮐ ﻭﮉﻧﻭ ﺭﻭﺍ ﺰﻨﺟﺭﺎﻣ ﮯﮐ ﺭﺎﺒﮑﺳﺎﭨ ،ﮈﻮﻣ ﻮﺗ ،ﮯﮨ ﯽﺗ[                                                               ﺐﯿﺗﺮﺗ ﺭﻭﺍ ﺯﻭﮉﻧﻭ](/docs/argvus-hyprland/windows-and-layout/).
 The taskbar configuration is owned by argvus-taskbar, rendered by argvus-waybar and started by argvus-session. argvus-config is the only component that writes the taskbar consumer files: it projects the active layer under ~/.config/argvus/data/generated/waybar/ and reapplies the theme layer, taskbar margins, right-2 utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files and then writes back the height and border chosen in Control Center, which are stored as /taskbar/shape/height and /taskbar/shape/border_width in argvus config. Until one is chosen it is null and follows the theme: 28 px high, with a 1 px border (Slate Dark has none). Because the generated copy is resolved first, a native Waybar path under ~/.config/waybar/ only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.

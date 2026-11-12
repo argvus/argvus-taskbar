@@ -1,5 +1,5 @@
 ---
-title: Taskbar
+title: Barra de tarefas
 description: Use a taskbar Waybar do ARGVUS.
 ---
 

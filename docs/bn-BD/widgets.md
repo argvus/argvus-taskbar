@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: উইজেট
 description: ঐচ্ছিক সিস্টেম টেলিমেট্রি উইজেট কনফিগার করুন।
 ---
 
@@ -9,7 +9,7 @@ description: ঐচ্ছিক সিস্টেম টেলিমেট্�
 
 ব্লক নির্বাচন `config.json`-এ, `control_panel.widget_telemetry_blocks`-এ মানক, এবং মাস্টার সুইচটি `control_panel.widget_telemetry_enabled`। `argvus-config` নির্বাচনটিকে Waybar প্রোফাইল `data/waybar/argvus-widget-telemetry.jsonc`-এ প্রজেক্ট করে তার সীমাবদ্ধ `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END` ব্লকের মধ্যে লাইনগুলো আনকমেন্ট বা কমেন্ট করে, বাকি ফাইলটা অপরিবর্তিত থাকে। একটি লিগ্যাসি `~/.local/state/argvus/widget-telemetry-blocks` ফাইল এখনও পুরনো ইনস্টলেশনে মাইগ্রেশন ব্যাকআপ হিসেবে পড়া হয়, কিন্তু কখনো লেখা হয় না। লক্ষ্য করুন, পুরো প্রোফাইলটি একটি চেহারা পরিবর্তনের সময় প্যাকেজকৃত ডিফল্ট থেকে প্রতিস্থাপিত হয়, তাই ব্লক মার্কারগুলোই নির্বাচনের টিকে থাকার উপায়; এদের বাইরে থাকা টেক্সট থিম পরিবর্তনের সময় সংরক্ষিত হয় না।
 
-The controller supports:
+নিয়ামক সমর্থন করে:
 
 ```sh
 argvus widget-telemetry-toggle status

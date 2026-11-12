@@ -1,5 +1,5 @@
 ---
-title: Taskbar
+title: टास्कबार
 description: ARGVUS वेयबार टास्कबार का उपयोग करें।
 ---
 
@@ -11,9 +11,9 @@ description: ARGVUS वेयबार टास्कबार का उपय
 
 टास्कबार कंट्रोल पैनल नहीं है। बार लगातार डेस्कटॉप की स्थिति और स्थिति कोcommunicate करता है; कंट्रोल पैनल एक विस्तारित त्वरित-क्रिया सतह है। कैलेंडर और रिमूवेबल-डिवाइस पॉपअप सहायक अनुप्रयोग/सतहें हैं, अलग टास्कबार नहीं।
 
-Clicking **Memory** or **CPU** opens 
+Clicking **Memory** or **CPU** opens
 
- inside the themed ARGVUS monitor panel, with an `btop` header and an `ARGVUS` footer. The bottom Kitty tab shows the localized `Esc Close` hint. Press `Press q to close` or `q` to close. The CPU temperature module opens the live `Esc` overview, grouped by chip. The GPU temperature module appears when a supported GPU and `argvus sensors` are available; it shows the highest attributable GPU temperature or `btop` `N/A` , and clicking it opens GPU-only btop panels in the same themed frame. btop supports up to six GPU boxes. NVIDIA metrics need its GPU support and NVML, AMD metrics need ROCm SMI, and Intel metrics need readable sysfs interfaces. GPU temperature is shown only when the system exposes a reading linked to that device; Intel temperature is not available from btop 1.4.7. When btop cannot render a GPU box because support or a provider is missing, the ARGVUS panel reports that metrics are unavailable. ARGVUS does not change system permissions.
+थीम वाले ARGVUS मॉनिटर पैनल के अंदर, एक `btop` हेडर और एक `ARGVUS` फ़ुटर के साथ। निचला किटी टैब स्थानीयकृत `Esc Close` संकेत दिखाता है। बंद करने के लिए `Press q to close` या `q` दबाएँ। सीपीयू तापमान मॉड्यूल चिप द्वारा समूहीकृत लाइव `Esc` अवलोकन खोलता है। GPU तापमान मॉड्यूल तब प्रकट होता है जब समर्थित GPU और `argvus sensors` उपलब्ध होते हैं; यह उच्चतम जिम्मेदार GPU तापमान या `btop` `N/A` दिखाता है, और इसे क्लिक करने से उसी थीम वाले फ्रेम में केवल GPU-btop पैनल खुल जाते हैं। बीटॉप छह जीपीयू बॉक्स तक का समर्थन करता है। NVIDIA मेट्रिक्स को इसके GPU समर्थन की आवश्यकता है और NVML, AMD मेट्रिक्स को ROCm SMI की आवश्यकता है, और Intel मेट्रिक्स को पढ़ने योग्य sysfs इंटरफ़ेस की आवश्यकता है। जीपीयू तापमान केवल तभी दिखाया जाता है जब सिस्टम उस डिवाइस से जुड़ी रीडिंग को उजागर करता है; Intel बीटॉप 1.4.7 से तापमान उपलब्ध नहीं है। जब btop एक GPU बॉक्स को प्रस्तुत नहीं कर सकता क्योंकि समर्थन या प्रदाता गायब है, तो ARGVUS पैनल रिपोर्ट करता है कि मेट्रिक्स अनुपलब्ध हैं। ARGVUS सिस्टम अनुमतियाँ नहीं बदलता है।
 
 ## स्थिति और अंतराल
 
@@ -33,7 +33,7 @@ Clicking **Memory** or **CPU** opens
 
 ## कॉन्फ़िगरेशन और ओवरराइड्स
 
-The taskbar configuration is owned by 
+The taskbar configuration is owned by
 
 
 ## विंडोज़ और पैनल
@@ -44,7 +44,7 @@ The taskbar configuration is owned by
 
 टाइम मॉड्यूल (`clock#time`) ARGVUS क्लॉक पॉपअप को खोलता या छुपाता है और इसके रूट क्लिक निर्देशांक पास करता है ताकि यह क्लिक किए गए टास्कबार और मॉनीटर के साथ संरेखित हो सके। फोकस इंडिकेटर का अपना `focus` ग्रुप है जो नेटवर्क/परफॉर्मेंस ग्रुप (`right-1`) और तारीख/समय (`right-0`) के बीच स्थित है। यह `argvus focus status --waybar --follow` चलाता है बिना GTK लोड किए: जब खाली होता है तो यह टाइमर आइकन दिखाता है, और फोकस या ब्रेक चरण के दौरान यह शेष `MM:SS` जोड़ता है; इसका रंग चरण और पॉज़ की गई स्थिति को पहचानता है। इसे क्लिक करने पर उस क्लिक स्थान पर फोकस पॉपअप खुलता या छुपता है। दोनों पॉपअप भी **Esc** या बाहर क्लिक करने से बंद हो जाते हैं।
 
-## Reloading
+## पुनः लोड हो रहा है
 
 मुख्य सेवा `argvus-taskbar.service` है। जब एक दस्तावेज़ित कॉन्फ़िगरेशन परिवर्तन के लिए मैनुअल रीलोड की आवश्यकता होती है, तो सत्र नियंत्रक का उपयोग करें:
 
@@ -52,7 +52,7 @@ The taskbar configuration is owned by
 argvus sessionctl restart waybar
 ```
 
- for the installed and user paths.इंस्टॉल किए गए और उपयोगकर्ता पथों के लिए।(/docs/argvus-waybar/) path.
+ for the installed and user paths. इंस्टॉल किए गए और उपयोगकर्ता पथों के लिए।(/docs/argvus-waybar/) path.
 
 उपयोगिताएँ होवर मोड में एक विस्तारणकर्ता में सिकुड़ जाती हैं और पॉइंटर प्रवेश पर सक्षम नियंत्रण प्रकट करती हैं। सिस्टम ट्रे दृश्यता पृष्ठभूमि एप्लिकेशन आइकन को नियंत्रित करती है; एक खाली ट्रे में कोई दिखाई देने वाला आइकन नहीं होता। कार्यक्षेत्र आइकन प्रस्तुति खुले विंडो के लिए एप्लिकेशन आइकन को कार्यक्षेत्र लेबल के साथ दिखाती है।
 
@@ -67,5 +67,5 @@ argvus sessionctl restart waybar
 टास्कबार नेटवर्क संकेतक NetworkManager घटनाओं का पालन करता है `argvus networkctl waybar --follow` का उपयोग करके, प्रारंभिक स्नैपशॉट और स्वचालित मॉनिटर पुन: कनेक्शन के साथ। यह अब 10-सेकंड की मतदान अंतराल की प्रतीक्षा नहीं करता। कनेक्टेड, सीमित इंटरनेट एक्सेस और डिस्कनेक्टेड अलग-अलग स्थितियाँ बनी रहती हैं। वाई-फाई स्थिति कैश किए गए एक्सेस पॉइंट पढ़ती है बिना स्कैन अनुरोध किए। `argvus networkctl waybar` एकल Waybar JSON स्नैपशॉट उत्पन्न करता है।
 
 टास्कबार मार्जिन, विंडो बाहरी अंतर और पैनल ज्यामिति संबंधित लेकिन अलग हैं। किसी एक को बदलने से हर अन्य मान स्वतः पुनः लिखे नहीं जाते। यदि कोई बार विज़ुअली विंडो से अलग दिखाई देता है, तो मोड, टास्कबार मार्जिन और विंडो स्पेसिंग को साथ में देखें; देखें [विंडोज़ और लेआउट](/docs/argvus-hyprland/windows-and-layout/).
-The taskbar configuration is owned by argvus-taskbar, rendered by argvus-waybar and started by argvus-session. argvus-config is the only component that writes the taskbar consumer files: it projects the active layer under ~/.config/argvus/data/generated/waybar/ and reapplies the theme layer, taskbar margins, right-2 utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files and then writes back the height and border chosen in Control Center, which are stored as /taskbar/shape/height and /taskbar/shape/border_width in argvus config. Until one is chosen it is null and follows the theme: 28 px high, with a 1 px border (Slate Dark has none). Because the generated copy is resolved first, a native Waybar path under ~/.config/waybar/ only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
+टास्कबार कॉन्फ़िगरेशन का स्वामित्व argvus-टास्कबार के पास है, जो argvus-waybar द्वारा प्रस्तुत किया गया है और argvus-सेशन द्वारा शुरू किया गया है। argvus-कॉन्फिग एकमात्र घटक है जो टास्कबार उपभोक्ता फ़ाइलों को लिखता है: यह ~/.config/argvus/data/generated/waybar/ के तहत सक्रिय परत को प्रोजेक्ट करता है और थीम परत, टास्कबार मार्जिन, राइट -2 यूटिलिटी-ग्रुप मोड, बॉर्डर रेडियस और फ़ॉन्ट ब्लॉक को जब भी थीम या लेआउट स्थिति बदलती है, फिर से लागू करता है। एक थीम स्विच पैक की गई टास्कबार फ़ाइलों को भी पुनर्स्थापित करता है और फिर नियंत्रण केंद्र में चुनी गई ऊंचाई और सीमा को वापस लिखता है, जिसे /taskbar/shape/height और /taskbar/shape/border_width के रूप में argvus कॉन्फ़िगरेशन में संग्रहीत किया जाता है। जब तक कोई एक नहीं चुना जाता तब तक यह शून्य है और थीम का अनुसरण करता है: 28 पिक्सल ऊंचा, 1 पिक्सल बॉर्डर के साथ (स्लेट डार्क में कोई नहीं है)। क्योंकि जेनरेट की गई कॉपी का समाधान पहले किया जाता है, ~/.config/waybar/ के तहत एक मूल Waybar पथ केवल तभी प्रभावी होता है जब संबंधित जेनरेट की गई फ़ाइल अनुपस्थित होती है। प्राथमिकता, उदाहरण और समस्या निवारण के लिए [Waybar और टास्कबार ओवरराइड्स](/docs/argvus-waybar/) देखें।
 कैलेंडर और रिमूवेबल-स्टोरेज पॉपअप्स निगरानी की पहचान करने के लिए ARGVUS वेबैर बिल्ड द्वारा प्रदान किए गए अपरिवर्तनीय रूट-कोऑर्डिनेट कॉन्ट्रैक्ट का उपयोग करते हैं। कैलेंडर वास्तविक हॉरिजॉन्टल टास्कबार सतह का पालन करता है: यह शीर्ष बार के 4 पिक्सल नीचे या निचली बार के 4 पिक्सल ऊपर खुलता है, चाहे तारीख मॉड्यूल के अंदर कहीं भी क्लिक किया गया हो; तारीख मॉड्यूल कैलेंडर खोलता है। लगातार बनाने के लिए उत्पन्न रनटाइम कॉन्फ़िगरेशन को संपादित न करें।परिवर्तन; कंट्रोल सेंटर या प्रलेखित का उपयोग करें[वेबार ओवरराइड](/docs/argvus-waybar/)पथ।

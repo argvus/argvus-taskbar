@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: Widget
 description: Konfigurasikan widget telemetri sistem opsional.
 ---
 
@@ -7,11 +7,11 @@ argvus widget-telemetry menyediakan permukaan Waybar tambahan opsional untuk inf
 
 Gunakan **Control Center → Appearance → Widget Telemetry** untuk mengaktifkan tampilan dan menyalakan atau mematikan blok individu. Menonaktifkan sebuah blok menyembunyikan modul telemetri tersebut dari profil Waybar; ini tidak mencopot pemasangan paket atau menghentikan sisa sesi. Saklar utama mengontrol tampilan telemetri secara keseluruhan.
 
-Block selection is canonical in 
+Block selection is canonical in
 
-, at `argvus widget-telemetry`, and the master switch is `keys`. `config.json` projects that selection into the Waybar profile `control_panel.widget_telemetry_blocks` by uncommenting or commenting the lines inside its delimited `control_panel.widget_telemetry_enabled`/`argvus-config` blocks, leaving the rest of the file untouched. A legacy `data/waybar/argvus-widget-telemetry.jsonc` file is still read as a migration fallback on older installations, but it is never written. Note that the whole profile is replaced from the packaged default on an appearance change, so the block markers are how the selection survives; text outside them is not preserved across a theme switch.
+, di `argvus widget-telemetry`, dan saklar utama adalah `keys`. `config.json` memproyeksikan pilihan tersebut ke dalam profil Waybar `control_panel.widget_telemetry_blocks` dengan menghapus komentar atau mengomentari baris di dalam blok `control_panel.widget_telemetry_enabled`/`argvus-config` yang dibatasi, membiarkan sisa file tidak tersentuh. File lama `data/waybar/argvus-widget-telemetry.jsonc` masih dibaca sebagai cadangan migrasi pada instalasi lama, namun tidak pernah ditulis. Perhatikan bahwa seluruh profil diganti dari paket default dengan perubahan tampilan, jadi penanda blok adalah cara pemilihan bertahan; teks di luarnya tidak disimpan di saklar tema.
 
-The controller supports:
+Pengontrol mendukung:
 
 ```sh
 argvus widget-telemetry-toggle status

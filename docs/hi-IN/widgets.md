@@ -1,5 +1,5 @@
 ---
-title: Widgets
+title: विजेट
 description: वैकल्पिक सिस्टम टेलीमेट्री विजेट्स को कॉन्फ़िगर करें।
 ---
 
@@ -9,7 +9,7 @@ description: वैकल्पिक सिस्टम टेलीमेट�
 
 ब्लॉक चयन `config.json` में सामान्य है, `control_panel.widget_telemetry_blocks` में, और मास्टर स्विच `control_panel.widget_telemetry_enabled` है। `argvus-config` इस चयन को Waybar प्रोफ़ाइल `data/waybar/argvus-widget-telemetry.jsonc` में प्रोजेक्ट करता है, इसके डिलीमिटेड `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END` ब्लॉकों के भीतर लाइनों को अनकमेंट या कमेंट करके, फ़ाइल के बाकी हिस्से को अपरिवर्तित छोड़ देता है। एक लेगसी `~/.local/state/argvus/widget-telemetry-blocks` फ़ाइल अब भी पुराने इंस्टॉलेशनों पर माइग्रेशन फॉलबैक के रूप में पढ़ी जाती है, लेकिन इसे कभी लिखा नहीं जाता। ध्यान दें कि पूरे प्रोफ़ाइल को किसी एपरियंस परिवर्तन पर पैकेज किए गए डिफ़ॉल्ट से बदल दिया जाता है, इसलिए ब्लॉक मार्करों के माध्यम से चयन सुरक्षित रहता है; उनके बाहर का टेक्स्ट थीम स्विच के दौरान संरक्षित नहीं रहता।
 
-The controller supports:
+नियंत्रक समर्थन करता है:
 
 ```sh
 argvus widget-telemetry-toggle status
@@ -43,9 +43,9 @@ AI लॉन्चर nf-md-robot (U+F06A9) का उपयोग Symbols Nerd 
 
 सेटिंग **Control Center → Desktop & Input → Hyprland → Windows → Mode** के साथ साझा की जाती है। फ्लोटिंग सभी मॉनिटरों और वर्कस्पेस में सभी एप्लिकेशन विंडो को प्रभावित करता है। टाइल पर लौटना उन विंडो को बनाए रखता है जो मूल रूप से फ्लोटिंग थीं। चयन लॉगिन के बीच बना रहता है।
 
-The helper is 
+The helper is
 
-; `argvus window-mode-menu` emits Waybar JSON. It is shipped by the master `argvus window-mode-menu --status` package. Existing customized taskbar copies are preserved: add the `argvus` `custom/window-mode`  module definition and group entry from the packaged template to opt in, or use Control Center. The appearance projector preserves the module when its definition is present, even if other utility icons are disabled.
+; `argvus window-mode-menu` Waybar JSON उत्सर्जित करता है। इसे मास्टर `argvus window-mode-menu --status` पैकेज द्वारा भेजा जाता है। मौजूदा अनुकूलित टास्कबार प्रतियां संरक्षित हैं: ऑप्ट-इन करने या नियंत्रण केंद्र का उपयोग करने के लिए पैकेज्ड टेम्पलेट से `argvus` `custom/window-mode` मॉड्यूल परिभाषा और समूह प्रविष्टि जोड़ें। उपस्थिति प्रोजेक्टर मॉड्यूल को तब सुरक्षित रखता है जब उसकी परिभाषा मौजूद होती है, भले ही अन्य उपयोगिता आइकन अक्षम हों।
 
 ## विंडो बटन और एप्लिकेशन बार
 
