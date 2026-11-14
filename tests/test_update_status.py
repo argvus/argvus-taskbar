@@ -12,6 +12,12 @@ SCRIPT = Path(__file__).resolve().parents[1] / "src/usr/share/argvus/taskbar/sh/
 
 
 class UpdateStatusTests(unittest.TestCase):
+    def test_update_module_accepts_the_control_center_refresh_signal(self):
+        config = (SCRIPT.parents[1] / 'config/argvus-taskbar.jsonc').read_text()
+        module, _ = json.JSONDecoder().raw_decode(config.split('"custom/update-status":', 1)[1].lstrip())
+        self.assertEqual(module['signal'], 10)
+        self.assertEqual(module['interval'], 3600)
+
     def run_check(self, official, official_status=0, aur=None, aur_status=0, enabled=True):
         Path('/tmp/argvus').mkdir(exist_ok=True)
         with tempfile.TemporaryDirectory(dir='/tmp/argvus') as directory:

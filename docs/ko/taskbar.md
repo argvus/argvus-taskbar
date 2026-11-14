@@ -57,3 +57,5 @@ argvus sessionctl restart waybar
 `hyprland/workspaces` 모듈은 `workspace-metadata: "argvus/project-workspaces.json"`를 `$XDG_RUNTIME_DIR` 기준으로 읽습니다. `argvus projects`는 프로젝트가 열릴 때마다 이 파생 파일을 재생성합니다. 패치된 `argvus-waybar`는 Hyprland 0.57 텍스트 작업 공간 주소를 지원하고, 작업 공간 아이덴티티를 변경하지 않고 라벨을 위해 메타데이터를 사용합니다. 세 가지 패키지를 모두 업데이트하고 서비스를 재시작하기 전에 작업 표시줄 구성을 다시 투영하세요.
 
 **업데이트 상태(Update Status)** 모듈은 유틸리티(Utilities)와 네트워크/성능(network/performance) 사이에 자체 그룹이 있으며, 사용 가능한 패키지 업데이트 수를 표시합니다. 이 모듈은 시작 시와 매시간 `checkupdates`(`pacman-contrib`에서 가져옴)을 사용하여 공식 저장소를 확인하며 패키지를 업그레이드하지는 않습니다. **AUR 확인(Check AUR)**은 기본적으로 꺼져 있으며, 활성화하면 `paru` 또는 `yay`과 확인합니다. 툴팁은 소스를 구분하고 실패를 보고하며, `?`는 총합이 불완전함을 의미합니다. 모듈을 클릭하면 패키지에서 공식 업데이트가 열립니다. 두 옵션은 **아이콘 → 선택적 모듈(Icons → Optional modules)**에서 구성하고 작업 표시줄 초안을 적용합니다. 모듈은 기본적으로 활성화되어 있습니다.
+
+Control Center의 패키지 작업(공식 저장소 및 AUR 업그레이드 포함)이 끝나면 작업 표시줄이 재시작 없이 남은 업데이트를 자동으로 확인합니다. 일부 패키지가 이미 변경되었을 수 있으므로 실패 후에도 확인합니다. 매시간 확인도 계속 유지되어 Control Center 외부의 작업을 감지합니다.

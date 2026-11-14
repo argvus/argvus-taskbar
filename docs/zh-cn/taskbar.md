@@ -56,3 +56,5 @@ argvus sessionctl restart waybar
 `hyprland/workspaces` 模块读取 `workspace-metadata: "argvus/project-workspaces.json"`，相对于 `$XDG_RUNTIME_DIR`。`argvus projects` 会在项目打开时重新生成此派生文件。修补后的 `argvus-waybar` 支持 Hyprland 0.57 的文本工作区地址，并使用元数据作为标签而不更改工作区身份。在重启服务之前，请更新这三个软件包并重新投影任务栏配置。
 
 **更新状态**模块在“实用工具”和“网络/性能”之间有自己的分组，并显示可用的软件包更新数量。它在启动时以及每小时使用`checkupdates`（来自`pacman-contrib`）检查官方仓库，但不会升级软件包。**检查AUR**默认关闭；启用后，它会使用`paru`或`yay`进行检查。工具提示会区分来源并报告失败；`?`表示总数不完整。点击该模块可在“软件包”中打开官方更新。在**图标 → 可选模块**下配置两个选项，并应用任务栏草稿。该模块默认启用。
+
+Control Center 中的软件包操作结束后（包括官方仓库和 AUR 升级），任务栏会自动检查剩余更新，无需重启。失败后也会检查，因为部分软件包可能已发生变化。每小时检查仍然启用，用于检测 Control Center 之外的操作。
