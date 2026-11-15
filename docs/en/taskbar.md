@@ -65,3 +65,9 @@ The **Update Status** module has its own group between Utilities and network/per
 The taskbar network indicator follows NetworkManager events using `argvus networkctl waybar --follow`, with an initial snapshot and automatic monitor reconnection. It no longer waits for a 10-second polling interval. Connected, limited Internet access and disconnected remain distinct states. Wi-Fi status reads cached access points without requesting a scan. `argvus networkctl waybar` emits a single Waybar JSON snapshot.
 
 After package operations in the Control Center finish (including official and AUR upgrades), the taskbar automatically checks the remaining updates without restarting. It also checks after failures, since some packages may already have changed. The hourly check remains enabled; operations outside the Control Center are detected by that periodic check.
+
+### Monitor-local workspace navigation
+
+Next/previous cycles existing numeric workspaces, then named workspaces and projects in native-name order, on the focused monitor only. Taskbar scrolling uses the monitor under the pointer. Cycling wraps; special workspaces are excluded and an open special workspace pauses navigation. Numeric shortcuts retain global IDs. Assignments remain in `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

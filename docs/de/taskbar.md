@@ -61,3 +61,9 @@ Das `hyprland/workspaces`-Modul liest `workspace-metadata: "argvus/project-works
 Das **Update-Status**-Modul hat eine eigene Gruppe zwischen Dienstprogrammen und Netzwerk/Leistung und zeigt die Anzahl verfügbarer Paketaktualisierungen an. Es überprüft die offiziellen Repositories beim Start und stündlich mit `checkupdates` (von `pacman-contrib`), ohne Pakete zu aktualisieren. **AUR überprüfen** ist standardmäßig deaktiviert; wenn aktiviert, wird mit `paru` oder `yay` geprüft. Der Tooltip trennt die Quellen und meldet Fehler; `?` bedeutet, dass die Gesamtsumme unvollständig ist. Klicken Sie auf das Modul, um die offiziellen Updates in Paketen zu öffnen. Konfigurieren Sie beide Optionen unter **Symbole → Optionale Module** und wenden Sie den Taskleisten-Entwurf an. Das Modul ist standardmäßig aktiviert.
 
 Nach Paketoperationen im Control Center (einschließlich offizieller und AUR-Upgrades) prüft die Taskleiste die verbleibenden Aktualisierungen automatisch ohne Neustart. Dies geschieht auch nach Fehlern, da einige Pakete bereits geändert sein können. Die stündliche Prüfung bleibt aktiv und erkennt Operationen außerhalb des Control Centers.
+
+### Arbeitsbereichswechsel pro Monitor
+
+Vorwärts/rückwärts durchläuft nur vorhandene Arbeitsbereiche des fokussierten Monitors: zuerst numerische, dann benannte und Projekte nach nativem Namen, mit Umlauf. Scrollen auf der Taskleiste verwendet den Monitor unter dem Zeiger. Spezielle Arbeitsbereiche sind ausgeschlossen und unterbrechen den Wechsel, solange sie geöffnet sind. Ziffernkürzel behalten globale IDs. Zuordnungen bleiben in `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

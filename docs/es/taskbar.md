@@ -59,3 +59,9 @@ El módulo `hyprland/workspaces` lee `workspace-metadata: "argvus/project-worksp
 El módulo **Estado de Actualización** tiene su propio grupo entre Utilidades y red/rendimiento y muestra el número de actualizaciones de paquetes disponibles. Verifica los repositorios oficiales al inicio y cada hora usando `checkupdates` (de `pacman-contrib`), sin actualizar paquetes. **Comprobar AUR** está desactivado por defecto; cuando se habilita, verifica con `paru` o `yay`. La información sobre herramientas separa las fuentes y reporta fallos; `?` significa que el total está incompleto. Haga clic en el módulo para abrir las actualizaciones oficiales en Paquetes. Configure ambas opciones en **Iconos → Módulos opcionales** y aplique el borrador de la barra de tareas. El módulo está habilitado por defecto.
 
 Al terminar una operación de paquetes en Control Center (incluidas las actualizaciones oficiales y AUR), la barra de tareas comprueba automáticamente las actualizaciones restantes sin reiniciarse. También lo hace tras un fallo, pues algunos paquetes pueden haber cambiado. La comprobación horaria sigue activa y detecta las operaciones realizadas fuera de Control Center.
+
+### Navegación por monitor
+
+Siguiente/anterior recorre solo los espacios existentes del monitor enfocado: primero numéricos, después nombres y proyectos por nombre nativo, volviendo al inicio. La rueda sobre la barra usa el monitor bajo el puntero. Los espacios especiales se excluyen y detienen el ciclo mientras están abiertos. Los atajos numéricos conservan IDs globales. Las asignaciones siguen en `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

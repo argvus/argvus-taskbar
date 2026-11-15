@@ -71,3 +71,9 @@ Cấu hình thanh tác vụ thuộc quyền sở hữu của argvus-taskbar, đ�
 Các popup lịch và lưu trữ có thể tháo rời sử dụng hợp đồng tọa độ gốc bất biến do bản xây dựng ARGVUS Waybar cung cấp để xác định màn hình. Lịch theo bề mặt Thanh tác vụ ngang thực: nó mở ra 4 pixel bên dưới thanh trên hoặc 4 pixel bên trên thanh dưới, bất kể vị trí bên trong mô-đun ngày được nhấp; mô-đun ngày mở lịch. Không chỉnh sửa cấu hình thời gian chạy được tạo ra để làm cho nó trở nên cố địnhthay đổi; sử dụng Trung tâm Điều khiển hoặc những gì đã được ghi lại[Ghi đè Waybar](/docs/argvus-waybar/)đường.
 
 Sau khi thao tác gói trong Control Center kết thúc (gồm nâng cấp chính thức và AUR), thanh tác vụ tự động kiểm tra các bản cập nhật còn lại mà không khởi động lại. Việc kiểm tra cũng diễn ra sau lỗi vì một số gói có thể đã thay đổi. Kiểm tra hàng giờ vẫn hoạt động để phát hiện các thao tác ngoài Control Center.
+
+### Điều hướng theo màn hình
+
+Trước/sau chỉ duyệt vòng các không gian hiện có trên màn hình đang được chọn: số trước, rồi tên và dự án theo tên gốc. Cuộn trên thanh tác vụ dùng màn hình dưới con trỏ. Không gian đặc biệt bị loại và tạm dừng chu kỳ khi mở. Phím tắt số giữ ID toàn cục. Phân công vẫn ở `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

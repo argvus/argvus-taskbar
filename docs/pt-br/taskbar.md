@@ -65,3 +65,9 @@ O módulo **Estado das atualizações** tem um grupo próprio entre Utilities e 
 O indicador de rede da taskbar acompanha os eventos do NetworkManager com `argvus networkctl waybar --follow`, com leitura inicial e reconexão automática do monitor. Ele não espera mais o intervalo de consulta de 10 segundos. Conectado, acesso limitado à internet e desconectado continuam sendo estados distintos. A consulta Wi-Fi usa os pontos de acesso em cache sem solicitar varredura. `argvus networkctl waybar` emite um único status JSON para Waybar.
 
 Ao terminar uma operação de pacotes no Control Center (incluindo upgrades oficiais e AUR), a taskbar consulta automaticamente as atualizações restantes, sem reiniciar. A consulta também ocorre após falhas, pois alguns pacotes podem já ter sido alterados. A verificação a cada hora continua ativa; operações fora do Control Center são detectadas por essa verificação periódica.
+
+### Navegação de workspaces por monitor
+
+Próximo/anterior percorre os workspaces existentes somente no monitor em foco: primeiro os numéricos, depois os nomeados e projetos em ordem do nome nativo, retornando ao início no final. A rolagem na taskbar usa o monitor sob o ponteiro. Workspaces especiais são excluídos e, enquanto um estiver aberto, o ciclo não atua. Atalhos numéricos mantêm IDs globais. As associações permanecem em `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

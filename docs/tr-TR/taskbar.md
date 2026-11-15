@@ -71,3 +71,9 @@ Görev çubuğu yapılandırmasının sahibi argvus-taskbar'dır, argvus-waybar 
 Takvim ve çıkarılabilir depolama açılır pencereleri, monitörü tanımlamak için ARGVUS Waybar yapısı tarafından sağlanan değiştirilemez kök koordinat sözleşmesini kullanır. Takvim gerçek yatay Görev Çubuğu yüzeyini takip eder: üst çubuk altında 4 piksel veya alt çubuk üstünde 4 piksel açılır, tarih modülünün içinde nereye tıklanmış olursa olsun; tarih modülü takvimi açar. Kalıcı yapmak için üretilmiş çalışma zamanı yapılandırmasını düzenlemeyindeğişiklikler; Kontrol Merkezi'ni veya belgelenmiş olanı kullanın[Waybar geçersiz kılma](/docs/argvus-waybar/)yol.
 
 Control Center paket işlemleri (resmî ve AUR yükseltmeleri dahil) bittiğinde görev çubuğu yeniden başlamadan kalan güncellemeleri otomatik denetler. Bazı paketler değişmiş olabileceğinden hatalardan sonra da denetler. Saatlik denetim etkin kalır ve Control Center dışındaki işlemleri algılar.
+
+### Monitöre göre gezinme
+
+Sonraki/önceki yalnızca odaklanılan monitördeki mevcut çalışma alanlarını döngüyle gezer: önce sayısal alanlar, ardından özgün ada göre adlandırılmış alanlar ve projeler. Görev çubuğunu kaydırmak işaretçinin altındaki monitörü kullanır. Özel alanlar dışlanır ve açıkken gezinmeyi durdurur. Sayısal kısayollar genel kimlikleri korur. Atamalar `/displays/workspaces` içinde kalır.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

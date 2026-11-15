@@ -73,3 +73,9 @@ Konfigurasi bilah tugas dimiliki oleh argvus-taskbar, dirender oleh argvus-wayba
 Popup kalender dan penyimpanan yang dapat dilepas menggunakan kontrak koordinat akar yang tidak dapat diubah yang disediakan oleh build ARGVUS Waybar untuk mengidentifikasi monitor. Kalender mengikuti permukaan Taskbar horizontal yang sebenarnya: ia terbuka 4 piksel di bawah bilah atas atau 4 piksel di atas bilah bawah, terlepas dari di mana di dalam modul tanggal itu diklik; modul tanggal membuka kalender. Jangan mengedit konfigurasi runtime yang dihasilkan untuk membuatnya persistenperubahan; gunakan Pusat Kontrol atau yang didokumentasikan[Pengganti Waybar](/docs/argvus-waybar/)jalur.
 
 Setelah operasi paket di Control Center selesai (termasuk peningkatan resmi dan AUR), bilah tugas otomatis memeriksa pembaruan tersisa tanpa memulai ulang. Pemeriksaan juga dilakukan setelah kegagalan karena beberapa paket mungkin sudah berubah. Pemeriksaan setiap jam tetap aktif dan mendeteksi operasi di luar Control Center.
+
+### Navigasi per monitor
+
+Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfokus: numerik dahulu, lalu nama dan proyek menurut nama asli. Gulir bilah memakai monitor di bawah penunjuk. Ruang khusus dikecualikan dan menghentikan siklus saat terbuka. Pintasan angka tetap memakai ID global. Penetapan tetap di `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`

@@ -61,3 +61,9 @@ Le module `hyprland/workspaces` lit `workspace-metadata: "argvus/project-workspa
 Le module **État des mises à jour** a son propre groupe entre Utilitaires et réseau/performance et affiche le nombre de mises à jour de paquets disponibles. Il vérifie les dépôts officiels au démarrage et toutes les heures à l'aide de `checkupdates` (depuis `pacman-contrib`), sans mettre à jour les paquets. **Vérifier AUR** est désactivé par défaut ; lorsqu'il est activé, il vérifie avec `paru` ou `yay`. L'infobulle sépare les sources et signale les échecs ; `?` signifie que le total est incomplet. Cliquez sur le module pour ouvrir les mises à jour officielles dans Paquets. Configurez les deux options sous **Icônes → Modules optionnels** et appliquez l'ébauche de la barre des tâches. Le module est activé par défaut.
 
 Après une opération de paquets dans le Control Center (y compris les mises à niveau officielles et AUR), la barre des tâches vérifie automatiquement les mises à jour restantes sans redémarrer. Cette vérification suit aussi les échecs, car certains paquets peuvent déjà avoir changé. La vérification horaire reste active et détecte les opérations effectuées hors du Control Center.
+
+### Navigation par écran
+
+Suivant/précédent parcourt uniquement les espaces existants de l’écran actif : numériques, puis nommés et projets par nom natif, en boucle. Le défilement sur la barre utilise l’écran sous le pointeur. Les espaces spéciaux sont exclus et suspendent le cycle lorsqu’ils sont ouverts. Les raccourcis numériques conservent les identifiants globaux. Les affectations restent dans `/displays/workspaces`.
+
+`argvus config workspace-cycle next|previous [--monitor focused|cursor]`
