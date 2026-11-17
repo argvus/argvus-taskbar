@@ -79,3 +79,5 @@ Setelah operasi paket di Control Center selesai (termasuk peningkatan resmi dan 
 Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfokus: numerik dahulu, lalu nama dan proyek menurut nama asli. Gulir bilah memakai monitor di bawah penunjuk. Ruang khusus dikecualikan dan menghentikan siklus saat terbuka. Pintasan angka tetap memakai ID global. Penetapan tetap di `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+**Power → ARGVUS Lifecycle** (`argvus-lifecycle`)

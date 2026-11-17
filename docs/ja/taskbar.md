@@ -65,3 +65,5 @@ Control Center でのパッケージ操作（公式リポジトリと AUR の更
 前後への移動は、フォーカス中のモニターに存在するワークスペースを循環します。数値順の後に、名前付きとプロジェクトを元の名前順で並べます。タスクバーのスクロールはポインター下のモニターを使用します。特殊ワークスペースは対象外で、開いている間は移動しません。数字ショートカットはグローバル ID を維持します。割り当ては `/displays/workspaces` に保存されます。
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+**Power → ARGVUS Lifecycle** (`argvus-lifecycle`)

@@ -63,7 +63,7 @@ switch_keyboard_layout() {
 
 power_menu() {
   [ -n "$DIR" ] || require_session
-  exec sh "$(paths_config "power/sh/hypr-power-menu.sh")"
+  exec argvus-lifecycle
 }
 
 term_exec() {

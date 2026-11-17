@@ -65,3 +65,5 @@ Control Center의 패키지 작업(공식 저장소 및 AUR 업그레이드 포�
 이전/다음은 포커스된 모니터의 기존 작업 공간만 순환합니다. 숫자 공간 다음에 이름 있는 공간과 프로젝트를 원래 이름순으로 배치합니다. 작업 표시줄 스크롤은 포인터 아래 모니터를 사용합니다. 특수 공간은 제외되며 열려 있는 동안 순환을 멈춥니다. 숫자 단축키는 전역 ID를 유지합니다. 할당은 `/displays/workspaces`에 남습니다.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+**Power → ARGVUS Lifecycle** (`argvus-lifecycle`)

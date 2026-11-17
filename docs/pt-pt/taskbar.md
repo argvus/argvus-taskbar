@@ -71,3 +71,5 @@ Ao terminar uma operação de pacotes no Control Center (incluindo atualizaçõe
 Seguinte/anterior percorre os workspaces existentes apenas no monitor em foco: primeiro os numéricos, depois os nomeados e projetos por nome nativo, regressando ao início no final. A deslocação na barra usa o monitor sob o ponteiro. Workspaces especiais são excluídos e suspendem o ciclo enquanto abertos. Atalhos numéricos mantêm IDs globais. As associações permanecem em `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+**Power → ARGVUS Lifecycle** (`argvus-lifecycle`)

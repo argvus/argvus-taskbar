@@ -71,3 +71,5 @@ Ao terminar uma operação de pacotes no Control Center (incluindo upgrades ofic
 Próximo/anterior percorre os workspaces existentes somente no monitor em foco: primeiro os numéricos, depois os nomeados e projetos em ordem do nome nativo, retornando ao início no final. A rolagem na taskbar usa o monitor sob o ponteiro. Workspaces especiais são excluídos e, enquanto um estiver aberto, o ciclo não atua. Atalhos numéricos mantêm IDs globais. As associações permanecem em `/displays/workspaces`.
 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
+
+**Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
