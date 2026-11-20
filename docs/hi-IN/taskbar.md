@@ -79,3 +79,5 @@ Control Center में पैकेज कार्य पूरा होन�
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+क्लिपबोर्ड डिफ़ॉल्ट रूप से चालू रहता है और टास्कबार के उपयोगिता समूह से खुलता है। टेक्स्ट और चित्रों की रिकॉर्डिंग रोकने के लिए Control Center → Appearance → Taskbar → Icons → Optional modules में विकल्प हटाएँ और Apply चुनें। आइकन छिप जाएगा और दोबारा चालू करने तक इतिहास नहीं खुलेगा। सहेजी गई प्रविष्टियाँ बनी रहेंगी।

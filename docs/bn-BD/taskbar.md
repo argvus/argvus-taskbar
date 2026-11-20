@@ -79,3 +79,5 @@ Control Center-এ প্যাকেজের কাজ শেষ হলে (�
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+ক্লিপবোর্ড ডিফল্টভাবে চালু থাকে এবং টাস্কবারের ইউটিলিটি গ্রুপ থেকে খোলা যায়। লেখা ও ছবি রেকর্ড করা বন্ধ করতে Control Center → Appearance → Taskbar → Icons → Optional modules থেকে বিকল্পটির টিক সরিয়ে Apply নির্বাচন করুন। আইকনটি লুকিয়ে যাবে এবং পুনরায় চালু না করা পর্যন্ত ইতিহাস খোলা যাবে না। সংরক্ষিত আইটেমগুলো থেকে যাবে।

@@ -79,3 +79,5 @@ Sonraki/önceki yalnızca odaklanılan monitördeki mevcut çalışma alanların
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+Pano varsayılan olarak etkindir ve görev çubuğunun yardımcı araçlar grubundan açılır. Metin ve görüntü kaydını durdurmak için Control Center → Appearance → Taskbar → Icons → Optional modules bölümündeki seçeneğin işaretini kaldırıp Apply seçin. Simge gizlenir ve seçenek yeniden açılana kadar geçmişe erişilemez. Kayıtlı öğeler korunur.

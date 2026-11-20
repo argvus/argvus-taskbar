@@ -79,3 +79,5 @@ Trước/sau chỉ duyệt vòng các không gian hiện có trên màn hình đ
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+Bảng tạm được bật mặc định và mở từ nhóm tiện ích trên thanh tác vụ. Để dừng ghi lại văn bản và hình ảnh, bỏ chọn mục này trong Control Center → Appearance → Taskbar → Icons → Optional modules rồi chọn Apply. Biểu tượng sẽ ẩn và chỉ có thể mở lại lịch sử sau khi bật lại. Các mục đã lưu vẫn được giữ.

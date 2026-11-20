@@ -69,3 +69,5 @@ Successivo/precedente scorre solo gli spazi esistenti del monitor attivo: prima 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+Gli Appunti sono attivi per impostazione predefinita e si aprono dal gruppo delle utilità della barra delle applicazioni. Per interrompere la registrazione di testo e immagini, deseleziona la voce in Control Center → Appearance → Taskbar → Icons → Optional modules e scegli Apply. L’icona scompare e la cronologia resta inaccessibile fino alla riattivazione. Le voci salvate vengono conservate.

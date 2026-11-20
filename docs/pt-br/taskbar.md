@@ -73,3 +73,5 @@ Próximo/anterior percorre os workspaces existentes somente no monitor em foco: 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+O Clipboard vem ativado por padrão e abre pelo grupo de utilidades da barra de tarefas. Para parar a captura de texto e imagens, desmarque Clipboard em Control Center → Appearance → Taskbar → Icons → Optional modules e selecione Apply. O ícone some e o acesso ao histórico fica bloqueado. Reative a opção para acessar as entradas já salvas.

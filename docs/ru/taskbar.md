@@ -67,3 +67,5 @@ argvus sessionctl restart waybar
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+Буфер обмена включён по умолчанию и открывается из группы утилит на панели задач. Чтобы прекратить запись текста и изображений, снимите флажок в Control Center → Appearance → Taskbar → Icons → Optional modules и выберите Apply. Значок исчезнет, а история будет недоступна до повторного включения. Сохранённые записи останутся.

@@ -81,3 +81,5 @@ Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfok
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+Papan klip aktif secara default dan dapat dibuka dari grup utilitas di bilah tugas. Untuk berhenti merekam teks dan gambar, hapus centang pada opsi di Control Center → Appearance → Taskbar → Icons → Optional modules lalu pilih Apply. Ikon akan disembunyikan dan riwayat tidak bisa dibuka hingga opsi diaktifkan kembali. Entri yang tersimpan tetap tersedia.

@@ -73,3 +73,5 @@ Seguinte/anterior percorre os workspaces existentes apenas no monitor em foco: p
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+A Área de transferência está ativa por predefinição e abre a partir do grupo de utilitários da barra de tarefas. Para parar a recolha de texto e imagens, desmarque a opção em Control Center → Appearance → Taskbar → Icons → Optional modules e selecione Apply. O ícone desaparece e o histórico fica inacessível até reativar a opção. Os registos guardados são preservados.

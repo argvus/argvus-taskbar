@@ -75,3 +75,5 @@ Control Center میں پیکیج کے کام مکمل ہونے پر (بشمول 
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+کلپ بورڈ پہلے سے فعال ہوتا ہے اور ٹاسک بار کے افادیتی گروپ سے کھلتا ہے۔ متن اور تصاویر کی ریکارڈنگ روکنے کے لیے Control Center → Appearance → Taskbar → Icons → Optional modules میں اختیار کو غیر منتخب کریں اور Apply منتخب کریں۔ آئیکن چھپ جائے گا اور دوبارہ فعال کرنے تک تاریخچہ نہیں کھلے گا۔ محفوظ اندراجات برقرار رہیں گے۔

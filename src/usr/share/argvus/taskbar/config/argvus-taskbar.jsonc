@@ -73,6 +73,7 @@
       "custom/removable-devices",
       "custom/recording",
       "custom/bluetooth",
+      "custom/clipboard",
       "pulseaudio#input",
       "pulseaudio#output",
       "custom/keep-awake"
@@ -90,6 +91,14 @@
     "custom/power",
     "custom/settings"
   ],
+  "custom/clipboard": {
+    "exec-if": "test \"$(argvus config get /taskbar/icons/clipboard_enabled --effective --raw)\" = true",
+    "exec": "argvus i18n get clipboard title",
+    "interval": "once",
+    "format": "<span font_family='Symbols Nerd Font Mono'>󰅌</span>",
+    "tooltip-format": "{text}",
+    "on-click": "argvus clipboard"
+  },
   "custom/update-status": {
     "exec": "/usr/share/argvus/taskbar/sh/waybar-update-status.sh",
     "return-type": "json",

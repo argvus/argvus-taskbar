@@ -75,3 +75,5 @@ Waybar.
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+الحافظة مفعّلة افتراضيًا ويمكن فتحها من مجموعة الأدوات في شريط المهام. لإيقاف تسجيل النصوص والصور، ألغِ تحديد الخيار في Control Center → Appearance → Taskbar → Icons → Optional modules واختر Apply. تختفي الأيقونة ويتعذر فتح السجل حتى إعادة التفعيل. تبقى العناصر المحفوظة.

@@ -66,3 +66,5 @@ Control Center 中的软件包操作结束后（包括官方仓库和 AUR 升级
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+剪贴板默认启用，可从任务栏的实用工具组打开。若要停止记录文本和图像，请在 Control Center → Appearance → Taskbar → Icons → Optional modules 中取消勾选该选项并选择 Apply。图标会隐藏，重新启用前无法打开历史记录。已保存的条目会保留。

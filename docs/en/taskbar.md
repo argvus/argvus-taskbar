@@ -73,3 +73,5 @@ Next/previous cycles existing numeric workspaces, then named workspaces and proj
 `argvus config workspace-cycle next|previous [--monitor focused|cursor]`
 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
+
+Clipboard is enabled by default. Open it from the taskbar utility group. To stop recording text and images, clear the Clipboard option under Control Center → Appearance → Taskbar → Icons → Optional modules and select Apply. This also hides the icon and blocks opening history. Re-enable the option to access previously saved entries.
