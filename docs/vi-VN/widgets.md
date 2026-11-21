@@ -62,3 +62,5 @@ Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.se
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, và `minimize|restore|activate|maximize|close ADDRESS`. Các địa chỉ cửa sổ được lấy từ danh sách. `position top --persist` lưu/truyền sở thích mà không cần khởi động lại thanh chính. Chi tiết cấu hình và lỗi thời gian chạy được ghi vào nhật ký; các thất bại hành động hiển thị cũng hiện thông báo đã được dịch.
 
 Trong **Spaced + Floating**, các cửa sổ tuân theo khoảng trống bên ngoài và các khu vực được cả hai thanh dành riêng. Phạm vi bao gồm viền và tiêu đề, nằm bên trong cùng một viền cửa sổ. Phóng to thông qua điều khiển ARGVUS sẽ lấp đầy khu vực này với các lề; khôi phục sẽ lấy lại hình học trước đó, bao gồm cả sau khi khởi động lại dịch vụ. Toàn màn hình vẫn sử dụng toàn bộ đầu ra. Các cửa sổ nổi có thể chồng lên nhau; khoảng trống bên trong khi xếp gạch không tách chúng ra.
+
+Danh sách cập nhật mỗi giây và hiển thị năm tiến trình có tổng tỷ lệ sử dụng CPU gần đây và tỷ lệ bộ nhớ thường trú cao nhất.

@@ -49,3 +49,5 @@ AI 启动器使用 nf-md-robot (U+F06A9) 与 Symbols Nerd Font Mono。外观投�
 会话拥有 `argvus-windows.service` 和 `argvus-window-bar.service`。后者保持其 Quickshell 子项在 Tile 中处于休眠状态。hyprbars 插件由 `argvus-hyprland` 打包，为 x86_64 上的 Hyprland 0.57.0 ABI 构建；它未在用户的主目录中编译。更新合成器 ABI 后重新构建该插件。命令：`argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all` 和 `minimize|restore|activate|maximize|close ADDRESS`。窗口地址来自列表。`position top --persist` 存储/应用偏好设置而无需重新启动主栏。配置和运行时错误详细信息会记录到日志中；可见的操作失败也会显示翻译后的通知。
 
 在 **Spaced + Floating** 模式下，窗口会遵循外部间隙和两个栏位预留的区域。边界包括边框和标题，标题位于同一窗口边框内。通过 ARGVUS 控制最大化时，会用边距填充该区域；恢复时会恢复之前的几何设置，包括服务重启后。全屏仍然占用整个输出区域。浮动窗口可能重叠；铺砖模式中的内部间隙不会将它们分开。
+
+进程列表每秒刷新一次，显示近期 CPU 使用率与常驻内存占比之和最高的五个进程。

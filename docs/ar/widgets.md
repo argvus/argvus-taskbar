@@ -57,4 +57,4 @@ argvus widget-telemetry-toggle blocks apply
 
 Commands:  argvus-hyprland argvus-window-bar.service argvus-windows.service $XDG_RUNTIME_DIR/argvus argvus خدمة ويندوز `special:argvus-minimized` `argvus windows service` `$XDG_RUNTIME_DIR/argvus` `argvus-windows.service` `argvus-window-bar.service` `argvus-hyprland` `argvus windows list --json`، `watch --json`، `position top|bottom`، `restore-all`، و`minimize|restore|activate|maximize|close ADDRESS`. عناوين النافذة تأتي من القائمة. `position top --persist` يخزن/يعرض التفضيلات دون إعادة تشغيل الشريط الرئيسي. تتم كتابة تفاصيل أخطاء التكوين ووقت التشغيل إلى المجلة؛ تُظهر حالات فشل الإجراء المرئي أيضًا إشعارًا مترجمًا.
 
-
+تُحدَّث قائمة العمليات كل ثانية وتعرض العمليات الخمس ذات أعلى مجموع لنسب استخدام المعالج مؤخرًا والذاكرة المقيمة.

@@ -60,3 +60,5 @@ A sessão gerencia `argvus-windows.service` e `argvus-window-bar.service`. O seg
 Comandos: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` e `minimize|restore|activate|maximize|close ADDRESS`. Os endereços das janelas vêm da listagem. `position top --persist` salva/projeta a preferência sem reiniciar a barra principal. Detalhes de erros vão para o journal; falhas de ações visíveis também exibem uma notificação traduzida.
 
 No modo **Spaced + Floating**, as janelas respeitam os espaços externos e as áreas reservadas pelas duas barras. O cálculo inclui a borda e o título, que fica dentro da mesma borda da janela. Maximizar pelos controles ARGVUS ocupa essa área com margens; restaurar recupera a geometria anterior, inclusive após reiniciar o serviço. Tela cheia continua usando o monitor inteiro. Janelas flutuantes podem se sobrepor; os espaços internos do mosaico não separam essas janelas.
+
+A seção de processos atualiza a cada segundo e mostra os cinco processos com a maior soma dos percentuais de CPU recente e memória residente.

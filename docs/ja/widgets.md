@@ -49,3 +49,5 @@ AI ランチャーは Symbols Nerd Font Mono の nf-md-robot (U+F06A9) を使用
 セッションは `argvus-windows.service` および `argvus-window-bar.service` を所有します。後者は Quickshell の子を Tile 内で休止状態に保ちます。hyprbars プラグインは `argvus-hyprland` によってバンドルされ、x86_64 上の Hyprland 0.57.0 ABI 用にビルドされています。ユーザーのホームディレクトリでコンパイルされたものではありません。コンポジタ ABI のアップデート時にはプラグインを再ビルドしてください。コマンド: `argvus windows list --json`、`watch --json`、`position top|bottom`、`restore-all`、および `minimize|restore|activate|maximize|close ADDRESS`。ウィンドウアドレスはリストから取得されます。`position top --persist` はメインバーを再起動せずに設定を保存/適用します。構成および実行時のエラーの詳細はジャーナルに書き込まれます。表示可能なアクションの失敗も翻訳された通知として表示されます。
 
 **Spaced + Floating** では、ウィンドウは外側のギャップと両方のバーによって確保された領域を尊重します。ボーダーとタイトルを含む境界は、同じウィンドウボーダー内にタイトルが配置されます。ARGVUS コントロールを使った最大化は、この領域をマージン付きで埋めます。復元するとサービス再起動後も以前のジオメトリを回復します。フルスクリーンは依然として出力全体を使用します。フローティングウィンドウは重なり合う可能性があります。タイル内の内部ギャップはそれらを分離しません。
+
+プロセス一覧は毎秒更新され、直近の CPU 使用率と常駐メモリの使用率の合計が最も高い 5 件を表示します。

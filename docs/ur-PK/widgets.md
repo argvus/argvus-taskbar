@@ -62,3 +62,5 @@ Commands:
 , `$XDG_RUNTIME_DIR/argvus`، `argvus-windows.service`، `argvus-window-bar.service`، اور `argvus-hyprland`۔ ونڈو کے پتے فہرست سے آتے ہیں۔ `argvus windows list --json` پوزیشن ٹاپ --persist minimize|restore|activate|maximize|close ADDRESS restore-all position top|bottom `watch --json` `position top|bottom` `restore-all` `minimize|restore|activate|maximize|close ADDRESS` `position top --persist` اسٹورز کی پریفرنسنگ کے بغیر مین بار/پرو۔ کنفیگریشن اور رن ٹائم غلطی کی تفصیلات جرنل میں لکھی جاتی ہیں۔ مرئی کارروائی کی ناکامیاں بھی ترجمہ شدہ اطلاع دکھاتی ہیں۔
 
 In **Spaced + Floating**، ۔ﮯﮨ ﺎﺘﮭﭩﯿﺑ ﺭﺪﻧﺍ ﮯﮐ ﺭﮈﺭﺎﺑ ﻭﮉﻧﻭ ﯽﺳﺍ ﻮﺟ ،ﮟﯿﮨ ﻞﻣﺎﺷ ﻞﭩﺋﺎﭨ
+
+عملیات کی فہرست ہر سیکنڈ تازہ ہوتی ہے اور حالیہ CPU استعمال اور مقیم میموری کی شرحوں کے سب سے زیادہ مجموعے والے پانچ عمل دکھاتی ہے۔

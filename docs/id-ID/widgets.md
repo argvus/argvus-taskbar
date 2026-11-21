@@ -66,3 +66,5 @@ Sesi memiliki `argvus-windows.service` dan `argvus-window-bar.service`. Yang ter
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, dan `minimize|restore|activate|maximize|close ADDRESS`. Alamat jendela berasal dari daftar. `position top --persist` menyimpan/memproyeksikan preferensi tanpa memulai ulang bilah utama. Detail konfigurasi dan kesalahan runtime dicatat di jurnal; kegagalan tindakan yang terlihat juga menampilkan notifikasi yang diterjemahkan.
 
 Dalam **Spaced + Floating**, jendela menghormati celah luar dan area yang dicadangkan oleh kedua bilah. Batas mencakup border dan judul, yang berada di dalam border jendela yang sama. Memaksimalkan melalui kontrol ARGVUS mengisi area ini dengan margin; memulihkan mengembalikan geometri sebelumnya, termasuk setelah restart layanan. Layar penuh tetap menggunakan seluruh output. Jendela mengambang bisa saling tumpang tindih; celah dalam pada tiling tidak memisahkan mereka.
+
+Daftar diperbarui setiap detik dan menampilkan lima proses dengan jumlah persentase penggunaan CPU terkini dan memori residen tertinggi.

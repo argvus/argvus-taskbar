@@ -62,3 +62,5 @@ The session owns `argvus-windows.service` and `argvus-window-bar.service`. The l
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, and `minimize|restore|activate|maximize|close ADDRESS`. The window addresses come from the list. `position top --persist` stores/projects the preference without restarting the main bar. Configuration and runtime error details are written to the journal; visible action failures also show a translated notification.
 
 In **Spaced + Floating**, windows respect outer gaps and the areas reserved by both bars. The bounds include the border and title, which sits inside the same window border. Maximizing through ARGVUS controls fills this area with margins; restoring recovers the previous geometry, including after a service restart. Fullscreen still uses the whole output. Floating windows may overlap; tiling inner gaps do not separate them.
+
+Processes refreshes every second and shows the five processes with the highest sum of recent CPU and resident memory percentages.

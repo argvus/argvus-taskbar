@@ -15,7 +15,7 @@ Scope {
         cpu_gpu: 10,
         memory: 5,
         storage: 30,
-        processes: 10,
+        processes: 1,
         network: 10,
         dev_dashboard: 10,
         keys: 3600

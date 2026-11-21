@@ -41,7 +41,7 @@ Column {
         text: root.dataSource.content.replace(/<\/?span>/g, "")
         color: root.settings.foreground ?? "#eeeeee"
         font.family: root.family
-        font.pixelSize: root.dataSource.block === "processes" ? 10 : root.pixelSize
+        font.pixelSize: root.pixelSize
         elide: Text.ElideRight
     }
 }

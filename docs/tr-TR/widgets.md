@@ -64,3 +64,5 @@ Oturum `argvus-windows.service` ve `argvus-window-bar.service` adlı öğelere s
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all` ve `minimize|restore|activate|maximize|close ADDRESS`. Pencere adresleri listeden gelir. `position top --persist` tercihi ana çubuğu yeniden başlatmadan kaydeder/projeler. Yapılandırma ve çalışma zamanı hata detayları günlük dosyasına yazılır; görülebilen işlem hataları ayrıca çevrilmiş bir bildirim gösterir.
 
 **Spaced + Floating** modunda, pencereler dış boşluklara ve her iki çubuğun ayırdığı alanlara saygı gösterir. Sınırlar, aynı pencere sınırının içinde yer alan kenarlık ve başlığı içerir. ARGVUS kontrolleri ile tam ekran yapıldığında bu alan kenar boşluklarıyla doldurulur; geri yükleme, hizmet yeniden başlatıldıktan sonra bile önceki geometrinin geri getirilmesini sağlar. Tam ekran hâlâ tüm çıktıyı kullanır. Pencereler serbest şekilde hareket edebilir; döşeme iç boşlukları onları ayırmaz.
+
+Süreç listesi her saniye güncellenir ve yakın zamandaki CPU kullanımı ile yerleşik bellek yüzdelerinin toplamı en yüksek beş süreci gösterir.

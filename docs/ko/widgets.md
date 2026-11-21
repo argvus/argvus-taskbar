@@ -49,3 +49,5 @@ AI 런처는 Symbols Nerd Font Mono와 함께 nf-md-robot(U+F06A9)을 사용합�
 세션은 `argvus-windows.service` 및 `argvus-window-bar.service`를 소유합니다. 후자는 Tile에서 Quickshell 하위 항목을 대기 상태로 유지합니다. hyprbars 플러그인은 `argvus-hyprland`에 번들로 포함되어 있으며, x86_64에서 Hyprland 0.57.0 ABI용으로 빌드되었습니다; 사용자의 홈 디렉토리에서 컴파일되지 않았습니다. 컴포지터 ABI 업데이트 시 플러그인을 다시 빌드하십시오. 명령어: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, `minimize|restore|activate|maximize|close ADDRESS`. 창 주소는 리스트에서 가져옵니다. `position top --persist`는 메인 바를 재시작하지 않고도 환경 설정을 저장/프로젝트합니다. 구성 및 런타임 오류 세부 사항은 저널에 기록되며, 눈에 보이는 동작 실패는 번역된 알림으로 표시됩니다.
 
 **Spaced + Floating** 모드에서, 창은 외부 간격과 두 바가 예약한 영역을 존중합니다. 경계에는 테두리와 제목이 포함되며, 제목은 같은 창 테두리 안에 위치합니다. ARGVUS 제어를 통해 최대화하면 이 영역이 여백과 함께 채워지고, 복원하면 이전 지오메트리를 복구하며, 서비스 재시작 이후에도 마찬가지입니다. 전체 화면은 여전히 전체 출력 영역을 사용합니다. 플로팅 창은 겹칠 수 있으며, 타일링 내부 간격은 창을 분리하지 않습니다.
+
+프로세스 목록은 매초 갱신되며 최근 CPU 사용률과 상주 메모리 비율의 합계가 가장 높은 프로세스 5개를 표시합니다.
