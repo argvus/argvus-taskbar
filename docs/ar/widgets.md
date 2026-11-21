@@ -47,7 +47,9 @@ argvus widget-telemetry-toggle blocks apply
 
 
 
- custom/window-mode  argvus  argvus window-mode-menu --status  argvus window-mode-menu  group/right-2  Press q to close  Esc  q  taskbar-monitor  argvus tui-terminal  N/A  btop  Tab  ↑/↓  -  +  0–100%  argvus-session  argvus-widget-telemetry.service  apply-state  blocks set  keys  network  processes  storage  memory  cpu_gpu  system  blocks set <block> <enabled|disabled>  ~/.local/state/argvus/widget-telemetry-blocks  _END  ARGVUS_TELEMETRY_<BLOCK>_BEGIN  data/waybar/argvus-widget-telemetry.jsonc  argvus-config  control_panel.widget_telemetry_enabled  control_panel.widget_telemetry_blocks  `config.json`  `control_panel.widget_telemetry_blocks`  `control_panel.widget_telemetry_enabled`  `argvus-config`  `data/waybar/argvus-widget-telemetry.jsonc`  `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`  `_END`  `~/.local/state/argvus/widget-telemetry-blocks`  `blocks set <block> <enabled|disabled>`  `system`  `cpu_gpu`  `memory`  `storage`  `processes`  `network`  `keys`  `blocks set`  `apply-state`  `argvus-widget-telemetry.service`  `argvus-session`  `0–100%`  `+`  `-`  `↑/↓`  `Tab`  `btop`  `N/A`  `argvus tui-terminal`  `taskbar-monitor`  `q`  `Esc`  `Press q to close`  `group/right-2`  `argvus window-mode-menu`  `argvus window-mode-menu --status`  `argvus`  `custom/window-mode` `SUPER + Alt + Up`                           .ﻞﻔﺳﻷ﻿ﺍ ﻲﻓ ﺓﺬﻓﺎﻨﻟﺍ ﻂﻳﺮﺷﻭ ﻰﻠﻋﻷ﻿ﺍ ﻲﻓ ﻲﺴﻴﺋﺮﻟﺍ ﻂﻳﺮﺸﻟﺍ ﻊﻀﻳ`SUPER + Alt + Down`.ﺔﻴﻠﺻﻷ﻿ﺍ ﻢﺋﺎﻌﻟﺍ/ﻂﻴﻠﺒﺘﻟﺍ ﺔﺳﺎﻴﺴﺑ ﻆﻔﺘﺤﻳ ﻢﺛ ،ﺓﺬﻓﺎﻨﻟﺍ ﻂﻳﺮﺷ ﺔﻟﺍﺯﺇ ﻞﺒﻗ ﺓﺮﻐﺼﻤﻟﺍ ﺬﻓﺍﻮﻨﻟﺍ
+شريط المهام وأداة القياس عن بُعد سطحان مستقلان في عملية Quickshell التي تديرها `argvus-bars.service`. استخدم `argvus-taskbar.service` و`argvus-widget-telemetry.service` للتحكم في كل سطح.
+
+`/effects/widget_telemetry_enabled` · `widget-telemetry-blocks`
 
 
 

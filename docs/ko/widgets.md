@@ -2,25 +2,19 @@
 title: 위젯
 description: 선택적 시스템 텔레메트리 위젯을 구성합니다.
 ---
-`argvus widget-telemetry`는 시스템 정보를 위한 선택적 보조 Waybar 표면을 제공합니다. 현재 블록은 **시스템**, **CPU/GPU**, **메모리**, **스토리지**, **프로세스**, **네트워크** 및 **단축키**입니다. 단축키 블록은 상태 파일에서 키 `keys`로 저장됩니다.
+`argvus widget-telemetry`는 시스템 정보를 위한 선택적 보조 Quickshell 표면을 제공합니다. 현재 블록은 **시스템**, **CPU/GPU**, **메모리**, **스토리지**, **프로세스**, **네트워크** 및 **단축키**입니다. 단축키 블록은 상태 파일에서 키 `keys`로 저장됩니다.
 
-**제어 센터 → 외관 → 위젯 텔레메트리**를 사용하여 표면을 활성화하고 개별 블록을 켜거나 끌 수 있습니다. 블록을 비활성화하면 해당 텔레메트리 모듈이 Waybar 프로필에서 숨겨지지만, 패키지를 제거하거나 나머지 세션을 중지하지 않습니다. 마스터 토글은 텔레메트리 표면 전체를 제어합니다.
+**제어 센터 → 외관 → 위젯 텔레메트리**를 사용하여 표면을 활성화하고 개별 블록을 켜거나 끌 수 있습니다. 블록을 비활성화하면 해당 텔레메트리 모듈이 Quickshell 프로필에서 숨겨지지만, 패키지를 제거하거나 나머지 세션을 중지하지 않습니다. 마스터 토글은 텔레메트리 표면 전체를 제어합니다.
 
-블록 선택은 `config.json`, `control_panel.widget_telemetry_blocks`에서 표준이며, 마스터 스위치는 `control_panel.widget_telemetry_enabled`입니다. `argvus-config`는 선택을 Waybar 프로필 `data/waybar/argvus-widget-telemetry.jsonc`에 투영하며, 파일의 나머지 부분은 그대로 두고 `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END` 블록 안의 줄을 주석 처리하거나 주석 해제합니다. 구형 `~/.local/state/argvus/widget-telemetry-blocks` 파일은 이전 설치에서 마이그레이션 백업으로 여전히 읽히지만, 절대 작성되지 않습니다. 전체 프로필은 외형 변경 시 패키지 기본값으로 교체되므로, 블록 표시가 선택을 유지하는 방법입니다; 블록 외부의 텍스트는 테마 전환 시 보존되지 않습니다.
+작업 표시줄과 원격 측정 위젯은 `argvus-bars.service`가 관리하는 Quickshell 프로세스의 독립된 표면입니다. 각 표면은 `argvus-taskbar.service`와 `argvus-widget-telemetry.service`로 제어합니다.
+
+`/effects/widget_telemetry_enabled` · `widget-telemetry-blocks`
 
 컨트롤러는 다음을 지원합니다:
 
-```sh
-argvus widget-telemetry-toggle status
-argvus widget-telemetry-toggle on
-argvus widget-telemetry-toggle off
-argvus widget-telemetry-toggle blocks status
-argvus widget-telemetry-toggle blocks set memory disabled
-argvus widget-telemetry-toggle blocks apply
-```
-컨트롤러는 또한 `blocks set <block> <enabled|disabled>`을 `system`, `cpu_gpu`, `memory`, `storage`, `processes`, `network` 및 `keys`에도 허용합니다. 설정은 지속됩니다; 블록에 명시적인 설정이 없으면 활성화된 기본값을 따릅니다. `blocks set`은 단일 원자 패치에서 정규 배열을 다시 작성한 후 Waybar 프로필을 재투영하고 서비스 수명주기를 조정합니다. `apply-state`은 제어 센터의 경로입니다: 호출자가 이미 선택을 지속한 상태라고 가정하고 단지 투영만 수행하기 때문에, 지속되지 않은 상태로 호출하지 마십시오.
+`argvus widget-telemetry toggle blocks set <block> <enabled|disabled>` · `argvus widget-telemetry toggle apply-state`
 
-서비스는 `argvus-widget-telemetry.service`이며 `argvus-session`에 의해 관리됩니다. 현재 페이지에는 블록별 개별 재설정 버튼이 없으므로, 블록을 다시 활성화하거나 생성된 Waybar 출력을 편집하지 말고 공급자의 지원 상태 관리를 사용하십시오.
+서비스는 `argvus-widget-telemetry.service`이며 `argvus-session`에 의해 관리됩니다. 현재 페이지에는 블록별 개별 재설정 버튼이 없으므로, 블록을 다시 활성화하거나 생성된 Quickshell 출력을 편집하지 말고 공급자의 지원 상태 관리를 사용하십시오.
 
 ## 투명도 및 블러
 
@@ -40,18 +34,18 @@ AI 런처는 Symbols Nerd Font Mono와 함께 nf-md-robot(U+F06A9)을 사용합�
 
 이 설정은 **제어판 → 데스크탑 및 입력 → Hyprland → 창 → 모드**와 공유됩니다. 플로팅은 모든 모니터와 작업 공간의 애플리케이션 창에 영향을 줍니다. 타일로 돌아가면 원래 플로팅 상태였던 창은 유지됩니다. 선택 사항은 로그인 간에도 지속됩니다.
 
-도움말 프로그램은 `argvus window-mode-menu`입니다; `argvus window-mode-menu --status`는 Waybar JSON을 방출합니다. 이는 마스터 패키지 `argvus`에 의해 제공됩니다. 기존에 사용자 정의된 작업 표시줄 복사본은 보존됩니다: 옵트인하려면 패키지 템플릿에서 `custom/window-mode` 모듈 정의와 그룹 항목을 추가하거나 제어 센터를 사용하십시오. 모듈 정의가 존재할 경우, 다른 유틸리티 아이콘이 비활성화되어 있어도 외관 프로젝터는 해당 모듈을 보존합니다.
+`argvus window-mode-menu` · `argvus window-mode-menu --status`
 
 ## 창 버튼 및 애플리케이션 바
 
 플로팅 모드는 일반 애플리케이션 창에 **최소화**, **최대화 / 복원**, **닫기** 버튼이 있는 ARGVUS 제목 표시줄을 추가합니다. 제목 표시줄을 더블 클릭하면 최대화가 전환됩니다. 추가 장식은 타일 및 전체 화면 모드에서는 숨겨집니다. 자체 컨트롤을 그리는 애플리케이션은 두 개의 바가 모두 표시될 수 있으며; ARGVUS의 통일된 컨트롤은 의도된 것입니다.
 
-모든 모니터에서 두 번째 Waybar가 나타나며, 메인 작업 표시줄의 반대쪽 가장자리에 위치합니다. 이 바는 해당 모니터의 현재 작업 공간에 있는 창만 나열하며, 최소화된 창도 포함됩니다. 숨겨진 그룹 탭은 추가 항목을 생성하지 않습니다. 최소화된 항목은 원래 모니터/작업 공간 연관을 유지합니다. 비활성 창을 클릭하면 활성화되고, 활성 창을 클릭하면 최소화되며, 최소화된 창을 클릭하면 복원됩니다; 컨텍스트 메뉴에서는 복원, 최소화, 최대화/복원, 닫기가 제공됩니다. 알 수 없는 애플리케이션 아이콘은 창 아이콘으로 대체됩니다. 항목을 활성화하거나 복원해도 포인터 위치는 유지됩니다. 보조 바는 주요 CSS(색상, 글꼴, 테두리 및 둥근 모서리)를 적용하며, 높이와 반대쪽 가장자의 대칭 여백을 가집니다.
+모든 모니터에서 두 번째 Quickshell가 나타나며, 메인 작업 표시줄의 반대쪽 가장자리에 위치합니다. 이 바는 해당 모니터의 현재 작업 공간에 있는 창만 나열하며, 최소화된 창도 포함됩니다. 숨겨진 그룹 탭은 추가 항목을 생성하지 않습니다. 최소화된 항목은 원래 모니터/작업 공간 연관을 유지합니다. 비활성 창을 클릭하면 활성화되고, 활성 창을 클릭하면 최소화되며, 최소화된 창을 클릭하면 복원됩니다; 컨텍스트 메뉴에서는 복원, 최소화, 최대화/복원, 닫기가 제공됩니다. 알 수 없는 애플리케이션 아이콘은 창 아이콘으로 대체됩니다. 항목을 활성화하거나 복원해도 포인터 위치는 유지됩니다. 보조 바는 주요 CSS(색상, 글꼴, 테두리 및 둥근 모서리)를 적용하며, 높이와 반대쪽 가장자의 대칭 여백을 가집니다.
 
 `SUPER + Alt + Up`는 메인 바를 상단에, 창 바를 하단에 배치합니다. `SUPER + Alt + Down`는 그 반대로 배치합니다. 방향을 반복하면 위치가 변경되지 않습니다. 타일에는 메인 바만 있습니다. 타일로 돌아가면 창 바를 제거하기 전에 최소화된 모든 창이 복원되고, 이후 원래의 타일/플로팅 정책이 유지됩니다.
 
 최소화는 예약된 `special:argvus-minimized` 작업 공간을 사용합니다. 해당 작업 공간을 수동으로 사용하지 마십시오. `argvus windows service` 프로세스는 컴포지터 인스턴스별 런타임 레지스트리에 `$XDG_RUNTIME_DIR/argvus` 아래에서 정체, 원래 작업 공간/모니터, 지오메트리, 전체 화면/최대화 및 고정 상태를 기록합니다. 기록은 서비스 재시작이나 설정 다시 불러오기 후에도 남아 있지만, 컴포지터 세션 간에는 공유되지 않습니다. 창을 닫으면 해당 기록이 삭제됩니다. 모니터가 사라지면 복원은 사용 가능한 출력으로 수행됩니다. 누락되거나 복원에 실패한 바는 새로운 최소화를 방해하며, 복원 실패 시 기록과 복원 바가 유지됩니다.
 
-세션은 `argvus-windows.service` 및 `argvus-window-bar.service`를 소유합니다. 후자는 Tile에서 Waybar 하위 항목을 대기 상태로 유지합니다. hyprbars 플러그인은 `argvus-hyprland`에 번들로 포함되어 있으며, x86_64에서 Hyprland 0.57.0 ABI용으로 빌드되었습니다; 사용자의 홈 디렉토리에서 컴파일되지 않았습니다. 컴포지터 ABI 업데이트 시 플러그인을 다시 빌드하십시오. 명령어: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, `minimize|restore|activate|maximize|close ADDRESS`. 창 주소는 리스트에서 가져옵니다. `position top --persist`는 메인 바를 재시작하지 않고도 환경 설정을 저장/프로젝트합니다. 구성 및 런타임 오류 세부 사항은 저널에 기록되며, 눈에 보이는 동작 실패는 번역된 알림으로 표시됩니다.
+세션은 `argvus-windows.service` 및 `argvus-window-bar.service`를 소유합니다. 후자는 Tile에서 Quickshell 하위 항목을 대기 상태로 유지합니다. hyprbars 플러그인은 `argvus-hyprland`에 번들로 포함되어 있으며, x86_64에서 Hyprland 0.57.0 ABI용으로 빌드되었습니다; 사용자의 홈 디렉토리에서 컴파일되지 않았습니다. 컴포지터 ABI 업데이트 시 플러그인을 다시 빌드하십시오. 명령어: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, `minimize|restore|activate|maximize|close ADDRESS`. 창 주소는 리스트에서 가져옵니다. `position top --persist`는 메인 바를 재시작하지 않고도 환경 설정을 저장/프로젝트합니다. 구성 및 런타임 오류 세부 사항은 저널에 기록되며, 눈에 보이는 동작 실패는 번역된 알림으로 표시됩니다.
 
 **Spaced + Floating** 모드에서, 창은 외부 간격과 두 바가 예약한 영역을 존중합니다. 경계에는 테두리와 제목이 포함되며, 제목은 같은 창 테두리 안에 위치합니다. ARGVUS 제어를 통해 최대화하면 이 영역이 여백과 함께 채워지고, 복원하면 이전 지오메트리를 복구하며, 서비스 재시작 이후에도 마찬가지입니다. 전체 화면은 여전히 전체 출력 영역을 사용합니다. 플로팅 창은 겹칠 수 있으며, 타일링 내부 간격은 창을 분리하지 않습니다.

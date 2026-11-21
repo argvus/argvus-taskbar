@@ -37,9 +37,9 @@ for player in $(playerctl -l 2>/dev/null || true); do
     STATUS="$(playerctl -p "$player" status 2>/dev/null || true)"
     case "$STATUS" in
     Playing | Paused)
-      META="$(playerctl -p "$player" metadata 2>/dev/null || true)"
-      case "$META" in
-      *[Ss]potify*) emit "$player" "$STATUS" ;;
+      MEDIA_URL="$(playerctl -p "$player" metadata xesam:url 2>/dev/null || true)"
+      case "$MEDIA_URL" in
+      https://open.spotify.com/*|spotify:*) emit "$player" "$STATUS" ;;
       esac
       ;;
     esac

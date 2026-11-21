@@ -16,7 +16,7 @@ depends=(
   'argvus-session'
   'argvus-hyprland'
   'argvus-launcher'
-  'argvus-waybar'
+  'quickshell>=0.3.2'
   'pacman-contrib'
   'btop'
   'hyprland'

@@ -1,8 +1,9 @@
 ---
 title: 任务栏
-description: 使用 ARGVUS Waybar 任务栏。
+description: 使用 ARGVUS Quickshell 任务栏。
 ---
-任务栏是桌面上持久存在的 Waybar 界面。`argvus-taskbar` 拥有其 ARGVUS 配置和操作；`argvus-waybar` 提供用于渲染它的补丁 Waybar 二进制文件。`argvus-session` 负责服务生命周期。
+
+任务栏和遥测组件是由 `argvus-bars.service` 管理的 Quickshell 进程中的独立界面。使用 `argvus-taskbar.service` 和 `argvus-widget-telemetry.service` 分别控制它们。
 
 它传递工作区信息、聚焦窗口状态、时钟和日历访问、网络、蓝牙、音频/媒体、通知、存储、录制、保持唤醒以及电源/会话操作。具体的状态模块可能会受到已安装的提供程序和硬件的影响。
 
@@ -20,7 +21,7 @@ description: 使用 ARGVUS Waybar 任务栏。
 
 任务栏位置控制当前可选择 **顶部** 或 **底部**。四个独立的边距控制任务栏与每个屏幕边缘的距离。实用程序组可以使用 **自动** 或 **始终展开** 的行为。模块的可用性仍然取决于已安装的提供程序和硬件，因此通过更改任务栏间距不会创建缺失的蓝牙、亮度或存储指示器。
 
-**高度** 将任务栏高度设置为 24、28（默认）、32 或 36 像素。**边框** 可以打开或关闭任务栏边框，并将其厚度设置为 1、2 或 3 像素。此厚度适用于任务栏窗口、`right-0`、`right-1`、`focus` 和 `right-2` 组，以及 MPRIS 播放器边框。将鼠标悬停在交互模块（包括播放器）上时，它们的透明度会轻微降低。关闭边框后，这些边框将显示为 `0px`。在 **控制中心 → 外观 → 任务栏** 中，这些都是草稿状态，直到选择 **[ 应用 ]**。**控制中心 → 外观 → 任务栏 → 图标 → 可选模块** 控制可选状态和操作模块的可见性。工作区、焦点窗口标题、设置和电源保持可用。**工作区显示** 可选择工作区标签（默认）或应用程序图标。MPRIS 播放器在其工具提示中显示播放曲目详情；播放器不再使用连续的颜色脉冲。
+**高度** 将任务栏高度设置为 24（默认）、28、32 或 36 像素。**边框** 可以打开或关闭任务栏边框，并将其厚度设置为 1、2 或 3 像素。此厚度适用于任务栏窗口、`right-0`、`right-1`、`focus` 和 `right-2` 组，以及 MPRIS 播放器边框。当前工作区在矩形背景上以反色显示。工具提示采用当前主题的颜色和字体。关闭边框后，这些边框将显示为 `0px`。在 **控制中心 → 外观 → 任务栏** 中，这些都是草稿状态，直到选择 **[ 应用 ]**。**控制中心 → 外观 → 任务栏 → 图标 → 可选模块** 控制可选状态和操作模块的可见性。工作区、焦点窗口标题、设置和电源保持可用。**工作区显示** 可选择工作区标签（默认）或应用程序图标。MPRIS 播放器在其工具提示中显示播放曲目详情；播放器不再使用连续的颜色脉冲。
 
 ## 透明度和模糊
 
@@ -28,7 +29,9 @@ description: 使用 ARGVUS Waybar 任务栏。
 
 ## 配置和覆盖
 
-任务栏配置由 `argvus-taskbar` 拥有，由 `argvus-waybar` 渲染，并由 `argvus-session` 启动。`argvus-config` 是唯一写入任务栏用户文件的组件：它在 `~/.config/argvus/data/generated/waybar/` 下投影活动层，并在主题或布局状态更改时重新应用主题层、任务栏边距、`right-2` 工具组模式、边框半径和字体块。主题切换还会恢复打包的任务栏文件，然后写回在控制中心中选择的高度和边框，这些被存储为 `/taskbar/shape/height` 和 `/taskbar/shape/border_width`，在 `argvus config` 中。直到选择一个之前，它是 `null`，并遵循主题：高度 28 px，边框 1 px（Slate Dark 没有边框）。由于生成的副本优先解析，本地 Waybar 路径在 `~/.config/waybar/` 下仅在对应生成文件不存在时生效。关于优先级、示例和故障排除，请参见 [Waybar and taskbar overrides](/docs/argvus-waybar/)。
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## 窗口与面板
 
@@ -45,7 +48,7 @@ description: 使用 ARGVUS Waybar 任务栏。
 ```sh
 argvus sessionctl restart waybar
 ```
-日历和可移动存储弹出窗口使用 ARGVUS Waybar 构建提供的不可变根坐标契约来识别显示器。日历遵循实际的水平任务栏表面：无论点击日期模块的哪里，它都会在顶部栏下方 4 个像素或底部栏上方 4 个像素处打开；日期模块用于打开日历。请勿编辑生成的运行时配置以进行持久更改；请使用控制中心或文档中记录的 [Waybar override](/docs/argvus-waybar/) 路径。
+日历和可移动存储弹出窗口使用 ARGVUS Quickshell 构建提供的不可变根坐标契约来识别显示器。日历遵循实际的水平任务栏表面：无论点击日期模块的哪里，它都会在顶部栏下方 4 个像素或底部栏上方 4 个像素处打开；日期模块用于打开日历。请勿编辑生成的运行时配置以进行持久更改；请使用控制中心或文档中记录的 路径。
 
 实用程序在悬停模式下会折叠为展开器，并在指针进入时显示已启用的控件。系统托盘可见性控制后台应用图标；空托盘没有可见的图标。工作区图标展示打开窗口的应用图标以及工作区标签。
 
@@ -53,7 +56,7 @@ argvus sessionctl restart waybar
 
 打开的项目显示为普通的工作区按钮，标记为 `Project: name`；点击其中一个即可聚焦。悬停显示完整的项目路径和 `SUPER + ALT + N` 快捷方式。仅显示栏所在显示器上打开的工作区；选择器（`SUPER + O`）仍然显示完整的项目目录。特殊工作区保持其现有的可见性策略。
 
-`hyprland/workspaces` 模块读取 `workspace-metadata: "argvus/project-workspaces.json"`，相对于 `$XDG_RUNTIME_DIR`。`argvus projects` 会在项目打开时重新生成此派生文件。修补后的 `argvus-waybar` 支持 Hyprland 0.57 的文本工作区地址，并使用元数据作为标签而不更改工作区身份。在重启服务之前，请更新这三个软件包并重新投影任务栏配置。
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 **更新状态**模块在“实用工具”和“网络/性能”之间有自己的分组，并显示可用的软件包更新数量。它在启动时以及每小时使用`checkupdates`（来自`pacman-contrib`）检查官方仓库，但不会升级软件包。**检查AUR**默认关闭；启用后，它会使用`paru`或`yay`进行检查。工具提示会区分来源并报告失败；`?`表示总数不完整。点击该模块可在“软件包”中打开官方更新。在**图标 → 可选模块**下配置两个选项，并应用任务栏草稿。该模块默认启用。
 
@@ -68,3 +71,5 @@ Control Center 中的软件包操作结束后（包括官方仓库和 AUR 升级
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 剪贴板默认启用，可从任务栏的实用工具组打开。若要停止记录文本和图像，请在 Control Center → Appearance → Taskbar → Icons → Optional modules 中取消勾选该选项并选择 Apply。图标会隐藏，重新启用前无法打开历史记录。已保存的条目会保留。
+
+仅当播放器标明来源为 Spotify 时才显示浏览器播放内容。悬停提示没有边框。

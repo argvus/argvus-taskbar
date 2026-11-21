@@ -170,3 +170,18 @@ make build
   see the release section.
 
 See also [CONTRIBUTING.md](https://github.com/argvus/.github/blob/main/CONTRIBUTING.md) for the contribution workflow.
+
+## Shared bars smoke test
+
+From a Wayland session with `grim` installed, run the smoke test on a nested Hyprland compositor and a private session bus.
+
+```sh
+ARGVUS_TEST_SHARED_BARS=1 dbus-run-session -- python3 -m unittest discover -s tests -p test_shared_shell.py
+```
+
+The test checks all three layer namespaces, whether they share a PID, telemetry collection, Floating readiness, independent taskbar and telemetry visibility, and rendered taskbar indicators after startup and preference changes.
+
+The shared bars unit defaults to Qt Quick software rendering. In the nested
+Hyprland comparison it reduced the PSS of the shared process with telemetry
+from 193.0 MiB to 137.4 MiB. Measure again on the target hardware when comparing
+CPU, graphics and memory costs.

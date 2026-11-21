@@ -5,10 +5,10 @@ output = "taskbar/theme.css"
 # It reads the build directly, so it reloads as soon as the build is active.
 reload_stage = "build"
 
-# Waybar reloads its CSS when the stylesheet that imports the build is rewritten.
+# Refresh the atomic presentation once the new theme build is active.
 [reload]
-kind = "rewrite"
-path = "argvus/data/waybar/argvus-taskbar.css"
+kind = "command"
+argv = ["argvus", "sessionctl", "bars-presentation"]
 
 # Defaults for the tokens the template reads; a theme that defines one wins.
 [palette]

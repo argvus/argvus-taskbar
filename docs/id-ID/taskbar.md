@@ -1,9 +1,9 @@
 ---
 title: Bilah Tugas
-description: Gunakan bilah tugas ARGVUS Waybar.
+description: Gunakan bilah tugas ARGVUS Quickshell.
 ---
 
-Taskbar adalah permukaan Waybar yang terus-menerus di seluruh desktop. `argvus-taskbar` memiliki konfigurasi dan tindakan ARGVUS-nya; `argvus-waybar` menyediakan biner Waybar yang telah ditambal yang menampilkannya. `argvus-session` mengelola siklus hidup layanan.
+Bilah tugas dan widget telemetri adalah permukaan independen dalam proses Quickshell yang dikelola `argvus-bars.service`. Gunakan `argvus-taskbar.service` dan `argvus-widget-telemetry.service` untuk mengontrol masing-masing permukaan.
 
 Ini mengkomunikasikan ruang kerja, status jendela fokus, akses jam dan kalender, jaringan, Bluetooth, audio/media, notifikasi, penyimpanan, perekaman, tindakan tetap terbangun dan daya/sesi. Modul status yang tepat dapat dipengaruhi oleh penyedia dan perangkat keras yang terpasang.
 
@@ -22,7 +22,7 @@ Posisi default adalah tepi atas dalam mode dock. Pusat Kontrol menampilkan posis
 
 Kontrol posisi bilah tugas saat ini memilih **Atas** atau **Bawah**. Empat margin independen mengontrol seberapa jauh bilah berada dari setiap tepi layar. Grup utilitas dapat menggunakan perilaku **Otomatis** atau **Selalu diperluas**. Ketersediaan modul masih bergantung pada penyedia dan perangkat keras yang terpasang, jadi indikator Bluetooth, kecerahan, atau penyimpanan yang hilang tidak dibuat dengan mengubah jarak bilah.
 
-**Tinggi** mengatur tinggi bilah menjadi 24, 28 (default), 32, atau 36 piksel. **Bingkai** menghidupkan atau mematikan bingkai taskbar dan mengatur ketebalannya menjadi 1, 2, atau 3 piksel. Ketebalan berlaku untuk jendela taskbar, grup `right-0`, `right-1`, `focus`, dan `right-2`, serta bingkai pemutar MPRIS. Mengarahkan kursor ke modul interaktif, termasuk pemutar, akan sedikit menurunkan opasitasnya. Dengan bingkai dimatikan, bingkai tersebut ditulis sebagai `0px`. Keduanya adalah draft di **Control Center → Tampilan → Taskbar** sampai **[ Terapkan ]** dipilih.
+**Tinggi** mengatur tinggi bilah menjadi 24 (default), 28, 32, atau 36 piksel. **Bingkai** menghidupkan atau mematikan bingkai taskbar dan mengatur ketebalannya menjadi 1, 2, atau 3 piksel. Ketebalan berlaku untuk jendela taskbar, grup `right-0`, `right-1`, `focus`, dan `right-2`, serta bingkai pemutar MPRIS. Ruang kerja aktif ditampilkan dengan warna terbalik pada latar persegi panjang. Tooltip menggunakan warna dan fon tema aktif. Dengan bingkai dimatikan, bingkai tersebut ditulis sebagai `0px`. Keduanya adalah draft di **Control Center → Tampilan → Taskbar** sampai **[ Terapkan ]** dipilih.
 
 **Pusat Kontrol → Tampilan → Bilah Tugas → Ikon → Modul opsional** mengontrol visibilitas modul status dan aksi opsional. Ruang kerja, judul jendela yang sedang fokus, Pengaturan, dan Daya tetap tersedia. **Presentasi ruang kerja** memilih label ruang kerja (default) atau ikon aplikasi. Pemutar MPRIS menampilkan detail lagu di tooltip mereka; pemutar tidak lagi menggunakan denyut warna kontinu.
 
@@ -44,14 +44,16 @@ Bilah tugas adalah satu permukaan shell di samping Panel Kontrol dan widget tele
 
 ## Jam dan Fokus
 
-Modul waktu (  `argvus-taskbar`  `argvus-waybar`  `argvus-session`  `argvus-config`  `~/.config/argvus/data/generated/waybar/`  `right-2`  `/taskbar/shape/height`  `/taskbar/shape/border_width`  `argvus config`  `null` `~/.config/waybar/`  `SUPER + SHIFT + Space` `clock#time`) membuka atau menyembunyikan popup ARGVUS Clock dan meneruskan koordinat klik akar sehingga dapat selaras dengan taskbar dan monitor yang diklik. Indikator Fokus memiliki grup `focus` sendiri di antara grup jaringan/performa (`right-1`) dan tanggal/waktu (`right-0`). Ini menjalankan `argvus focus status --waybar --follow` tanpa memuat GTK: saat idle ditampilkan ikon timer, dan selama fase fokus atau istirahat menambahkan `MM:SS` yang tersisa; warnanya menunjukkan fase dan status jeda. Mengkliknya membuka atau menyembunyikan popup Fokus pada posisi klik tersebut. Kedua popup juga dapat ditutup dengan **Esc** atau klik di luar.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## Memuat ulang
 
 Layanan utama adalah `argvus-taskbar.service`. Ketika perubahan konfigurasi yang terdokumentasi memerlukan pemuatan ulang manual, gunakan pengendali sesi:
 
 ```sh
-argvus sessionctl restart waybar
+argvus sessionctl restart taskbar
 ```
 
  untuk jalur yang diinstal dan pengguna. untuk jalur yang diinstal dan jalur pengguna.(/docs/argvus-waybar/).
@@ -62,15 +64,15 @@ Utilitas runtuh menjadi pengembang dalam mode hover dan menampilkan kontrol yang
 
 Proyek yang dibuka muncul sebagai tombol ruang kerja biasa, diberi label `Project: name`; mengklik salah satunya akan memfokusinya. Mengarahkan kursor menunjukkan jalur proyek lengkap dan pintasan `SUPER + ALT + N`. Hanya ruang kerja yang dibuka di monitor bilah yang ditampilkan; pemilih (`SUPER + O`) tetap menjadi katalog proyek lengkap. Ruang kerja khusus mempertahankan kebijakan visibilitas mereka yang ada.
 
-Modul `hyprland/workspaces` membaca `workspace-metadata: "argvus/project-workspaces.json"`, relatif terhadap `$XDG_RUNTIME_DIR`. `argvus projects` meregenerasi file turunan ini setiap kali sebuah proyek dibuka. `argvus-waybar` yang telah dipatch mendukung alamat workspace tekstual Hyprland 0.57 dan menggunakan metadata untuk label tanpa mengubah identitas workspace. Perbarui ketiga paket dan proyeksikan kembali konfigurasi taskbar sebelum memulai ulang layanan.
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 Modul **Status Pembaruan** memiliki grup sendiri antara Utilitas dan jaringan/performa serta menunjukkan jumlah pembaruan paket yang tersedia. Modul ini memeriksa repositori resmi saat startup dan setiap jam menggunakan `checkupdates` (dari `pacman-contrib`), tanpa memperbarui paket. **Periksa AUR** dimatikan secara default; ketika diaktifkan, modul ini memeriksa dengan `paru` atau `yay`. Tooltip memisahkan sumber dan melaporkan kegagalan; `?` berarti totalnya tidak lengkap. Klik modul untuk membuka pembaruan resmi di Paket. Konfigurasikan kedua opsi di bawah **Ikon → Modul opsional** dan terapkan rancangan bilah tugas. Modul ini diaktifkan secara default.
 
 Indikator jaringan di taskbar mengikuti peristiwa NetworkManager menggunakan `argvus networkctl waybar --follow`, dengan snapshot awal dan penyambungan ulang monitor secara otomatis. Ini tidak lagi menunggu interval polling 10 detik. Terhubung, akses Internet terbatas, dan terputus tetap merupakan status yang berbeda. Status Wi-Fi membaca titik akses yang di-cache tanpa meminta pemindaian. `argvus networkctl waybar` mengeluarkan satu snapshot JSON Waybar.
 
-Margin taskbar, celah luar jendela, dan geometri panel terkait tetapi berbeda. Mengubah salah satunya tidak menulis ulang setiap nilai lainnya. Jika sebuah bar terlihat terpisah secara visual dari jendela, tinjau mode, margin taskbar, dan jarak jendela bersama-sama; lihat[Jendela dan tata letak](/docs/argvus-hyprland/windows-and-layout/).
-Konfigurasi bilah tugas dimiliki oleh argvus-taskbar, dirender oleh argvus-waybar dan dimulai oleh argvus-session. argvus-config adalah satu-satunya komponen yang menulis file pengguna taskbar: komponen ini memproyeksikan lapisan aktif di bawah ~/.config/argvus/data/generated/waybar/ dan menerapkan kembali lapisan tema, margin taskbar, mode grup utilitas kanan-2, radius batas, dan blok font setiap kali tema atau status tata letak berubah. Peralihan tema juga memulihkan file bilah tugas yang dikemas dan kemudian menulis kembali tinggi dan batas yang dipilih di Pusat Kontrol, yang disimpan sebagai /taskbar/shape/height dan /taskbar/shape/border_width di konfigurasi argvus. Sampai salah satu dipilih, itu adalah null dan mengikuti tema: tinggi 28 px, dengan batas 1 px (Slate Dark tidak memilikinya). Karena salinan yang dihasilkan diselesaikan terlebih dahulu, jalur asli Waybar di bawah ~/.config/waybar/ hanya berlaku ketika file yang dihasilkan terkait tidak ada. Lihat [Waybar dan penggantian bilah tugas](/docs/argvus-waybar/) untuk prioritas, contoh, dan pemecahan masalah.
-Popup kalender dan penyimpanan yang dapat dilepas menggunakan kontrak koordinat akar yang tidak dapat diubah yang disediakan oleh build ARGVUS Waybar untuk mengidentifikasi monitor. Kalender mengikuti permukaan Taskbar horizontal yang sebenarnya: ia terbuka 4 piksel di bawah bilah atas atau 4 piksel di atas bilah bawah, terlepas dari di mana di dalam modul tanggal itu diklik; modul tanggal membuka kalender. Jangan mengedit konfigurasi runtime yang dihasilkan untuk membuatnya persistenperubahan; gunakan Pusat Kontrol atau yang didokumentasikan[Pengganti Waybar](/docs/argvus-waybar/)jalur.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 Setelah operasi paket di Control Center selesai (termasuk peningkatan resmi dan AUR), bilah tugas otomatis memeriksa pembaruan tersisa tanpa memulai ulang. Pemeriksaan juga dilakukan setelah kegagalan karena beberapa paket mungkin sudah berubah. Pemeriksaan setiap jam tetap aktif dan mendeteksi operasi di luar Control Center.
 
@@ -83,3 +85,5 @@ Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfok
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 Papan klip aktif secara default dan dapat dibuka dari grup utilitas di bilah tugas. Untuk berhenti merekam teks dan gambar, hapus centang pada opsi di Control Center → Appearance → Taskbar → Icons → Optional modules lalu pilih Apply. Ikon akan disembunyikan dan riwayat tidak bisa dibuka hingga opsi diaktifkan kembali. Entri yang tersimpan tetap tersedia.
+
+Pemutaran dari peramban muncul hanya jika pemutar mengidentifikasi Spotify sebagai sumber. Tooltip memakai latar tanpa bingkai.

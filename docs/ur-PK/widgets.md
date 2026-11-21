@@ -7,7 +7,9 @@ description:                                    ۔ﮟﯾﺩ ﺐﯿﺗﺮﺗ ﻮ�
 
 
 
-Block selection is canonical in `config.json`, at `control_panel.widget_telemetry_blocks`, and the master switch is `control_panel.widget_telemetry_enabled`. `argvus-config` projects that selection into the Waybar profile `data/waybar/argvus-widget-telemetry.jsonc` by uncommenting or commenting the lines inside its delimited `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END` blocks, leaving the rest of the file untouched. A legacy `~/.local/state/argvus/widget-telemetry-blocks` file is still read as a migration fallback on older installations, but it is never written. Note that the whole profile is replaced from the packaged default on an appearance change, so the block markers ۔ﺎﺘﮨﺭ ﮟﯿﮩﻧ ﻅﻮﻔﺤﻣ ﺮﭘ ﮯﻨﻟﺪﺑ ﻢﯿﮭﺗ ﻦﺘﻣ ﺎﮐ ﺮﮨﺎﺑ ﮯﮐ ﻥﺍ ؛ﮯﮨ ﺎﺘﮨﺭ ﯽﻗﺎ
+ٹاسک بار اور ٹیلی میٹری ویجیٹ `argvus-bars.service` کے زیر انتظام Quickshell عمل کی الگ سطحیں ہیں۔ ہر سطح کو `argvus-taskbar.service` اور `argvus-widget-telemetry.service` سے کنٹرول کریں۔
+
+`/effects/widget_telemetry_enabled` · `widget-telemetry-blocks`
 
 کنٹرولر سپورٹ کرتا ہے:
 
@@ -35,7 +37,7 @@ argvus widget-telemetry-toggle blocks apply
 
 ##                                                                ﺮﭩﮑﯿﻠﺳ ﮈﻮﻣ ﻭﮉﻧﻭ
 
- Press q to close  Esc  q  taskbar-monitor  argvus tui-terminal  N/A  btop  Tab  ↑/↓  -  +  0–100%  argvus-session  argvus-widget-telemetry.service  apply-state  blocks set  keys  network  processes  storage  memory  cpu_gpu  system  `blocks set <block> <enabled|disabled>`  `system`  `cpu_gpu`  `memory`  `storage`  `processes`  `network`  `keys`  `blocks set`  `apply-state`  `argvus-widget-telemetry.service`  `argvus-session`  `0–100%`  `+`  `-`  `↑/↓`  `Tab`  `btop`  `N/A`  `argvus tui-terminal`  `taskbar-monitor`  `q`  `Esc`  `Press q to close` `group/right-2` ﮏﯾﺍ ،ﺪﻌﺑ ﮯﮐ ﺭﮉﻨﯿﭙﺴﮑﯾﺍ ﯽﭩﯿﻠﯿﭨﻮﯾ ،ﻦﮑﯿﺋﺁ ﻭﮉﻧﻭ ﮟﯿﻣ GTK ﮫﮐ ﭖﺍ ﭖﺎﭘ
+`argvus widget-telemetry toggle blocks set <block> <enabled|disabled>` · `argvus widget-telemetry toggle apply-state`
 
 ۔ﮯﮨ ﺎﺘﮨﺭ ﺭﺍﺮﻗﺮﺑ ﻥﺎﯿﻣﺭﺩ ﮯﮐ ﻥﺍ ﮒﻻ﻿ ﺏﺎﺨﺘﻧﺍ ۔ﮟﯿﮭﺗ ﮓﻨﭨﻮﻠﻓ ﮟﯿﻣ ﻞﺻﺍ ﻮﺟ ﮟﯿﮨ ﯽﺘﮨﺭ ﻅﻮﻔﺤﻣ
 
@@ -47,7 +49,7 @@ argvus widget-telemetry-toggle blocks apply
 
 
 
- custom/window-mode  argvus  argvus window-mode-menu --status  `argvus window-mode-menu`  `argvus window-mode-menu --status`  `argvus`  `custom/window-mode` `SUPER + Alt + Up`                              ۔ﮯﮨ ﺎﺘﮭﮐﺭ ﮯﭽﯿﻧ ﻮﮐ ﺭﺎﺑ ﻭﮉﻧﻭ ﺭﻭﺍ ﺮﭘﻭﺍ ﻮﮐ ﺭﺎﺑ ﯼﺰﮐﺮﻣ`SUPER + Alt + Down`۔ﮯﮨ ﺎﺘﮭﮐﺭ ﺭﺍﺮﻗﺮﺑ ﻮﮐ ﯽﺴﯿﻟﺎﭘ ﮓﻨﭨﻮﻠﻓ/ﮦﺪﺷ ﻞﺋﺎﭨ ﻞﺻﺍ ﺮﮭﭘ ﺭﻭﺍ ،ﮯﺳ ﮯﻧﺎﭩﮨ ﻮﮐ ﺭﺎﺑ ﻭﮉﻧﻭ ﮯ
+`argvus window-mode-menu` · `argvus window-mode-menu --status`
 
 مائنسائزیشن محفوظ استعمال کرتا ہے۔
 

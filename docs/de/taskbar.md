@@ -1,8 +1,9 @@
 ---
 title: Taskleiste
-description: Verwenden Sie die ARGVUS Waybar-Taskleiste.
+description: Verwenden Sie die ARGVUS Quickshell-Taskleiste.
 ---
-Die Taskleiste ist die persistenten Waybar-Oberfläche über den gesamten Desktop. `argvus-taskbar` besitzt seine ARGVUS-Konfiguration und Aktionen; `argvus-waybar` stellt die gepatchte Waybar-Binärdatei bereit, die sie rendert. `argvus-session` verwaltet den Service-Lifecycle.
+
+Taskleiste und Telemetrie sind unabhängige Oberflächen im Quickshell-Prozess von `argvus-bars.service`. Die Dienste `argvus-taskbar.service` und `argvus-widget-telemetry.service` steuern die einzelnen Oberflächen.
 
 Sie kommuniziert Arbeitsbereiche, Fokus-Fenster-Status, Uhr- und Kalenderzugriff, Netzwerk, Bluetooth, Audio/Medien, Benachrichtigungen, Speicher, Aufnahme, Aktiv-bleiben- und Strom-/Sitzungsaktionen. Die genauen Statusmodule können durch installierte Anbieter und Hardware beeinflusst werden.
 
@@ -20,7 +21,7 @@ Taskleistenrand, äußerer Fensterabstand und Panelgeometrie sind verwandt, aber
 
 Die Steuerung der Taskleistenposition wählt derzeit **Oben** oder **Unten**. Die vier unabhängigen Ränder steuern, wie weit die Leiste von jedem Bildschimrand entfernt sitzt. Die Dienstprogrammgruppe kann das Verhalten **Automatisch** oder **Immer erweitert** verwenden. Die Verfügbarkeit von Modulen hängt weiterhin vom installierten Anbieter und der Hardware ab, daher wird ein fehlender Bluetooth-, Helligkeits- oder Speicheranzeiger nicht durch Ändern des Leistenabstands erstellt.
 
-**Höhe** legt die Leistenhöhe auf 24, 28 (Standard), 32 oder 36 Pixel fest. **Rahmen** schaltet den Taskleistenrahmen ein oder aus und legt seine Dicke auf 1, 2 oder 3 Pixel fest. Die Dicke gilt für das Taskleistenfenster, die Gruppen `right-0`, `right-1`, `focus` und `right-2` sowie für den Rand des MPRIS-Players. Das Schweben über interaktiven Modulen, einschließlich des Players, verringert deren Deckkraft leicht. Bei ausgeschaltetem Rahmen werden diese Rahmen als `0px` geschrieben. Beide sind Entwürfe in **Systemsteuerung → Erscheinungsbild → Taskleiste**, bis **[ Anwenden ]** ausgewählt wird.
+**Höhe** legt die Leistenhöhe auf 24 (Standard), 28, 32 oder 36 Pixel fest. **Rahmen** schaltet den Taskleistenrahmen ein oder aus und legt seine Dicke auf 1, 2 oder 3 Pixel fest. Die Dicke gilt für das Taskleistenfenster, die Gruppen `right-0`, `right-1`, `focus` und `right-2` sowie für den Rand des MPRIS-Players. Der aktive Arbeitsbereich erscheint in invertierten Farben auf einer rechteckigen Fläche. Tooltips übernehmen dessen Farben und Schrift. Bei ausgeschaltetem Rahmen werden diese Rahmen als `0px` geschrieben. Beide sind Entwürfe in **Systemsteuerung → Erscheinungsbild → Taskleiste**, bis **[ Anwenden ]** ausgewählt wird.
 
 **Systemsteuerung → Erscheinungsbild → Taskleiste → Symbole → Optionale Module** steuert die Sichtbarkeit optionaler Status- und Aktionsmodule. Arbeitsbereiche, der Titel des fokussierten Fensters, Einstellungen und Energie bleiben verfügbar. **Arbeitsbereichspräsentation** wählt Arbeitsbereichsbezeichnungen (Standard) oder Anwendungs-Symbole. MPRIS-Player zeigen Titeldetails in ihren Tooltips an; der Player verwendet keinen kontinuierlichen Farbverlauf mehr.
 
@@ -31,7 +32,9 @@ Verwenden Sie `↑/↓`, um zwischen der Aktivierungs- und der Wertezeile zu wec
 
 ## Konfiguration und Überschreibungen
 
-Die Taskleisten-Konfiguration wird von `argvus-taskbar` verwaltet, von `argvus-waybar` dargestellt und von `argvus-session` gestartet. `argvus-config` ist die einzige Komponente, die die Taskleisten-Consumer-Dateien schreibt: Sie projiziert die aktive Ebene unter `~/.config/argvus/data/generated/waybar/` und wendet die Themenebene, Taskleisten-Ränder, `right-2` Utility-Gruppen-Modus, Randradius und den Schriftblock erneut an, wann immer sich Themen oder Layoutzustände ändern. Ein Themenwechsel stellt auch die vorhandenen Taskleisten-Dateien wieder her und schreibt dann die in der Systemsteuerung gewählte Höhe und den Rand zurück, die als `/taskbar/shape/height` und `/taskbar/shape/border_width` in `argvus config` gespeichert werden. Bis eine gewählt wird, ist sie `null` und folgt dem Thema: 28 px hoch, mit einem 1 px Rand (Slate Dark hat keinen). Da die erzeugte Kopie zuerst aufgelöst wird, wirkt ein nativer Waybar-Pfad unter `~/.config/waybar/` nur, solange die entsprechende erzeugte Datei fehlt. Siehe [Waybar und Taskleiste overrides](/docs/argvus-waybar/) für Vorrang, Beispiele und Fehlerbehebung.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## Windows und Bedienfelder
 
@@ -48,7 +51,7 @@ Der Hauptdienst ist `argvus-taskbar.service`. Wenn eine dokumentierte Konfigurat
 ```sh
 argvus sessionctl restart waybar
 ```
-Kalender- und Wechselspeicher-Popups verwenden den unveränderlichen Root-Koordinaten-Vertrag, der vom ARGVUS Waybar-Build bereitgestellt wird, um den Monitor zu identifizieren. Der Kalender folgt der tatsächlichen horizontalen Taskleisten-Oberfläche: Er öffnet sich 4 Pixel unter einer oberen Leiste oder 4 Pixel über einer unteren Leiste, unabhängig davon, wo innerhalb des Datumsmoduls geklickt wurde; das Datumsmodul öffnet den Kalender. Bearbeiten Sie die generierte Laufzeitkonfiguration nicht, um dauerhafte Änderungen vorzunehmen; verwenden Sie das Control Center oder den dokumentierten [Waybar override](/docs/argvus-waybar/) Pfad].
+Kalender- und Wechselspeicher-Popups verwenden den unveränderlichen Root-Koordinaten-Vertrag, der vom ARGVUS Quickshell-Build bereitgestellt wird, um den Monitor zu identifizieren. Der Kalender folgt der tatsächlichen horizontalen Taskleisten-Oberfläche: Er öffnet sich 4 Pixel unter einer oberen Leiste oder 4 Pixel über einer unteren Leiste, unabhängig davon, wo innerhalb des Datumsmoduls geklickt wurde; das Datumsmodul öffnet den Kalender. Bearbeiten Sie die generierte Laufzeitkonfiguration nicht, um dauerhafte Änderungen vorzunehmen; verwenden Sie das Control Center oder den dokumentierten Pfad].
 
 Dienstprogramme reduzieren sich im Hover-Modus zu einem Expander und zeigen aktivierte Steuerungen beim Betreten mit dem Zeiger an. Die Sichtbarkeit der Systemleiste steuert Hintergrundanwendungs-Symbole; eine leere Leiste hat keine sichtbaren Symbole. Die Präsentation der Arbeitsbereichssymbole zeigt Anwendungs-Symbole für offene Fenster neben den Arbeitsbereichsbezeichnungen an.
 
@@ -56,7 +59,7 @@ Dienstprogramme reduzieren sich im Hover-Modus zu einem Expander und zeigen akti
 
 Geöffnete Projekte erscheinen als gewöhnliche Arbeitsbereichs-Schaltflächen, beschriftet mit `Project: name`; ein Klick darauf fokussiert es. Beim Schweben wird der vollständige Projektpfad und die `SUPER + ALT + N`-Verknüpfung angezeigt. Es werden nur geöffnete Arbeitsbereiche auf dem Monitor der Leiste angezeigt; der Auswähler (`SUPER + O`) bleibt der vollständige Projektkatalog. Spezielle Arbeitsbereiche behalten ihre bestehende Sichtbarkeitspolitik bei.
 
-Das `hyprland/workspaces`-Modul liest `workspace-metadata: "argvus/project-workspaces.json"` relativ zu `$XDG_RUNTIME_DIR`. `argvus projects` generiert diese abgeleitete Datei jedes Mal neu, wenn ein Projekt geöffnet wird. Das gepatchte `argvus-waybar` unterstützt Hyprland 0.57 Textarbeitsbereichsadressen und verwendet die Metadaten für Beschriftungen, ohne die Identität der Arbeitsbereiche zu ändern. Aktualisieren Sie alle drei Pakete und reprojizieren Sie die Taskleistenkonfiguration, bevor Sie den Dienst neu starten.
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 Das **Update-Status**-Modul hat eine eigene Gruppe zwischen Dienstprogrammen und Netzwerk/Leistung und zeigt die Anzahl verfügbarer Paketaktualisierungen an. Es überprüft die offiziellen Repositories beim Start und stündlich mit `checkupdates` (von `pacman-contrib`), ohne Pakete zu aktualisieren. **AUR überprüfen** ist standardmäßig deaktiviert; wenn aktiviert, wird mit `paru` oder `yay` geprüft. Der Tooltip trennt die Quellen und meldet Fehler; `?` bedeutet, dass die Gesamtsumme unvollständig ist. Klicken Sie auf das Modul, um die offiziellen Updates in Paketen zu öffnen. Konfigurieren Sie beide Optionen unter **Symbole → Optionale Module** und wenden Sie den Taskleisten-Entwurf an. Das Modul ist standardmäßig aktiviert.
 
@@ -71,3 +74,5 @@ Vorwärts/rückwärts durchläuft nur vorhandene Arbeitsbereiche des fokussierte
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 Die Zwischenablage ist standardmäßig aktiv und lässt sich über die Dienstprogrammgruppe der Taskleiste öffnen. Um keine Texte und Bilder mehr zu erfassen, deaktivieren Sie die Option unter Control Center → Appearance → Taskbar → Icons → Optional modules und wählen Sie Apply. Das Symbol verschwindet und der Verlauf ist bis zur erneuten Aktivierung gesperrt. Gespeicherte Einträge bleiben erhalten.
+
+Browsermedien erscheinen nur, wenn der Player Spotify als Quelle angibt. Tooltips haben einen rahmenlosen Hintergrund.

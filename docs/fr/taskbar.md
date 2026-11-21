@@ -1,8 +1,9 @@
 ---
 title: Barre des tâches
-description: Utilisez la barre de tâches ARGVUS Waybar.
+description: Utilisez la barre de tâches ARGVUS Quickshell.
 ---
-La barre des tâches est la surface Waybar persistante sur le bureau. `argvus-taskbar` possède sa configuration ARGVUS et ses actions ; `argvus-waybar` fournit le binaire Waybar patché qui la rend. `argvus-session` possède le cycle de vie du service.
+
+La barre des tâches et la télémétrie sont des surfaces indépendantes du processus Quickshell géré par `argvus-bars.service`. Utilisez `argvus-taskbar.service` et `argvus-widget-telemetry.service` pour contrôler chaque surface.
 
 Elle communique les espaces de travail, l'état de la fenêtre focalisée, l'accès à l'horloge et au calendrier, le réseau, le Bluetooth, l'audio/média, les notifications, le stockage, l'enregistrement, les actions de maintien d'activité et d'alimentation/session. Les modules de statut exacts peuvent être affectés par les fournisseurs installés et le matériel.
 
@@ -20,7 +21,7 @@ La marge de la barre des tâches, l'écart externe de la fenêtre et la géomét
 
 Le contrôle de la position de la barre des tâches sélectionne actuellement **Haut** ou **Bas**. Les quatre marges indépendantes contrôlent la distance de la barre par rapport à chaque bord de l'écran. Le groupe d'utilitaires peut utiliser le comportement **Automatique** ou **Toujours étendu**. La disponibilité des modules dépend encore du fournisseur et du matériel installés, donc un indicateur Bluetooth, de luminosité ou de stockage manquant n'est pas créé en changeant l'espacement de la barre.
 
-**Hauteur** définit la hauteur de la barre à 24, 28 (par défaut), 32 ou 36 pixels. **Bordure** active ou désactive la bordure de la barre des tâches et définit son épaisseur à 1, 2 ou 3 pixels. L'épaisseur s'applique à la fenêtre de la barre des tâches, aux groupes `right-0`, `right-1`, `focus` et `right-2`, et à la bordure du lecteur MPRIS. Lorsque vous survolez les modules interactifs, y compris le lecteur, leur opacité diminue légèrement. Avec la bordure désactivée, ces bordures sont écrites comme `0px`. Les deux sont des brouillons dans **Centre de Contrôle → Apparence → Barre des tâches** jusqu'à ce que **[ Appliquer ]** soit sélectionné.
+**Hauteur** définit la hauteur de la barre à 24 (par défaut), 28, 32 ou 36 pixels. **Bordure** active ou désactive la bordure de la barre des tâches et définit son épaisseur à 1, 2 ou 3 pixels. L'épaisseur s'applique à la fenêtre de la barre des tâches, aux groupes `right-0`, `right-1`, `focus` et `right-2`, et à la bordure du lecteur MPRIS. L’espace de travail actif s’affiche en couleurs inversées sur un fond rectangulaire. Les infobulles reprennent les couleurs et la police du thème actif. Avec la bordure désactivée, ces bordures sont écrites comme `0px`. Les deux sont des brouillons dans **Centre de Contrôle → Apparence → Barre des tâches** jusqu'à ce que **[ Appliquer ]** soit sélectionné.
 
 **Centre de contrôle → Apparence → Barre des tâches → Icônes → Modules optionnels** contrôle la visibilité des modules d'état et d'action optionnels. Les espaces de travail, le titre de la fenêtre active, les Paramètres et l'Alimentation restent disponibles. **Présentation des espaces de travail** sélectionne les étiquettes des espaces de travail (par défaut) ou les icônes d'application. Les lecteurs MPRIS affichent les détails du morceau dans leurs info-bulles ; le lecteur n'utilise plus un clignotement de couleur continu.
 
@@ -31,7 +32,9 @@ Utilisez `↑/↓` pour naviguer entre les lignes d'activation et de valeur. App
 
 ## Configuration et remplacements
 
-La configuration de la barre des tâches est détenue par `argvus-taskbar`, rendue par `argvus-waybar` et démarrée par `argvus-session`. `argvus-config` est le seul composant qui écrit les fichiers consommateurs de la barre des tâches : il projette la couche active sous `~/.config/argvus/data/generated/waybar/` et réapplique la couche de thème, les marges de la barre des tâches, le mode de groupe utilitaire `right-2`, le rayon de bordure et le bloc de polices chaque fois que les thèmes ou l'état de la disposition changent. Un changement de thème restaure également les fichiers de la barre des tâches emballés, puis réécrit la hauteur et la bordure choisies dans le Centre de Contrôle, qui sont stockées en tant que `/taskbar/shape/height` et `/taskbar/shape/border_width` dans `argvus config`. Jusqu'à ce qu'un soit choisi, il est `null` et suit le thème : 28 px de hauteur, avec une bordure de 1 px (Slate Dark n'en a pas). Parce que la copie générée est résolue en premier, un chemin Waybar natif sous `~/.config/waybar/` n'a effet que tant que le fichier généré correspondant est absent. Voir [Waybar et barre des tâches overrides](/docs/argvus-waybar/) pour la priorité, les exemples et le dépannage.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## Windows et panneaux
 
@@ -48,7 +51,7 @@ Le service principal est `argvus-taskbar.service`. Lorsqu'un changement de confi
 ```sh
 argvus sessionctl restart waybar
 ```
-Les pop-ups du calendrier et du stockage amovible utilisent le contrat de coordonnées racine immuable fourni par la build ARGVUS de Waybar pour identifier le moniteur. Le calendrier suit la surface réelle horizontale de la barre des tâches : il s'ouvre 4 pixels en dessous d'une barre supérieure ou 4 pixels au-dessus d'une barre inférieure, quel que soit l'endroit dans le module de date où il a été cliqué ; le module de date ouvre le calendrier. Ne modifiez pas la configuration d'exécution générée pour effectuer des changements permanents ; utilisez le Centre de Contrôle ou le chemin de remplacement documenté [Waybar](/docs/argvus-waybar/).
+Les pop-ups du calendrier et du stockage amovible utilisent le contrat de coordonnées racine immuable fourni par la build ARGVUS de Quickshell pour identifier le moniteur. Le calendrier suit la surface réelle horizontale de la barre des tâches : il s'ouvre 4 pixels en dessous d'une barre supérieure ou 4 pixels au-dessus d'une barre inférieure, quel que soit l'endroit dans le module de date où il a été cliqué ; le module de date ouvre le calendrier. Ne modifiez pas la configuration d'exécution générée pour effectuer des changements permanents ; utilisez le Centre de Contrôle ou le chemin de remplacement documenté.
 
 Les utilitaires se replient en un expanseur en mode survol et révèlent les commandes activées à l'entrée du pointeur. La visibilité de la barre système contrôle les icônes des applications en arrière-plan ; un plateau vide n’a aucune icône visible. La présentation des icônes des espaces de travail affiche les icônes des applications pour les fenêtres ouvertes à côté des étiquettes des espaces de travail.
 
@@ -56,7 +59,7 @@ Les utilitaires se replient en un expanseur en mode survol et révèlent les com
 
 Les projets ouverts apparaissent comme des boutons ordinaires de l'espace de travail, étiquetés `Project: name` ; cliquer dessus le sélectionne. Le survol affiche le chemin complet du projet et le raccourci `SUPER + ALT + N`. Seuls les espaces de travail ouverts sur le moniteur de la barre sont affichés ; le sélecteur (`SUPER + O`) reste le catalogue complet des projets. Les espaces de travail spéciaux conservent leur politique de visibilité existante.
 
-Le module `hyprland/workspaces` lit `workspace-metadata: "argvus/project-workspaces.json"`, relatif à `$XDG_RUNTIME_DIR`. `argvus projects` régénère ce fichier dérivé chaque fois qu’un projet s’ouvre. Le `argvus-waybar` patché prend en charge les adresses textuelles des espaces de travail de Hyprland 0.57 et utilise les métadonnées pour les étiquettes sans changer l’identité des espaces de travail. Mettez à jour les trois packages et reprojetez la configuration de la barre des tâches avant de redémarrer le service.
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 Le module **État des mises à jour** a son propre groupe entre Utilitaires et réseau/performance et affiche le nombre de mises à jour de paquets disponibles. Il vérifie les dépôts officiels au démarrage et toutes les heures à l'aide de `checkupdates` (depuis `pacman-contrib`), sans mettre à jour les paquets. **Vérifier AUR** est désactivé par défaut ; lorsqu'il est activé, il vérifie avec `paru` ou `yay`. L'infobulle sépare les sources et signale les échecs ; `?` signifie que le total est incomplet. Cliquez sur le module pour ouvrir les mises à jour officielles dans Paquets. Configurez les deux options sous **Icônes → Modules optionnels** et appliquez l'ébauche de la barre des tâches. Le module est activé par défaut.
 
@@ -71,3 +74,5 @@ Suivant/précédent parcourt uniquement les espaces existants de l’écran acti
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 Le Presse-papiers est activé par défaut et s’ouvre depuis le groupe des utilitaires de la barre des tâches. Pour arrêter la capture de texte et d’images, décochez cette option dans Control Center → Appearance → Taskbar → Icons → Optional modules, puis sélectionnez Apply. L’icône disparaît et l’historique reste inaccessible jusqu’à la réactivation. Les entrées enregistrées sont conservées.
+
+La lecture dans le navigateur apparaît uniquement si le lecteur indique Spotify comme source. Les infobulles ont un fond sans bordure.

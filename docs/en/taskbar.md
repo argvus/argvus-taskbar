@@ -1,9 +1,9 @@
 ---
 title: Taskbar
-description: Use the ARGVUS Waybar taskbar.
+description: Use the ARGVUS Quickshell taskbar.
 ---
 
-The taskbar is the persistent Waybar surface across the desktop. `argvus-taskbar` owns its ARGVUS configuration and actions; `argvus-waybar` provides the patched Waybar binary that renders it. `argvus-session` owns the service lifecycle.
+Taskbar and Widget Telemetry are independent surfaces in the Quickshell process managed by `argvus-bars.service`. Use `argvus-taskbar.service` and `argvus-widget-telemetry.service` to control each surface.
 
 It communicates workspaces, focused-window state, clock and calendar access, network, Bluetooth, audio/media, notifications, storage, recording, keep-awake and power/session actions. The exact status modules can be affected by installed providers and hardware.
 
@@ -21,7 +21,7 @@ Taskbar margin, window outer gap and panel geometry are related but distinct. Ch
 
 The taskbar position control currently selects **Top** or **Bottom**. The four independent margins control how far the bar sits from each screen edge. The utility group can use **Auto** or **Always expanded** behavior. Module availability still depends on the installed provider and hardware, so a missing Bluetooth, brightness or storage indicator is not created by changing bar spacing.
 
-**Height** sets the bar height to 24, 28 (the default), 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the `right-0`, `right-1`, `focus` and `right-2` groups, and the MPRIS player border. Hovering interactive modules, including the player, gently lowers their opacity. With the border off, those borders are written as `0px`. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
+**Height** sets the bar height to 24 (the default), 28, 32 or 36 pixels. **Border** turns the taskbar border on or off and sets its thickness to 1, 2 or 3 pixels. The thickness applies to the taskbar window, the `right-0`, `right-1`, `focus` and `right-2` groups, and the MPRIS player border. The active workspace is shown in inverted colours on a rectangular background. Tooltips use the active theme’s colours and typeface. With the border off, those borders are written as `0px`. Both are drafts in **Control Center → Appearance → Taskbar** until **[ Apply ]** is selected.
 
 **Control Center → Appearance → Taskbar → Icons → Optional modules** controls the visibility of optional status and action modules. Workspaces, the focused-window title, Settings and Power remain available. **Workspace presentation** selects workspace labels (the default) or application icons. MPRIS players show track details in their tooltips; the player no longer uses a continuous color pulse.
 
@@ -32,7 +32,9 @@ Use `↑/↓` to move between the enable and value rows. Press `Tab` for **Actio
 
 ## Configuration and overrides
 
-The taskbar configuration is owned by `argvus-taskbar`, rendered by `argvus-waybar` and started by `argvus-session`. `argvus-config` is the only component that writes the taskbar consumer files: it projects the active layer under `~/.config/argvus/data/generated/waybar/` and reapplies the theme layer, taskbar margins, `right-2` utility-group mode, border radius and the font block whenever themes or layout state change. A theme switch also restores the packaged taskbar files and then writes back the height and border chosen in Control Center, which are stored as `/taskbar/shape/height` and `/taskbar/shape/border_width` in `argvus config`. Until one is chosen it is `null` and follows the theme: 28 px high, with a 1 px border (Slate Dark has none). Because the generated copy is resolved first, a native Waybar path under `~/.config/waybar/` only takes effect while the corresponding generated file is absent. See [Waybar and taskbar overrides](/docs/argvus-waybar/) for precedence, examples and troubleshooting.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## Windows and panels
 
@@ -47,10 +49,10 @@ The time module (`clock#time`) opens or hides the ARGVUS Clock popup and passes 
 The main service is `argvus-taskbar.service`. When a documented configuration change requires a manual reload, use the session controller:
 
 ```sh
-argvus sessionctl restart waybar
+argvus sessionctl restart taskbar
 ```
 
-Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Waybar build to identify the monitor. The calendar follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked; the date module opens the calendar. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented [Waybar override](/docs/argvus-waybar/) path.
+Calendar and removable-storage popups use the immutable root-coordinate contract provided by the ARGVUS Quickshell build to identify the monitor. The calendar follows the real horizontal Taskbar surface: it opens 4 pixels below a top bar or 4 pixels above a bottom bar, regardless of where inside the date module it was clicked; the date module opens the calendar. Do not edit generated runtime configuration to make persistent changes; use Control Center or the documented path.
 
 Utilities collapse to an expander in hover mode and reveal enabled controls on pointer entry. System tray visibility controls background application icons; an empty tray has no visible icons. Workspace icon presentation shows application icons for open windows alongside workspace labels.
 
@@ -58,7 +60,7 @@ Utilities collapse to an expander in hover mode and reveal enabled controls on p
 
 Open projects appear as ordinary workspace buttons, labelled `Project: name`; clicking one focuses it. Hover shows the full project path and `SUPER + ALT + N` shortcut. Only open workspaces on the bar's monitor are displayed; the picker (`SUPER + O`) remains the full project catalog. Special workspaces keep their existing visibility policy.
 
-The `hyprland/workspaces` module reads `workspace-metadata: "argvus/project-workspaces.json"`, relative to `$XDG_RUNTIME_DIR`. `argvus projects` regenerates this derived file whenever a project opens. The patched `argvus-waybar` supports Hyprland 0.57 textual workspace addresses and uses the metadata for labels without changing workspace identities. Update all three packages and reproject the taskbar configuration before restarting the service.
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 The **Update Status** module has its own group between Utilities and network/performance and shows the number of available package updates. It checks official repositories on startup and hourly using `checkupdates` (from `pacman-contrib`), without upgrading packages. **Check AUR** is off by default; when enabled, it checks with `paru` or `yay`. The tooltip separates sources and reports failures; `?` means the total is incomplete. Click the module to open official updates in Packages. Configure both options under **Icons → Optional modules** and apply the taskbar draft. The module is enabled by default.
 
@@ -75,3 +77,5 @@ Next/previous cycles existing numeric workspaces, then named workspaces and proj
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 Clipboard is enabled by default. Open it from the taskbar utility group. To stop recording text and images, clear the Clipboard option under Control Center → Appearance → Taskbar → Icons → Optional modules and select Apply. This also hides the icon and blocks opening history. Re-enable the option to access previously saved entries.
+
+Browser playback appears only when the player identifies Spotify as the source. Hover tips use a borderless background.

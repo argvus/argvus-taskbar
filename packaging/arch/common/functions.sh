@@ -29,6 +29,8 @@ arch_check_taskbar_payload() {
 	local source_root="${srcdir}/${pkgname}-${pkgver}"
 
 	test -x "${source_root}/src/usr/bin/argvus-taskbar-actions"
+	test -f "${source_root}/src/usr/share/argvus/taskbar/quickshell/shell.qml"
+	test -x "${source_root}/src/usr/share/argvus/taskbar/sh/bars-presentation.sh"
 	test -f "${source_root}/src/usr/share/argvus/taskbar/config/argvus-taskbar.jsonc"
 	test -f "${source_root}/src/usr/share/argvus/taskbar/config/argvus-taskbar.css"
 	test -x "${source_root}/src/usr/share/argvus/taskbar/sh/waybar-notifications.sh"

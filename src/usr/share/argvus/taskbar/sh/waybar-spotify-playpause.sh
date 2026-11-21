@@ -17,9 +17,9 @@ for player in $(playerctl -l 2>/dev/null); do
         chrome*|chromium*|firefox*|brave*|edge*|vivaldi*|opera*)
             STATUS=$(playerctl -p "$player" status 2>/dev/null)
             if [ "$STATUS" = "Playing" ] || [ "$STATUS" = "Paused" ]; then
-                META=$(playerctl -p "$player" metadata 2>/dev/null)
-                case "$META" in
-                    *[Ss]potify*)
+                MEDIA_URL=$(playerctl -p "$player" metadata xesam:url 2>/dev/null)
+                case "$MEDIA_URL" in
+                    https://open.spotify.com/*|spotify:*)
                         playerctl -p "$player" play-pause 2>/dev/null
                         exit 0
                         ;;

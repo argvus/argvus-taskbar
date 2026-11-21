@@ -1,8 +1,9 @@
 ---
 title: Barra delle applicazioni
-description: Usa la barra delle applicazioni ARGVUS Waybar.
+description: Usa la barra delle applicazioni ARGVUS Quickshell.
 ---
-La barra delle applicazioni è la superficie persistente di Waybar su tutto il desktop. `argvus-taskbar` possiede la sua configurazione ARGVUS e le azioni; `argvus-waybar` fornisce il binario Waybar patchato che la rende visibile. `argvus-session` gestisce il ciclo di vita del servizio.
+
+La barra delle applicazioni e la telemetria sono superfici indipendenti del processo Quickshell gestito da `argvus-bars.service`. Usa `argvus-taskbar.service` e `argvus-widget-telemetry.service` per controllare ogni superficie.
 
 Comunica gli spazi di lavoro, lo stato della finestra attiva, l'accesso a orologio e calendario, rete, Bluetooth, audio/media, notifiche, archiviazione, registrazione, azioni di mantenimento attivo e alimentazione/sessione. I moduli di stato esatti possono essere influenzati dai provider installati e dall'hardware.
 
@@ -20,7 +21,7 @@ Il margine della barra delle applicazioni, il gap esterno della finestra e la ge
 
 Il controllo della posizione della barra delle applicazioni seleziona attualmente **Top** o **Bottom**. I quattro margini indipendenti controllano quanto la barra sia distante da ciascun bordo dello schermo. Il gruppo delle utility può usare il comportamento **Auto** o **Sempre espanso**. La disponibilità dei moduli dipende ancora dal provider e dall'hardware installati, quindi un indicatore Bluetooth, della luminosità o dello spazio di archiviazione mancante non viene creato modificando la spaziatura della barra.
 
-**Height** imposta l'altezza della barra a 24, 28 (default), 32 o 36 pixel. **Border** attiva o disattiva il bordo della barra delle applicazioni e ne imposta lo spessore a 1, 2 o 3 pixel. Lo spessore si applica alla finestra della barra delle applicazioni, ai gruppi `right-0`, `right-1`, `focus` e `right-2`, e al bordo del lettore MPRIS. Passando il puntatore sui moduli interattivi, incluso il lettore, la loro opacità diminuisce leggermente. Con il bordo disattivato, quei bordi sono scritti come `0px`. Entrambi sono bozze in **Centro di Controllo → Aspetto → Barra delle Applicazioni** fino a quando non viene selezionato **[ Applica ]**.
+**Height** imposta l'altezza della barra a 24 (default), 28, 32 o 36 pixel. **Border** attiva o disattiva il bordo della barra delle applicazioni e ne imposta lo spessore a 1, 2 o 3 pixel. Lo spessore si applica alla finestra della barra delle applicazioni, ai gruppi `right-0`, `right-1`, `focus` e `right-2`, e al bordo del lettore MPRIS. L’area di lavoro attiva appare a colori invertiti su uno sfondo rettangolare. I suggerimenti riprendono i colori e il carattere del tema attivo. Con il bordo disattivato, quei bordi sono scritti come `0px`. Entrambi sono bozze in **Centro di Controllo → Aspetto → Barra delle Applicazioni** fino a quando non viene selezionato **[ Applica ]**.
 
 **Centro di Controllo → Aspetto → Barra delle applicazioni → Icone → Moduli opzionali** controlla la visibilità dei moduli opzionali di stato e azione. Spazi di lavoro, il titolo della finestra attiva, Impostazioni e Alimentazione rimangono disponibili. **Presentazione degli spazi di lavoro** seleziona le etichette degli spazi di lavoro (predefinito) o le icone delle applicazioni. I lettori MPRIS mostrano i dettagli della traccia nei loro suggerimenti; il lettore non utilizza più un impulso di colore continuo.
 
@@ -31,7 +32,9 @@ Usa `↑/↓` per spostarti tra le righe di attivazione e i valori. Premi `Tab` 
 
 ## Configurazione e sovrascritture
 
-La configurazione della barra delle applicazioni è di proprietà di `argvus-taskbar`, renderizzata da `argvus-waybar` e avviata da `argvus-session`. `argvus-config` è l'unico componente che scrive i file del consumatore della barra delle applicazioni: proietta il livello attivo sotto `~/.config/argvus/data/generated/waybar/` e riapplica il livello del tema, i margini della barra delle applicazioni, la modalità del gruppo di utilità `right-2`, il raggio del bordo e il blocco dei font ogni volta che cambiano tema o stato del layout. Un cambio di tema ripristina anche i file della barra delle applicazioni impacchettati e poi riscrive l'altezza e il bordo scelti nel Centro di Controllo, che sono memorizzati come `/taskbar/shape/height` e `/taskbar/shape/border_width` in `argvus config`. Fino a quando non ne viene scelto uno, è `null` e segue il tema: alto 28 px, con un bordo di 1 px (Slate Dark non ne ha). Poiché la copia generata viene risolta per prima, un percorso nativo di Waybar sotto `~/.config/waybar/` ha effetto solo quando il file generato corrispondente è assente. Vedi [Waybar e barra delle applicazioni overrides](/docs/argvus-waybar/) per precedenza, esempi e risoluzione dei problemi.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## Windows e pannelli
 
@@ -48,7 +51,7 @@ Il servizio principale è `argvus-taskbar.service`. Quando una modifica alla con
 ```sh
 argvus sessionctl restart waybar
 ```
-I popup del calendario e della memoria removibile utilizzano il contratto a coordinate radice immutabili fornito dalla build ARGVUS di Waybar per identificare il monitor. Il calendario segue la reale superficie orizzontale della barra delle applicazioni: si apre 4 pixel sotto una barra superiore o 4 pixel sopra una barra inferiore, indipendentemente da dove all'interno del modulo della data sia stato cliccato; il modulo della data apre il calendario. Non modificare la configurazione runtime generata per apportare cambiamenti persistenti; utilizzare il Pannello di Controllo o il percorso documentato [Waybar override](/docs/argvus-waybar/). 
+I popup del calendario e della memoria removibile utilizzano il contratto a coordinate radice immutabili fornito dalla build ARGVUS di Quickshell per identificare il monitor. Il calendario segue la reale superficie orizzontale della barra delle applicazioni: si apre 4 pixel sotto una barra superiore o 4 pixel sopra una barra inferiore, indipendentemente da dove all'interno del modulo della data sia stato cliccato; il modulo della data apre il calendario. Non modificare la configurazione runtime generata per apportare cambiamenti persistenti; utilizzare il Pannello di Controllo o il percorso documentato.
 
 Le utility si comprimono in un espansore in modalità hover e rivelano i controlli abilitati al passaggio del puntatore. La visibilità del vassoio di sistema controlla le icone delle applicazioni in background; un vassoio vuoto non mostra icone visibili. La presentazione delle icone degli spazi di lavoro mostra le icone delle applicazioni per le finestre aperte accanto alle etichette degli spazi di lavoro.
 
@@ -56,7 +59,7 @@ Le utility si comprimono in un espansore in modalità hover e rivelano i control
 
 I progetti aperti appaiono come normali pulsanti della workspace, etichettati `Project: name`; cliccandone uno lo si focalizza. Passando con il mouse viene mostrato il percorso completo del progetto e il collegamento `SUPER + ALT + N`. Vengono visualizzate solo le workspace aperte sul monitor della barra; il selettore (`SUPER + O`) rimane il catalogo completo dei progetti. Le workspace speciali mantengono la loro politica di visibilità esistente.
 
-Il modulo `hyprland/workspaces` legge `workspace-metadata: "argvus/project-workspaces.json"`, relativo a `$XDG_RUNTIME_DIR`. `argvus projects` rigenera questo file derivato ogni volta che si apre un progetto. Il modulo patchato `argvus-waybar` supporta gli indirizzi testuali delle workspace di Hyprland 0.57 e utilizza i metadati per le etichette senza cambiare l'identità delle workspace. Aggiorna tutti e tre i pacchetti e riproietta la configurazione della barra delle applicazioni prima di riavviare il servizio.
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 Il modulo **Stato Aggiornamenti** ha il proprio gruppo tra Utility e rete/performance e mostra il numero di aggiornamenti dei pacchetti disponibili. Controlla i repository ufficiali all'avvio e ogni ora usando `checkupdates` (da `pacman-contrib`), senza aggiornare i pacchetti. **Controlla AUR** è disattivato per impostazione predefinita; quando abilitato, controlla con `paru` o `yay`. Il tooltip separa le fonti e segnala i fallimenti; `?` significa che il totale è incompleto. Clicca sul modulo per aprire gli aggiornamenti ufficiali in Pacchetti. Configura entrambe le opzioni sotto **Icone → Moduli opzionali** e applica la bozza della barra delle applicazioni. Il modulo è abilitato per impostazione predefinita.
 
@@ -71,3 +74,5 @@ Successivo/precedente scorre solo gli spazi esistenti del monitor attivo: prima 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 Gli Appunti sono attivi per impostazione predefinita e si aprono dal gruppo delle utilità della barra delle applicazioni. Per interrompere la registrazione di testo e immagini, deseleziona la voce in Control Center → Appearance → Taskbar → Icons → Optional modules e scegli Apply. L’icona scompare e la cronologia resta inaccessibile fino alla riattivazione. Le voci salvate vengono conservate.
+
+La riproduzione nel browser appare solo se il lettore identifica Spotify come sorgente. I suggerimenti hanno uno sfondo senza bordo.

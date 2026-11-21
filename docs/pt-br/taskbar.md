@@ -1,9 +1,9 @@
 ---
 title: Barra de tarefas
-description: Use a taskbar Waybar do ARGVUS.
+description: Use a taskbar Quickshell do ARGVUS.
 ---
 
-A taskbar é a superfície Waybar persistente do desktop. `argvus-taskbar` possui sua configuração e ações do ARGVUS; `argvus-waybar` fornece o binário Waybar modificado que a renderiza. `argvus-session` possui o ciclo de vida do serviço.
+A taskbar e o widget de telemetria são superfícies independentes no processo Quickshell gerenciado por `argvus-bars.service`. Use `argvus-taskbar.service` e `argvus-widget-telemetry.service` para controlar cada superfície.
 
 Ela comunica workspaces, janela em foco, acesso ao relógio e calendário, rede, Bluetooth, áudio/mídia, notificações, armazenamento, gravação, manter acordado e ações de energia/sessão. Os módulos exatos podem depender dos providers instalados e do hardware.
 
@@ -22,7 +22,7 @@ Use `↑/↓` para mover entre as linhas de ativação e valor. Pressione `Tab` 
 
 A posição padrão é a borda superior em modo dock. O Control Center expõe posição da taskbar e margens da taskbar/shell em **Aparência → Barra de tarefas → Posição** e **Espaçamentos**, e o grupo de utilitários em **Aparência → Barra de tarefas → Ícones**. O estado de layout salva margens independentes no topo, esquerda, direita e embaixo. Sticky usa margem inferior padrão `2` e mantém a barra próxima à borda; Spaced usa margem padrão de shell `18`.
 
-**Altura** define a altura da barra em 24, 28 (padrão), 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1`, `focus` e `right-2` e a borda do player MPRIS. Ao passar o cursor sobre módulos interativos, incluindo o player, a opacidade diminui suavemente. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
+**Altura** define a altura da barra em 24 (padrão), 28, 32 ou 36 pixels. **Borda** liga ou desliga a borda da taskbar e define a espessura em 1, 2 ou 3 pixels. A espessura vale para a janela da taskbar, os grupos `right-0`, `right-1`, `focus` e `right-2` e a borda do player MPRIS. O workspace ativo aparece com as cores invertidas em um fundo retangular. As dicas usam as cores e a fonte do tema ativo. Com a borda desligada, essas bordas são gravadas como `0px`. Ambas são rascunhos em **Control Center → Aparência → Barra de tarefas** até selecionar **[ Aplicar ]**.
 
 **Control Center → Aparência → Barra de tarefas → Ícones → Módulos opcionais** controla a visibilidade dos módulos opcionais de status e ações. Workspaces, título da janela em foco e ações Configurações e Energia permanecem disponíveis. **Apresentação dos workspaces** seleciona nomes (padrão) ou ícones dos aplicativos. Os players MPRIS mostram detalhes da faixa nas dicas; o player não usa mais uma pulsação contínua de cor.
 
@@ -32,7 +32,9 @@ O controle de posição seleciona **Top** ou **Bottom**. As quatro margens indep
 
 ## Configuração e overrides
 
-A configuração da taskbar pertence ao `argvus-taskbar`, é renderizada pelo `argvus-waybar` e iniciada pelo `argvus-session`. O `argvus-config` é o único componente que escreve os arquivos de consumo da taskbar: ele projeta a camada ativa em `~/.config/argvus/data/generated/waybar/` e reaplica a camada do tema, as margens da taskbar, o modo `right-2` do grupo utilitário, o raio das bordas e o bloco de fonte sempre que temas ou o estado de layout mudam. A troca de tema também restaura os arquivos empacotados da taskbar e, em seguida, regrava a altura e a borda escolhidas no Control Center, guardadas como `/taskbar/shape/height` e `/taskbar/shape/border_width` no `argvus config`. Enquanto não são escolhidas, valem `null` e seguem o tema: 28 px de altura e borda de 1 px (o Slate Dark não tem borda). Como a cópia gerada é resolvida primeiro, um caminho nativo da Waybar em `~/.config/waybar/` só entra em vigor enquanto o arquivo gerado correspondente estiver ausente. Veja [Overrides da Waybar e da taskbar](/pt/docs/argvus-waybar/) para precedência, exemplos e diagnóstico.
+`argvus config`: `/layout/taskbar`, `/taskbar`, `/fonts/targets/taskbar`.
+
+`$XDG_RUNTIME_DIR/argvus/bars/presentation.json` ← `argvus sessionctl bars-presentation`.
 
 ## Janelas e painéis
 
@@ -47,10 +49,10 @@ O módulo de hora (`clock#time`) abre ou oculta o popup do ARGVUS Clock e passa 
 O serviço principal é `argvus-taskbar.service`. Quando uma alteração documentada exigir recarga manual, use o controlador de sessão:
 
 ```sh
-argvus sessionctl restart waybar
+argvus sessionctl restart taskbar
 ```
 
-Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Waybar do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data; o módulo de data abre o calendário. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de [override da Waybar](/pt/docs/argvus-waybar/).
+Popups de calendário e armazenamento removível usam o contrato de coordenadas raiz imutáveis fornecido pela compilação Quickshell do ARGVUS para identificar o monitor. O calendário acompanha a superfície horizontal real da taskbar: abre 4 pixels abaixo de uma barra no topo ou 4 pixels acima de uma barra embaixo, independentemente do ponto clicado dentro do módulo de data; o módulo de data abre o calendário. Não edite a configuração de runtime gerada para fazer alterações persistentes; use o Control Center ou o caminho documentado de.
 
 No modo hover, Utilities fica recolhido no expansor e revela os controles habilitados ao passar o mouse. A bandeja controla os ícones de aplicativos em segundo plano; quando vazia, não há ícones visíveis. A apresentação por ícones mostra os aplicativos com janelas abertas junto aos rótulos dos workspaces.
 
@@ -58,7 +60,7 @@ No modo hover, Utilities fica recolhido no expansor e revela os controles habili
 
 Projetos abertos aparecem como botões de workspace comuns, com rótulo `Projeto: nome`; clicar em um deles o foca. O tooltip mostra o caminho completo e o atalho `SUPER + ALT + N`. Apenas workspaces abertos no monitor da barra aparecem; o seletor (`SUPER + O`) continua sendo o catálogo completo. Workspaces especiais mantêm a política de visibilidade existente.
 
-O módulo `hyprland/workspaces` lê `workspace-metadata: "argvus/project-workspaces.json"`, relativo a `$XDG_RUNTIME_DIR`. `argvus projects` regenera esse arquivo derivado ao abrir um projeto. O `argvus-waybar` corrigido aceita endereços textuais de workspaces do Hyprland 0.57 e usa os metadados para os rótulos sem alterar as identidades dos workspaces. Atualize os três pacotes e reprojete a configuração da taskbar antes de reiniciar o serviço.
+`$XDG_RUNTIME_DIR/argvus/project-workspaces.json` · `argvus projects`
 
 O módulo **Estado das atualizações** tem um grupo próprio entre Utilities e rede/desempenho e mostra a quantidade de pacotes com atualização disponível. Consulta os repositórios oficiais ao iniciar e a cada hora com `checkupdates` (do pacote `pacman-contrib`), sem atualizar pacotes. **Verificar AUR** vem desativado; quando ligado, consulta com `paru` ou `yay`. A dica separa as origens e informa falhas; `?` indica uma contagem incompleta. Clique no módulo para abrir atualizações oficiais em Pacotes. Configure as opções em **Ícones → Módulos opcionais** e aplique o rascunho da taskbar. O módulo vem habilitado.
 
@@ -75,3 +77,5 @@ Próximo/anterior percorre os workspaces existentes somente no monitor em foco: 
 **Power → ARGVUS Lifecycle** (`argvus-lifecycle`)
 
 O Clipboard vem ativado por padrão e abre pelo grupo de utilidades da barra de tarefas. Para parar a captura de texto e imagens, desmarque Clipboard em Control Center → Appearance → Taskbar → Icons → Optional modules e selecione Apply. O ícone some e o acesso ao histórico fica bloqueado. Reative a opção para acessar as entradas já salvas.
+
+A mídia do navegador aparece apenas quando o player identifica o Spotify como origem. As dicas ao passar o cursor têm fundo sem borda.

@@ -3,11 +3,13 @@ title: Widget
 description: Cấu hình các tiện ích theo dõi hệ thống tùy chọn.
 ---
 
-`argvus widget-telemetry` cung cấp một bề mặt Waybar phụ tùy chọn để hiển thị thông tin hệ thống. Các khối hiện tại của nó là **Hệ thống**, **CPU/GPU**, **Bộ nhớ**, **Lưu trữ**, **Quy trình**, **Mạng** và **Phím tắt**. Khối Phím tắt được lưu với khóa `keys` trong tệp trạng thái.
+`argvus widget-telemetry` cung cấp một bề mặt Quickshell phụ tùy chọn để hiển thị thông tin hệ thống. Các khối hiện tại của nó là **Hệ thống**, **CPU/GPU**, **Bộ nhớ**, **Lưu trữ**, **Quy trình**, **Mạng** và **Phím tắt**. Khối Phím tắt được lưu với khóa `keys` trong tệp trạng thái.
 
-Sử dụng **Control Center → Appearance → Widget Telemetry** để bật giao diện và bật hoặc tắt các khối riêng lẻ. Vô hiệu hóa một khối sẽ ẩn mô-đun theo dõi đó khỏi hồ sơ Waybar; nó không gỡ cài đặt gói hay ngừng phần còn lại của phiên. Cần gạt chính điều khiển toàn bộ giao diện telemetry.
+Sử dụng **Control Center → Appearance → Widget Telemetry** để bật giao diện và bật hoặc tắt các khối riêng lẻ. Vô hiệu hóa một khối sẽ ẩn mô-đun theo dõi đó khỏi hồ sơ Quickshell; nó không gỡ cài đặt gói hay ngừng phần còn lại của phiên. Cần gạt chính điều khiển toàn bộ giao diện telemetry.
 
-Việc lựa chọn khối là chuẩn trong `config.json`, tại `control_panel.widget_telemetry_blocks`, và công tắc chính là `control_panel.widget_telemetry_enabled`. `argvus-config` chiếu lựa chọn đó vào hồ sơ Waybar `data/waybar/argvus-widget-telemetry.jsonc` bằng cách bỏ dấu chú thích hoặc thêm dấu chú thích vào các dòng bên trong các khối được phân tách `ARGVUS_TELEMETRY_<BLOCK>_BEGIN`/`_END`, để phần còn lại của tập tin không bị thay đổi. Một tập tin `~/.local/state/argvus/widget-telemetry-blocks` cũ vẫn được đọc như phương án dự phòng khi di chuyển trên các cài đặt cũ, nhưng nó không bao giờ được ghi. Lưu ý rằng toàn bộ hồ sơ sẽ được thay thế theo mặc định đã đóng gói khi thay đổi giao diện, vì vậy các dấu hiệu khối là cách lựa chọn được giữ lại; văn bản bên ngoài chúng sẽ không được bảo tồn qua việc chuyển đổi chủ đề.
+Thanh tác vụ và tiện ích đo từ xa là các bề mặt độc lập trong tiến trình Quickshell do `argvus-bars.service` quản lý. Dùng `argvus-taskbar.service` và `argvus-widget-telemetry.service` để điều khiển từng bề mặt.
+
+`/effects/widget_telemetry_enabled` · `widget-telemetry-blocks`
 
 Bộ điều khiển hỗ trợ:
 
@@ -20,9 +22,9 @@ argvus widget-telemetry-toggle blocks set memory disabled
 argvus widget-telemetry-toggle blocks apply
 ```
 
-Bộ điều khiển cũng chấp nhận `blocks set <block> <enabled|disabled>` cho `system`, `cpu_gpu`, `memory`, `storage`, `processes`, `network` và `keys`. Các tùy chọn được giữ nguyên; khi một khối không có tùy chọn rõ ràng, nó sẽ theo mặc định đã bật. `blocks set` viết lại mảng chuẩn trong một bản vá nguyên tử duy nhất, sau đó chiếu lại hồ sơ Waybar và đối chiếu vòng đời dịch vụ. `apply-state` là đường dẫn của Trung tâm Điều khiển: nó giả định người gọi đã lưu lựa chọn và chỉ chiếu nó, vì vậy không bao giờ gọi nó với trạng thái chưa được lưu.
+`argvus widget-telemetry toggle blocks set <block> <enabled|disabled>` · `argvus widget-telemetry toggle apply-state`
 
-Dịch vụ là `argvus-widget-telemetry.service` và được quản lý bởi `argvus-session`. Không có nút đặt lại riêng cho từng khối trên trang hiện tại: hãy bật lại khối, hoặc sử dụng quản lý trạng thái được nhà cung cấp hỗ trợ, thay vì chỉnh sửa đầu ra Waybar đã tạo.
+Dịch vụ là `argvus-widget-telemetry.service` và được quản lý bởi `argvus-session`. Không có nút đặt lại riêng cho từng khối trên trang hiện tại: hãy bật lại khối, hoặc sử dụng quản lý trạng thái được nhà cung cấp hỗ trợ, thay vì chỉnh sửa đầu ra Quickshell đã tạo.
 
 ## Độ trong suốt và làm mờ
 
@@ -43,19 +45,19 @@ Biểu tượng cửa sổ trong `group/right-2`, sau khi tiện ích mở rộn
 
 Cài đặt được chia sẻ với **Control Center → Desktop & Input → Hyprland → Windows → Mode**. Chế độ nổi ảnh hưởng đến tất cả các cửa sổ ứng dụng trên các màn hình và không gian làm việc. Quay lại chế độ Tile sẽ giữ các cửa sổ vốn đang ở trạng thái nổi. Lựa chọn này được giữ nguyên giữa các lần đăng nhập.
 
-Trợ lý là `argvus window-mode-menu`; `argvus window-mode-menu --status` phát JSON của Waybar. Nó được cung cấp bởi gói chính `argvus`. Các bản sao thanh tác vụ tùy chỉnh hiện có được giữ nguyên: thêm định nghĩa mô-đun `custom/window-mode` và mục nhóm từ mẫu gói để tham gia, hoặc sử dụng Trung tâm Kiểm soát. Máy chiếu giao diện giữ lại mô-đun khi định nghĩa của nó có mặt, ngay cả khi các biểu tượng tiện ích khác bị tắt.
+`argvus window-mode-menu` · `argvus window-mode-menu --status`
 
 ##
 
 Chế độ nổi thêm một thanh tiêu đề ARGVUS với **Thu nhỏ**, **Phóng to / Khôi phục** và **Đóng** cho các cửa sổ ứng dụng bình thường. Nháy đúp vào thanh tiêu đề sẽ chuyển đổi giữa trạng thái phóng to và khôi phục. Trang trí bổ sung này sẽ ẩn trong chế độ Tile và toàn màn hình. Các ứng dụng tự vẽ các điều khiển của riêng chúng có thể hiển thị cả hai thanh; các điều khiển ARGVUS đồng bộ là có chủ ý.
 
-Một thanh Waybar thứ hai xuất hiện trên mỗi màn hình, ở cạnh đối diện với thanh tác vụ chính. Nó chỉ liệt kê các cửa sổ của không gian làm việc hiện tại trên màn hình đó, bao gồm cả các cửa sổ bị thu nhỏ. Các tab nhóm ẩn không tạo thêm mục bổ sung. Các mục bị thu nhỏ giữ nguyên liên kết màn hình/không gian làm việc ban đầu của chúng. Nhấp vào cửa sổ không hoạt động để kích hoạt nó, cửa sổ đang hoạt động để thu nhỏ nó, hoặc cửa sổ đang thu nhỏ để khôi phục nó; menu ngữ cảnh của cửa sổ cung cấp các tùy chọn khôi phục, thu nhỏ, phóng to/khôi phục và đóng. Biểu tượng ứng dụng không xác định sẽ hiển thị biểu tượng cửa sổ thay thế. Kích hoạt hoặc khôi phục mục giữ nguyên vị trí con trỏ. Thanh phụ sử dụng CSS chính hiệu quả (màu sắc, phông chữ, viền và bo góc), với chiều cao và lề phản chiếu ở cạnh đối diện.
+Một thanh Quickshell thứ hai xuất hiện trên mỗi màn hình, ở cạnh đối diện với thanh tác vụ chính. Nó chỉ liệt kê các cửa sổ của không gian làm việc hiện tại trên màn hình đó, bao gồm cả các cửa sổ bị thu nhỏ. Các tab nhóm ẩn không tạo thêm mục bổ sung. Các mục bị thu nhỏ giữ nguyên liên kết màn hình/không gian làm việc ban đầu của chúng. Nhấp vào cửa sổ không hoạt động để kích hoạt nó, cửa sổ đang hoạt động để thu nhỏ nó, hoặc cửa sổ đang thu nhỏ để khôi phục nó; menu ngữ cảnh của cửa sổ cung cấp các tùy chọn khôi phục, thu nhỏ, phóng to/khôi phục và đóng. Biểu tượng ứng dụng không xác định sẽ hiển thị biểu tượng cửa sổ thay thế. Kích hoạt hoặc khôi phục mục giữ nguyên vị trí con trỏ. Thanh phụ sử dụng CSS chính hiệu quả (màu sắc, phông chữ, viền và bo góc), với chiều cao và lề phản chiếu ở cạnh đối diện.
 
 `SUPER + Alt + Up` đặt thanh chính ở trên cùng và thanh cửa sổ ở dưới cùng. `SUPER + Alt + Down` làm ngược lại. Lặp lại một hướng sẽ giữ nguyên vị trí. Tile chỉ có thanh chính. Quay lại Tile sẽ khôi phục tất cả các cửa sổ đã thu nhỏ trước khi loại bỏ thanh cửa sổ, sau đó giữ nguyên chính sách xếp gạch/lơ lửng ban đầu.
 
 Việc thu gọn sử dụng không gian làm việc `special:argvus-minimized` đã được dành riêng. Không sử dụng không gian làm việc đó một cách thủ công. Quá trình `argvus windows service` ghi nhận danh tính, không gian làm việc/màn hình gốc, hình học, chế độ toàn màn hình/tối đa hóa và trạng thái ghim trong một đăng ký thời gian chạy cụ thể cho từng phiên bản compositor dưới `$XDG_RUNTIME_DIR/argvus`. Bản ghi tồn tại sau khi dịch vụ khởi động lại hoặc tải lại cấu hình, nhưng không vượt quá các phiên bản compositor. Đóng cửa sổ sẽ xóa bản ghi của nó. Nếu một màn hình biến mất, việc khôi phục sẽ sử dụng một đầu ra có sẵn. Thanh phục hồi bị mất hoặc thất bại sẽ ngăn việc thu gọn mới; việc khôi phục thất bại sẽ giữ lại bản ghi và thanh phục hồi.
 
-Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Waybar của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland 0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
+Phiên làm việc sở hữu `argvus-windows.service` và `argvus-window-bar.service`. Cái sau giữ con Quickshell của nó trong trạng thái ngủ trong Tile. Plugin hyprbars được đóng gói bởi `argvus-hyprland`, được xây dựng cho ABI Hyprland 0.57.0 trên x86_64; nó không được biên dịch trong thư mục nhà của người dùng. Xây dựng lại plugin với cập nhật ABI trình hợp nhất.
 
 Commands: `argvus windows list --json`, `watch --json`, `position top|bottom`, `restore-all`, và `minimize|restore|activate|maximize|close ADDRESS`. Các địa chỉ cửa sổ được lấy từ danh sách. `position top --persist` lưu/truyền sở thích mà không cần khởi động lại thanh chính. Chi tiết cấu hình và lỗi thời gian chạy được ghi vào nhật ký; các thất bại hành động hiển thị cũng hiện thông báo đã được dịch.
 

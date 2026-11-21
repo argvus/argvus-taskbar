@@ -13,10 +13,12 @@
 
 </div>
 
-Waybar top panel integration for the ARGVUS desktop.
+Quickshell taskbar and shared bars shell for the ARGVUS desktop.
 
 This repository contains the Arch Linux package payload: the taskbar action
-dispatcher, Waybar configuration, themes, and supporting scripts.
+dispatcher, QML surfaces, themes, and supporting scripts.
+
+`argvus-bars.service` runs one process for the taskbar, widget telemetry, and Floating window bar. Each surface keeps its own unit and can be activated independently.
 
 ## Build and validate
 
