@@ -74,3 +74,5 @@ Siguiente/anterior recorre solo los espacios existentes del monitor enfocado: pr
 El Portapapeles está activado por defecto y se abre desde el grupo de utilidades de la barra de tareas. Para dejar de registrar texto e imágenes, desmarca la opción en Control Center → Appearance → Taskbar → Icons → Optional modules y selecciona Apply. El icono se oculta y el historial queda bloqueado hasta reactivar la opción. Se conservan las entradas guardadas.
 
 La reproducción del navegador aparece solo cuando el reproductor identifica Spotify como origen. Las ayudas emergentes tienen un fondo sin borde.
+
+Si la comprobación falla, la barra vuelve a intentarlo tras 30 segundos.

@@ -79,3 +79,5 @@ Seguinte/anterior percorre os workspaces existentes apenas no monitor em foco: p
 A Área de transferência está ativa por predefinição e abre a partir do grupo de utilitários da barra de tarefas. Para parar a recolha de texto e imagens, desmarque a opção em Control Center → Appearance → Taskbar → Icons → Optional modules e selecione Apply. O ícone desaparece e o histórico fica inacessível até reativar a opção. Os registos guardados são preservados.
 
 A reprodução no navegador aparece apenas quando o leitor identifica o Spotify como origem. As sugestões ao passar o cursor têm um fundo sem contorno.
+
+Se a consulta falhar, a barra tenta novamente após 30 segundos.

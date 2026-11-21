@@ -85,3 +85,5 @@ Sonraki/önceki yalnızca odaklanılan monitördeki mevcut çalışma alanların
 Pano varsayılan olarak etkindir ve görev çubuğunun yardımcı araçlar grubundan açılır. Metin ve görüntü kaydını durdurmak için Control Center → Appearance → Taskbar → Icons → Optional modules bölümündeki seçeneğin işaretini kaldırıp Apply seçin. Simge gizlenir ve seçenek yeniden açılana kadar geçmişe erişilemez. Kayıtlı öğeler korunur.
 
 Tarayıcıda oynatılan medya yalnızca oynatıcı kaynak olarak Spotify’ı bildirdiğinde görünür. Araç ipuçlarının kenarlığı yoktur.
+
+Denetim başarısız olursa görev çubuğu 30 saniye sonra yeniden dener.

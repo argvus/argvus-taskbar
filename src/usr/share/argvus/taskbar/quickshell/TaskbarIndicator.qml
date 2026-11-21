@@ -34,8 +34,10 @@ Scope {
     onEnabledChanged: {
         if (enabled)
             refresh();
-        else
+        else {
+            retry.stop();
             provider.running = false;
+        }
     }
 
     Component.onCompleted: refresh()
@@ -53,6 +55,12 @@ Scope {
         onTriggered: root.refresh()
     }
 
+    Timer {
+        id: retry
+        interval: (root.spec.retryInterval ?? 0) * 1000
+        onTriggered: root.refresh()
+    }
+
     Process {
         id: provider
         command: root.spec.command ?? []
@@ -60,6 +68,10 @@ Scope {
         onExited: function (exitCode: int): void {
             if (exitCode !== 0)
                 root.consume(root.spec.json ? "{}" : "");
+            if (root.enabled && retry.interval > 0 && (exitCode !== 0 || root.status === "error"))
+                retry.restart();
+            else
+                retry.stop();
             if (root.enabled && root.spec.stream)
                 reconnect.restart();
         }

@@ -87,3 +87,5 @@ Berikutnya/sebelumnya berputar hanya pada ruang kerja yang ada di monitor terfok
 Papan klip aktif secara default dan dapat dibuka dari grup utilitas di bilah tugas. Untuk berhenti merekam teks dan gambar, hapus centang pada opsi di Control Center → Appearance → Taskbar → Icons → Optional modules lalu pilih Apply. Ikon akan disembunyikan dan riwayat tidak bisa dibuka hingga opsi diaktifkan kembali. Entri yang tersimpan tetap tersedia.
 
 Pemutaran dari peramban muncul hanya jika pemutar mengidentifikasi Spotify sebagai sumber. Tooltip memakai latar tanpa bingkai.
+
+Jika pemeriksaan gagal, bilah tugas mencoba lagi setelah 30 detik.

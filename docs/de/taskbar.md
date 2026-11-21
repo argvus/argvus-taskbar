@@ -76,3 +76,5 @@ Vorwärts/rückwärts durchläuft nur vorhandene Arbeitsbereiche des fokussierte
 Die Zwischenablage ist standardmäßig aktiv und lässt sich über die Dienstprogrammgruppe der Taskleiste öffnen. Um keine Texte und Bilder mehr zu erfassen, deaktivieren Sie die Option unter Control Center → Appearance → Taskbar → Icons → Optional modules und wählen Sie Apply. Das Symbol verschwindet und der Verlauf ist bis zur erneuten Aktivierung gesperrt. Gespeicherte Einträge bleiben erhalten.
 
 Browsermedien erscheinen nur, wenn der Player Spotify als Quelle angibt. Tooltips haben einen rahmenlosen Hintergrund.
+
+Schlägt die Prüfung fehl, versucht es die Leiste nach 30 Sekunden erneut.

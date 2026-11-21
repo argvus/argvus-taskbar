@@ -79,3 +79,5 @@ Próximo/anterior percorre os workspaces existentes somente no monitor em foco: 
 O Clipboard vem ativado por padrão e abre pelo grupo de utilidades da barra de tarefas. Para parar a captura de texto e imagens, desmarque Clipboard em Control Center → Appearance → Taskbar → Icons → Optional modules e selecione Apply. O ícone some e o acesso ao histórico fica bloqueado. Reative a opção para acessar as entradas já salvas.
 
 A mídia do navegador aparece apenas quando o player identifica o Spotify como origem. As dicas ao passar o cursor têm fundo sem borda.
+
+Se a consulta falhar, a barra tenta novamente após 30 segundos.

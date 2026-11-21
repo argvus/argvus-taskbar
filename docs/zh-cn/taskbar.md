@@ -73,3 +73,5 @@ Control Center 中的软件包操作结束后（包括官方仓库和 AUR 升级
 剪贴板默认启用，可从任务栏的实用工具组打开。若要停止记录文本和图像，请在 Control Center → Appearance → Taskbar → Icons → Optional modules 中取消勾选该选项并选择 Apply。图标会隐藏，重新启用前无法打开历史记录。已保存的条目会保留。
 
 仅当播放器标明来源为 Spotify 时才显示浏览器播放内容。悬停提示没有边框。
+
+检查失败时，任务栏会在 30 秒后重试。

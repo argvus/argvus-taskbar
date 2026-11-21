@@ -76,3 +76,5 @@ Successivo/precedente scorre solo gli spazi esistenti del monitor attivo: prima 
 Gli Appunti sono attivi per impostazione predefinita e si aprono dal gruppo delle utilità della barra delle applicazioni. Per interrompere la registrazione di testo e immagini, deseleziona la voce in Control Center → Appearance → Taskbar → Icons → Optional modules e scegli Apply. L’icona scompare e la cronologia resta inaccessibile fino alla riattivazione. Le voci salvate vengono conservate.
 
 La riproduzione nel browser appare solo se il lettore identifica Spotify come sorgente. I suggerimenti hanno uno sfondo senza bordo.
+
+Se il controllo fallisce, la barra riprova dopo 30 secondi.

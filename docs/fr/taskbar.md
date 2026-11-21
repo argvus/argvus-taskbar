@@ -76,3 +76,5 @@ Suivant/précédent parcourt uniquement les espaces existants de l’écran acti
 Le Presse-papiers est activé par défaut et s’ouvre depuis le groupe des utilitaires de la barre des tâches. Pour arrêter la capture de texte et d’images, décochez cette option dans Control Center → Appearance → Taskbar → Icons → Optional modules, puis sélectionnez Apply. L’icône disparaît et l’historique reste inaccessible jusqu’à la réactivation. Les entrées enregistrées sont conservées.
 
 La lecture dans le navigateur apparaît uniquement si le lecteur indique Spotify comme source. Les infobulles ont un fond sans bordure.
+
+Si la vérification échoue, la barre réessaie après 30 secondes.

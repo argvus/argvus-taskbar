@@ -85,3 +85,5 @@ Trước/sau chỉ duyệt vòng các không gian hiện có trên màn hình đ
 Bảng tạm được bật mặc định và mở từ nhóm tiện ích trên thanh tác vụ. Để dừng ghi lại văn bản và hình ảnh, bỏ chọn mục này trong Control Center → Appearance → Taskbar → Icons → Optional modules rồi chọn Apply. Biểu tượng sẽ ẩn và chỉ có thể mở lại lịch sử sau khi bật lại. Các mục đã lưu vẫn được giữ.
 
 Nội dung phát trong trình duyệt chỉ xuất hiện khi trình phát xác định Spotify là nguồn. Chú giải khi di chuột không có viền.
+
+Nếu kiểm tra thất bại, thanh tác vụ thử lại sau 30 giây.

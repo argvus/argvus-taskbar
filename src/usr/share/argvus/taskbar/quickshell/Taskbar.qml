@@ -109,7 +109,7 @@ Scope {
         { id: "keep_awake", command: [script("keep-awake")], interval: 2, json: true, left: ["/usr/share/argvus/power/sh/keep-awake.sh", "toggle"] }
     ]
     readonly property var rightSpecs: [
-        { id: "update_status", command: [script("update-status")], prefix: "󰚰 ", interval: 3600, json: true, left: ["argvus", "control-center", "packages", "updates"] },
+        { id: "update_status", command: [script("update-status")], prefix: "󰚰 ", interval: 3600, retryInterval: 30, json: true, left: ["argvus", "control-center", "packages", "updates"] },
         { id: "network", command: ["argvus", "networkctl", "waybar", "--follow"], json: true, stream: true, left: ["argvus", "networkctl", "manager"], right: ["argvus", "networkctl", "toggle"] },
         { id: "keyboard_layout", label: "󰌌", left: ["argvus", "taskbar-actions", "--layout-keyboard"], right: ["argvus", "taskbar-actions", "--layout-keyboard-settings"] },
         { id: "battery" },
