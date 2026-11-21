@@ -89,3 +89,5 @@ Papan klip aktif secara default dan dapat dibuka dari grup utilitas di bilah tug
 Pemutaran dari peramban muncul hanya jika pemutar mengidentifikasi Spotify sebagai sumber. Tooltip memakai latar tanpa bingkai.
 
 Jika pemeriksaan gagal, bilah tugas mencoba lagi setelah 30 detik.
+
+Klik ikon papan klip atau agen AI di bilah tugas untuk membuka panel. Klik ikon yang sama lagi untuk menutupnya.

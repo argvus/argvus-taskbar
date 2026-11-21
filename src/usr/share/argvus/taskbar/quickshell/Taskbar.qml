@@ -93,12 +93,12 @@ Scope {
         { id: "spotify", command: [script("spotify-mpris")], interval: 5, json: true,
           left: [script("spotify-playpause")], right: [script("spotify-focus")] },
         { id: "mode", command: ["argvus", "window-mode-menu", "--status"], interval: 2, json: true, left: ["argvus", "window-mode-menu"] },
-        { id: "ai_agents", command: ["sh", "-c", "command -v argvus-ai >/dev/null && argvus-ai status --check && exec argvus-ai status"], interval: 5, json: true, left: ["argvus-ai", "menu"] },
+        { id: "ai_agents", command: ["sh", "-c", "command -v argvus-ai >/dev/null && argvus-ai status --check && exec argvus-ai status"], interval: 5, json: true, toggleCommand: ["env", "ARGVUS_AI_MANAGED_MENU=1", "argvus-ai", "menu"] },
         { id: "notifications", command: [script("notifications")], interval: 2, json: true, left: ["argvus", "notifications", "dnd", "toggle"] },
         { id: "removable_devices", command: ["argvus", "--removable-devices", "watch"], json: true, stream: true, left: ["/usr/share/argvus/removable-devices/sh/removable-devices-menu.sh", "--root", "{x}", "{y}"] },
         { id: "recording", command: ["/usr/share/argvus/hyprland/sh/hypr-screenshot.sh", "--video-full-status"], interval: 1, json: true, left: ["/usr/share/argvus/hyprland/sh/hypr-screenshot.sh", "--video-full"], right: ["/usr/share/argvus/hyprland/sh/hypr-screenshot.sh", "--video-full-stop"] },
         { id: "bluetooth", command: ["sh", "-c", "argvus bluetooth available && exec argvus bluetooth waybar"], interval: 30, json: true, left: ["argvus", "bluetooth", "toggle"], right: ["argvus", "bluetooth", "manager"] },
-        { id: "clipboard", label: "󰅌", command: ["argvus", "i18n", "get", "clipboard", "title"], tooltipOnly: true, left: ["argvus", "clipboard"] },
+        { id: "clipboard", label: "󰅌", command: ["argvus", "i18n", "get", "clipboard", "title"], tooltipOnly: true, toggleCommand: ["argvus", "clipboard"] },
         { id: "audio_input",
           left: ["argvus", "--control-center", "audio", "input"], right: ["wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle"],
           up: ["wpctl", "set-volume", "@DEFAULT_AUDIO_SOURCE@", "1%+", "-l", "1.0"],
@@ -596,7 +596,7 @@ Scope {
                 required property string providerId
                 property bool revealed: true
                 leftPadding: 0
-                actionable: providerId === "power_profile" || !!(indicator?.spec.left || indicator?.spec.right
+                actionable: providerId === "power_profile" || !!(indicator?.spec.toggleCommand || indicator?.spec.left || indicator?.spec.right
                     || indicator?.spec.up || indicator?.spec.down)
                 readonly property TaskbarIndicator indicator: root.indicators[providerId] ?? null
 
@@ -618,6 +618,8 @@ Scope {
                 onClicked: (x, y, button) => {
                     if (button === Qt.LeftButton && providerId === "power_profile")
                         root.cyclePowerProfile();
+                    else if (button === Qt.LeftButton && indicator?.spec.toggleCommand)
+                        indicator.togglePicker();
                     else
                         bar.invoke(button === Qt.RightButton ? indicator?.spec.right
                             : button === Qt.LeftButton ? indicator?.spec.left : null, x, y);

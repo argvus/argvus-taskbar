@@ -78,3 +78,5 @@ Die Zwischenablage ist standardmäßig aktiv und lässt sich über die Dienstpro
 Browsermedien erscheinen nur, wenn der Player Spotify als Quelle angibt. Tooltips haben einen rahmenlosen Hintergrund.
 
 Schlägt die Prüfung fehl, versucht es die Leiste nach 30 Sekunden erneut.
+
+Ein Klick auf das Symbol der Zwischenablage oder der KI-Agenten öffnet das jeweilige Fenster. Ein erneuter Klick auf dasselbe Symbol schließt es.

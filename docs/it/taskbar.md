@@ -78,3 +78,5 @@ Gli Appunti sono attivi per impostazione predefinita e si aprono dal gruppo dell
 La riproduzione nel browser appare solo se il lettore identifica Spotify come sorgente. I suggerimenti hanno uno sfondo senza bordo.
 
 Se il controllo fallisce, la barra riprova dopo 30 secondi.
+
+Fai clic sull’icona degli appunti o degli agenti IA per aprire il pannello. Fai clic di nuovo sulla stessa icona per chiuderlo.

@@ -81,3 +81,5 @@ O Clipboard vem ativado por padrão e abre pelo grupo de utilidades da barra de 
 A mídia do navegador aparece apenas quando o player identifica o Spotify como origem. As dicas ao passar o cursor têm fundo sem borda.
 
 Se a consulta falhar, a barra tenta novamente após 30 segundos.
+
+Clique no ícone do Clipboard ou de AI Agents na barra para abrir o painel. Clique no mesmo ícone novamente para fechá-lo.

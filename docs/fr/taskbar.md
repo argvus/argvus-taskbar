@@ -78,3 +78,5 @@ Le Presse-papiers est activé par défaut et s’ouvre depuis le groupe des util
 La lecture dans le navigateur apparaît uniquement si le lecteur indique Spotify comme source. Les infobulles ont un fond sans bordure.
 
 Si la vérification échoue, la barre réessaie après 30 secondes.
+
+Cliquez sur l’icône du presse-papiers ou des agents IA pour ouvrir son panneau. Cliquez de nouveau sur la même icône pour le fermer.

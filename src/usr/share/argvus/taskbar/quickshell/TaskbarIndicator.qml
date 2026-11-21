@@ -26,6 +26,16 @@ Scope {
         }
     }
 
+    function togglePicker(): void {
+        if (enabled && spec.toggleCommand)
+            picker.running = !picker.running;
+    }
+
+    Process {
+        id: picker
+        command: root.spec.toggleCommand ?? []
+    }
+
     function refresh(): void {
         if (enabled && spec.command && !provider.running)
             provider.running = true;

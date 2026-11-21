@@ -76,3 +76,5 @@ El Portapapeles está activado por defecto y se abre desde el grupo de utilidade
 La reproducción del navegador aparece solo cuando el reproductor identifica Spotify como origen. Las ayudas emergentes tienen un fondo sin borde.
 
 Si la comprobación falla, la barra vuelve a intentarlo tras 30 segundos.
+
+Haz clic en el icono del portapapeles o de agentes de IA para abrir su panel. Vuelve a pulsar el mismo icono para cerrarlo.

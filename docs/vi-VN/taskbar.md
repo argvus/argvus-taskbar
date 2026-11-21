@@ -87,3 +87,5 @@ Bảng tạm được bật mặc định và mở từ nhóm tiện ích trên 
 Nội dung phát trong trình duyệt chỉ xuất hiện khi trình phát xác định Spotify là nguồn. Chú giải khi di chuột không có viền.
 
 Nếu kiểm tra thất bại, thanh tác vụ thử lại sau 30 giây.
+
+Nhấp biểu tượng bộ nhớ tạm hoặc tác nhân AI trên thanh tác vụ để mở bảng. Nhấp lại cùng biểu tượng để đóng.

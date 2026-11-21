@@ -81,3 +81,5 @@ Clipboard is enabled by default. Open it from the taskbar utility group. To stop
 Browser playback appears only when the player identifies Spotify as the source. Hover tips use a borderless background.
 
 If the check fails, the taskbar retries after 30 seconds.
+
+Click Clipboard or AI Agents in the taskbar to open its panel. Click the same icon again to close it.

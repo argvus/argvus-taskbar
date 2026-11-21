@@ -87,3 +87,5 @@ Pano varsayılan olarak etkindir ve görev çubuğunun yardımcı araçlar grubu
 Tarayıcıda oynatılan medya yalnızca oynatıcı kaynak olarak Spotify’ı bildirdiğinde görünür. Araç ipuçlarının kenarlığı yoktur.
 
 Denetim başarısız olursa görev çubuğu 30 saniye sonra yeniden dener.
+
+Paneli açmak için görev çubuğundaki pano veya yapay zekâ ajanları simgesine tıklayın. Kapatmak için aynı simgeye tekrar tıklayın.

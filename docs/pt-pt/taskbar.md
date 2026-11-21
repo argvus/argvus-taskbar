@@ -81,3 +81,5 @@ A Área de transferência está ativa por predefinição e abre a partir do grup
 A reprodução no navegador aparece apenas quando o leitor identifica o Spotify como origem. As sugestões ao passar o cursor têm um fundo sem contorno.
 
 Se a consulta falhar, a barra tenta novamente após 30 segundos.
+
+Clique no ícone da Área de Transferência ou dos Agentes de IA para abrir o painel. Clique novamente no mesmo ícone para o fechar.
